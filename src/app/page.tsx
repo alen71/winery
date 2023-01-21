@@ -7,7 +7,15 @@ import Navbar from '../components/layout/navbar/Navbar'
 import ShopBtn from 'src/components/shared/ShopBtn'
 import Title from 'src/components/shared/Title'
 import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
-import { LegacyRef, MutableRefObject, RefObject, useRef } from 'react'
+import {
+  LegacyRef,
+  MutableRefObject,
+  RefObject,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState
+} from 'react'
 
 import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
@@ -16,8 +24,12 @@ import roseVineBottle from '/public/images/Rose-Kesten-boca-vina.png'
 
 export default function Home() {
   const aboutWinnery = useRef<any>(null)
+  const [aboutWinneryHeight, setAboutWinneryHeight] = useState('')
 
-  console.log(aboutWinnery)
+  useLayoutEffect(() => {
+    const { height } = aboutWinnery.current.getBoundingClientRect()
+    setAboutWinneryHeight(height)
+  }, [])
 
   return (
     <div className="overflow-hidden">
@@ -92,11 +104,7 @@ export default function Home() {
               </div>
               <ReadMoreBtn href="/" />
             </div>
-            <div
-              className={`flex justify-center ${
-                aboutWinnery && `h-[${aboutWinnery?.current?.offsetHeight}]`
-              } `}
-            >
+            <div className={`flex justify-center h-[${aboutWinneryHeight}]`}>
               <div className="relative h-fit">
                 <div className="absolute inset-0 opacity-50 bg-darker-primary mix-blend-color" />
                 <div className="absolute left-[-80px] top-[50%] translate-y-[-50%] w-[162px]">
