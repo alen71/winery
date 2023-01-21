@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="px-10 h-full flex items-center justify-between">
         <div className="flex gap-14 items-center">
           <Logo />
-          <p className="text-primary font-bold">
+          <p className="text-primary font-black">
             <span className="font-light">Est.</span> 2016
           </p>
         </div>

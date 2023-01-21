@@ -6,9 +6,9 @@ const BgLines = () => {
       {Array.from({ length: 5 }, (_, i) => (
         <div
           key={i}
-          className={`${
-            i === 0 ? 'ml-[-1px]' : ''
-          } ${i === 4 ? 'mr-[-1px]' : ''} h-full w-[1px] bg-gray-light`}
+          className={`${i === 0 ? 'ml-[-1px]' : ''} ${
+            i === 4 ? 'mr-[-1px]' : ''
+          } h-full w-[1px] bg-gray-light opacity-40`}
         ></div>
       ))}
     </div>

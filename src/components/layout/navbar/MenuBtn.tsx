@@ -4,7 +4,7 @@ import GrapeIcon from '../../assets/menu-icon-grapes.svg'
 
 const MenuBtn = () => {
   return (
-    <button className="flex items-center gap-2 cursor-pointer">
+    <button className="flex items-center gap-2 cursor-pointer font-black">
       <p className="uppercase font-bold">Menu</p>
       <GrapeIcon />
     </button>

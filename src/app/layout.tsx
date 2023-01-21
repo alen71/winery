@@ -1,7 +1,5 @@
+import { fonts } from 'src/style/fonts'
 import '../style/globals.css'
-import { Inter } from '@next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
   children
@@ -12,7 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body
-        className={`bg-gray-bg text-white h-screen text-lg font-[${inter}, sans-serif]`}
+        className={`bg-gray-bg text-white h-screen text-lg ${fonts.jeko.className}`}
       >
         {children}
       </body>
