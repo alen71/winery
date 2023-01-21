@@ -1,8 +1,22 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const withVideos = require('next-videos')
+
+const nextConfig = withVideos({
+  reactStrictMode: true,
+  swcMinify: true,
   experimental: {
-    appDir: true,
+    appDir: true
   },
-}
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack']
+    })
+
+    return config
+  }
+})
 
 module.exports = nextConfig
