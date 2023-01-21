@@ -17,7 +17,7 @@ const HomeMainContent = () => {
       <motion.div
         initial={{ x: '100%' }}
         animate={{ x: '0%' }}
-        transition={{ duration: 1, ease: 'backIn' }}
+        transition={{ duration: 1.5, ease: 'anticipate' }}
         style={{
           position: 'absolute',
           top: 0,
@@ -85,8 +85,8 @@ const HomeMainContent = () => {
             <ReadMoreBtn href="/" />
           </div>
           <div className="flex justify-center h-fit">
-            <div className="relative w-[400px]">
-              <div className="absolute inset-0 opacity-50 bg-darker-primary mix-blend-color" />
+            <div className="relative max-w-[391px]">
+              <div className="absolute inset-0 opacity-50 bg-darker-primary mix-blend-color z-10" />
               <div className="absolute left-[-100px] top-[50%] translate-y-[-50%] w-[200px]">
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
               </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const BgLines = () => {
   return (
-    <div className="fixed container left-[50%] translate-x-[-50%] top-0 h-full flex justify-between z-0 pointer-events-none">
+    <div className="fixed container left-[50%] translate-x-[-50%] top-0 h-full flex justify-between z-[1] pointer-events-none">
       {Array.from({ length: 5 }, (_, i) => (
         <div
           key={i}
