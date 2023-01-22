@@ -21,7 +21,7 @@ const ShopWines = [
     position: 'col-start-1 col-end-3'
   },
   {
-    key: 1,
+    key: 2,
     imageUrl: MMXVIII,
     name: 'MMXVIII',
     type: 'Crno',
@@ -29,7 +29,7 @@ const ShopWines = [
     position: 'col-start-2 col-end-4'
   },
   {
-    key: 1,
+    key: 3,
     imageUrl: KestenWine,
     name: 'Kesten',
     type: 'Crno',
@@ -79,13 +79,7 @@ const HomeShopContent = () => {
         whileInView={{ x: '0%' }}
         viewport={{ once: true, margin: '0px 0px -500px 0px' }}
         transition={{ duration: 0.8, ease: 'anticipate' }}
-        style={{
-          position: 'absolute',
-          bottom: '-40%',
-          left: '0',
-          width: '30%',
-          zIndex: '10'
-        }}
+        className="absolute bottom-[-40%] left-0 w-[30%] z-10"
       >
         <Image src={whiteGrape} alt="Belo grožđe" quality={100} />
       </motion.div>

@@ -22,5 +22,9 @@
   border: 3px solid #2b2b2b;
 }
 
+html.open {
+  overflow: hidden;
+}
+
 @tailwind components;
 @tailwind utilities;

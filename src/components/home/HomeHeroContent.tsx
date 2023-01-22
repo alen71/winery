@@ -10,24 +10,16 @@ import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
 import vinograd from '/public/images/Vinograd.png'
 import roseVineBottle from '/public/images/Rose-Kesten-boca-vina.png'
+import Overlay from 'src/components/shared/Overlay'
 
-const HomeMainContent = () => {
+const HomeHeroContent = () => {
   return (
     <>
       <motion.div
         initial={{ x: '100%' }}
         animate={{ x: '0%' }}
         transition={{ duration: 1.5, ease: 'anticipate' }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          transform: 'translateX(100%)',
-          width: '40%',
-          zIndex: 10,
-          display: 'flex',
-          justifyContent: 'end'
-        }}
+        className="absolute top-0 right-0 w-[40%] z-10 translate-x-[100%] flex justify-end"
       >
         <Image src={blackGrape} alt="Crno Grožđe vinarije DUMO" quality={100} />
       </motion.div>
@@ -39,8 +31,8 @@ const HomeMainContent = () => {
             quality={100}
           />
         </div>
-        <div className="absolute left-8 right-8 top-0 h-full opacity-60 bg-darker-primary mix-blend-color" />
-        <div className="absolute left-8 right-8 top-0 h-full opacity-60 bg-gray-primary mix-blend-normal" />
+        <Overlay video="light" />
+        <Overlay video="dark" />
         <video
           src={require('/public/vinarija-dumo-video.mp4')}
           style={{ width: '100%', height: '580px', objectFit: 'cover' }}
@@ -86,8 +78,8 @@ const HomeMainContent = () => {
           </div>
           <div className="flex justify-center h-fit">
             <div className="relative max-w-[391px]">
-              <div className="absolute inset-0 opacity-50 bg-darker-primary mix-blend-color z-10" />
-              <div className="absolute left-[-100px] top-[50%] translate-y-[-50%] w-[200px]">
+              <Overlay image="light" />
+              <div className="absolute left-[-100px] top-[50%] translate-y-[-50%] w-[200px] z-[11]">
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
               </div>
               <Image
@@ -103,4 +95,4 @@ const HomeMainContent = () => {
   )
 }
 
-export default HomeMainContent
+export default HomeHeroContent

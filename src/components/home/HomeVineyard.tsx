@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import Overlay from 'src/components/shared/Overlay'
 import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import Title from 'src/components/shared/Title'
 
@@ -13,7 +14,7 @@ const HomeVineyard = () => {
         <div className="grid grid-cols-2">
           <div className="relative pr-28 h-full">
             <div className="h-full w-full relative">
-              <div className="absolute inset-0 h-full opacity-60 bg-darker-primary mix-blend-color z-[1]" />
+              <Overlay image="light" />
               <Image
                 src={Lineage}
                 fill
@@ -23,7 +24,7 @@ const HomeVineyard = () => {
               />
             </div>
 
-            <div className="max-w-[236px] absolute right-[112px] bottom-[-15%] z-[2]">
+            <div className="max-w-[236px] absolute right-[112px] bottom-[-15%] z-[11]">
               <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
             </div>
           </div>

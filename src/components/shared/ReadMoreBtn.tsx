@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-import Arrow from '../assets/arrow.svg'
+import Arrow from 'src/assets/arrow.svg'
 
 type ReactMoreBtnProps = {
   href: string

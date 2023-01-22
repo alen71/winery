@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import ArrowUp from '../../components/assets/arrowUp.svg'
+import ArrowUp from 'src/assets/arrowUp.svg'
 
 const ScrollUpButton = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -9,7 +9,7 @@ const ScrollUpButton = () => {
     window.addEventListener('scroll', () => {
       const pageOffset = window?.pageYOffset
 
-      pageOffset > 0 ? setIsScrolled(true) : setIsScrolled(false)
+      setIsScrolled(pageOffset > 0)
     })
   }, [])
 

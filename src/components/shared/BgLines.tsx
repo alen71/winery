@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 
 const BgLines = () => {
@@ -6,10 +7,11 @@ const BgLines = () => {
       {Array.from({ length: 5 }, (_, i) => (
         <div
           key={i}
-          className={`${i === 0 ? 'ml-[-1px]' : ''} ${
-            i === 4 ? 'mr-[-1px]' : ''
-          } h-full w-[1px] bg-gray-light opacity-40`}
-        ></div>
+          className={clsx('h-full w-[1px] bg-gray-light opacity-40', {
+            'ml-[-1px]': i === 0,
+            'mr-[-1px]': i === 4
+          })}
+        />
       ))}
     </div>
   )
