@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import GrapeIcon from '../../assets/menu-icon-grapes.svg'
+import GrapeIcon from 'src/assets/menu-icon-grapes.svg'
 
-const MenuBtn = () => {
+type Props = {
+  toggleOpen: () => void
+}
+
+const MenuBtn = ({ toggleOpen }: Props) => {
   return (
-    <button className="flex items-center gap-2 cursor-pointer">
-      <p className="uppercase font-bold">Menu</p>
-      <GrapeIcon />
+    <button
+      className="flex items-center gap-2 cursor-pointer"
+      onClick={toggleOpen}
+    >
+      <p className="uppercase font-black text-base lg:text-lg">Menu</p>
+      <span className="scale-[0.8] md:scale-100">
+        <GrapeIcon />
+      </span>
     </button>
   )
 }

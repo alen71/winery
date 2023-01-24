@@ -10,11 +10,11 @@ const Title = ({ type, text, highlightText }: TitleProps) => {
   return (
     <>
       {type === 'h1' ? (
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-4xl sm:text-5xl font-black">
           {text} <span className="uppercase text-primary">{highlightText}</span>
         </h1>
       ) : (
-        <h2 className="text-4xl font-bold">
+        <h2 className="text-3xl sm:text-4xl font-black">
           {text} <span className="uppercase text-primary">{highlightText}</span>
         </h2>
       )}
