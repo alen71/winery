@@ -7,7 +7,7 @@ type contactStyleProps = VariantProps<typeof contactStyle>
 
 type Props = contactStyleProps & {}
 
-const contactStyle = cva('font-light text-sm', {
+const contactStyle = cva('font-light text-sm text-center md:text-left', {
   variants: {
     place: {
       menu: 'text-black text-center',
@@ -16,11 +16,11 @@ const contactStyle = cva('font-light text-sm', {
   }
 })
 
-const lineStyle = cva('h-[1px] w-5 my-5 ', {
+const lineStyle = cva('h-[1px] w-5 my-5', {
   variants: {
     place: {
       menu: 'bg-black mx-auto',
-      footer: 'bg-white'
+      footer: 'bg-white mx-auto md:mx-0'
     }
   }
 })

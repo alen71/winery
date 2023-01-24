@@ -42,7 +42,7 @@ const Menubar = ({ open, toggleOpen }: Props) => {
   return (
     <div
       className={clsx(
-        'w-[500px] px-16 py-12 bg-white fixed z-50 top-0 right-0 h-screen duration-500 translate-x-[100%]',
+        'w-[500px] px-16 py-12 bg-white fixed z-50 top-0 right-0 h-screen overflow-y-scroll duration-500 translate-x-[100%]',
         { 'translate-x-0': open }
       )}
     >

@@ -27,14 +27,14 @@ const wines = [
 
 const FooterWines = () => {
   return (
-    <div>
+    <div className="text-center md:text-left">
       <p className="text-2xl font-light">Vina</p>
-      <div className="h-[1px] w-5 my-5 bg-white" />
-      <div className="flex flex-col gap-9">
+      <div className="h-[1px] w-5 my-5 bg-white mx-auto md:mx-0" />
+      <div className="flex flex-col items-center md:items-start gap-9">
         {wines.map(({ key, name, type, title, href }) => {
           return (
             <div key={key} className="font-light">
-              <Link href={href} className="text-2xl">
+              <Link href={href} className="text-xl sm:text-2xl">
                 <span className="text-primary font-bold uppercase">{name}</span>{' '}
                 {type}
               </Link>

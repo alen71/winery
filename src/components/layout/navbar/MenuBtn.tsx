@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react'
 
 import GrapeIcon from 'src/assets/menu-icon-grapes.svg'
-import Menubar from './Menubar'
 
-const MenuBtn = () => {
-  const [open, setOpen] = useState(false)
+type Props = {
+  toggleOpen: () => void
+}
 
-  useEffect(() => {
-    document.querySelector('html')?.classList.toggle('open')
-  }, [open])
-
+const MenuBtn = ({ toggleOpen }: Props) => {
   return (
-    <>
-      <button
-        className="flex items-center gap-2 cursor-pointer"
-        onClick={() => setOpen(true)}
-      >
-        <p className="uppercase font-black">Menu</p>
+    <button
+      className="flex items-center gap-2 cursor-pointer"
+      onClick={toggleOpen}
+    >
+      <p className="uppercase font-black text-base lg:text-lg">Menu</p>
+      <span className="scale-[0.8] md:scale-100">
         <GrapeIcon />
-      </button>
-      <Menubar open={open} toggleOpen={() => setOpen(false)} />
-    </>
+      </span>
+    </button>
   )
 }
 

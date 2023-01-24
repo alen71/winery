@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+
 import Overlay from 'src/components/shared/Overlay'
 import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import Title from 'src/components/shared/Title'
@@ -11,9 +12,9 @@ const HomeVineyard = () => {
   return (
     <>
       <div className="container relative">
-        <div className="grid grid-cols-2">
-          <div className="relative pr-28 h-full">
-            <div className="h-full w-full relative">
+        <div className="grid lg:grid-cols-2">
+          <div className="relative xl:pr-28 h-full px-5 sm:px-10 lg:px-0 pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
+            <div className="h-[400px] lg:h-full w-full relative">
               <Overlay image="light" />
               <Image
                 src={Lineage}
@@ -24,13 +25,13 @@ const HomeVineyard = () => {
               />
             </div>
 
-            <div className="max-w-[236px] absolute right-[112px] bottom-[-15%] z-[11]">
+            <div className="max-w-[136px] sm:max-w-[236px] absolute right-0 xl:right-[112px] bottom-[-2%] sm:bottom-[-15%] z-[11]">
               <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
             </div>
           </div>
-          <div className="bg-gray-primary-alfa border-b-[1px] border-primary px-20 py-24 flex flex-col items-center justify-center gap-9 h-full">
+          <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />
-            <div>
+            <div className="text-justify">
               <p>
                 Finished her are its honoured drawings nor. Pretty see mutual
                 thrown all not edward ten. Particular an boisterous up he

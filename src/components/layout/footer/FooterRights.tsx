@@ -2,13 +2,13 @@ import React from 'react'
 
 const FooterRights = () => {
   return (
-    <div className="grid grid-cols-4 py-8">
-      <div className="col-start-1 col-end-4 pl-20">
+    <div className="grid items-center justify-items-center lg:justify-items-start gap-y-4 lg:gap-y-0 lg:grid-cols-4 py-8">
+      <div className="lg:col-start-1 lg:col-end-4 lg:pl-10 xl:pl-20">
         <p className="text-sm opacity-60">
           © Copyright 2022. Vinarija Dumo. All Rights Reserved
         </p>
       </div>
-      <div className="col-start-4 col-end-5 pl-20">
+      <div className="lg:col-start-4 lg:col-end-5 lg:pl-10 xl:pl-20">
         <p className="text-sm">
           <span className="opacity-60">Designed by: </span>
           <a

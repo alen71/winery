@@ -19,12 +19,12 @@ const HomeHeroContent = () => {
         initial={{ x: '100%' }}
         animate={{ x: '0%' }}
         transition={{ duration: 1.5, ease: 'anticipate' }}
-        className="absolute top-0 right-0 w-[40%] z-10 translate-x-[100%] flex justify-end"
+        className="absolute top-[300px] md:top-0 right-0 w-[50%] sm:w-[40%] z-10 translate-x-[100%] justify-end flex"
       >
         <Image src={blackGrape} alt="Crno Grožđe vinarije DUMO" quality={100} />
       </motion.div>
       <div className="container relative">
-        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10">
+        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10 hidden xl:block">
           <Image
             src={mainWineBottle}
             alt="Flaša vina pinot noir"
@@ -40,22 +40,22 @@ const HomeHeroContent = () => {
           loop
         />
 
-        <div className="absolute left-8 top-0 h-full pl-20 flex justify-center flex-col gap-5">
-          <h1 className="text-5xl font-black">
+        <div className="absolute left-8 top-0 h-full pl-5 sm:pl-20 flex justify-center flex-col gap-5">
+          <h1 className="text-4xl sm:text-5xl font-black">
             <span>Dobrodošli</span> <br />u vinariju
             <span className="uppercase text-primary"> DUMO</span>
           </h1>
-          <p className="pl-[14px] border-l-[3px] border-primary max-w-[279px] leading-6">
+          <p className="pl-[14px] text-sm sm:text-base md:text-lg border-l-[3px] border-primary max-w-[279px] leading-6">
             Naručite sada uz besplatnu i bezbednu dostavu!
           </p>
           <ShopBtn />
         </div>
       </div>
       <div className="container">
-        <div className="bg-gray-primary-alfa px-20 py-24 grid grid-cols-2 gap-40 h-fit border-b-[1px] border-primary">
+        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
           <div className="flex flex-col gap-9 h-fit">
             <Title type="h2" text="O vinariji" highlightText="Dumo" />
-            <div>
+            <div className="text-justify">
               <p>
                 Finished her are its honoured drawings nor. Pretty see mutual
                 thrown all not edward ten. Particular an boisterous up he
@@ -79,7 +79,7 @@ const HomeHeroContent = () => {
           <div className="flex justify-center h-fit">
             <div className="relative max-w-[391px]">
               <Overlay image="light" />
-              <div className="absolute left-[-100px] top-[50%] translate-y-[-50%] w-[200px] z-[11]">
+              <div className="absolute left-0 sm:left-[-100px] top-[40%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]">
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
               </div>
               <Image

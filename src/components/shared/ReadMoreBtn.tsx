@@ -12,7 +12,7 @@ const ReadMoreBtn = ({ href, text = 'Pročitaj više' }: ReactMoreBtnProps) => {
   return (
     <Link
       href={href}
-      className="group relative text-primary flex items-center w-fit font-semibold"
+      className="group relative text-primary flex items-center w-fit font-semibold text-sm sm:text-base md:text-lg"
     >
       {text}
       <span className="absolute right-[-25px] opacity-0 translate-x-[-30px] group-hover:opacity-100 group-hover:translate-x-0 duration-300">

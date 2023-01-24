@@ -10,10 +10,10 @@ const HomeToursContent = () => {
   return (
     <>
       <div className="container relative">
-        <div className="grid grid-cols-2">
-          <div className="bg-gray-primary-alfa border-b-[1px] border-primary px-20 py-24 flex flex-col items-center justify-center gap-9 h-full">
+        <div className="grid lg:grid-cols-2">
+          <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />
-            <div>
+            <div className="text-justify">
               <p>
                 Finished her are its honoured drawings nor. Pretty see mutual
                 thrown all not edward ten. Particular an boisterous up he
@@ -34,8 +34,8 @@ const HomeToursContent = () => {
             </div>
             <ReadMoreBtn href="/" />
           </div>
-          <div className="relative pl-28 h-full">
-            <div className="h-full w-full relative">
+          <div className="relative xl:pl-28 h-full px-5 sm:px-10 lg:px-0 pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent">
+            <div className="h-[400px] lg:h-full w-full relative">
               <Overlay image="light" />
               <Image
                 src={glassOfWine}
