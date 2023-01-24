@@ -11,7 +11,7 @@ type PageLayoutProps = {
 
 const PageLayout = ({ children }: PageLayoutProps) => {
   return (
-    <div className="overflow-hidden">
+    <div>
       <Navbar />
       <BgLines />
       <ScrollUpButton />

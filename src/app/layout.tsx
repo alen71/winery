@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <head />
       <body
         className={`bg-gray-bg text-white h-screen text-lg ${fonts.jeko.className}`}
