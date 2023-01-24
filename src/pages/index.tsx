@@ -1,5 +1,3 @@
-'use client'
-
 import HomeHeroContent from 'src/components/home/HomeHeroContent'
 import HomeShopContent from 'src/components/home/HomeShopContent'
 import HomeToursContent from 'src/components/home/HomeToursContent'

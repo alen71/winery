@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useEffect } from 'react'
 
 import XIcon from 'src/assets/XIcon.svg'
 import SquareIcon from 'src/assets/squareIcon.svg'
 import FooterContact from '../footer/FooterContact'
 import FooterSocial from '../footer/FooterSocial'
+import { useRouter } from 'next/router'
 
 type Props = {
   open?: boolean
@@ -36,7 +37,7 @@ const links = [
 ]
 
 const Menubar = ({ open, toggleOpen }: Props) => {
-  const path = window.location.pathname
+  const { asPath } = useRouter()
 
   return (
     <div
@@ -60,7 +61,7 @@ const Menubar = ({ open, toggleOpen }: Props) => {
             href={href}
             className={clsx(
               'py-5 border-b-[1px] border-primary text-primary font-semibold text-xl w-full text-center uppercase hover:text-black',
-              { 'text-black': path.includes(href) }
+              { 'text-black': asPath.includes(href) }
             )}
             onClick={toggleOpen}
           >
