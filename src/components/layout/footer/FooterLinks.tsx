@@ -36,11 +36,11 @@ const links = [
 const FooterLinks = () => {
   return (
     <div className="flex flex-col gap-8 items-center md:items-start">
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-0 md:gap-8">
         <span className="scale-75 sm:scale-100">
           <Logo />
         </span>
-        <p className="font-light">Vinarija</p>
+        <p className="font-light hidden md:block">Vinarija</p>
       </div>
       <div className="flex flex-col items-center md:items-start gap-4">
         {links.map(({ text, href, thin }) => (
