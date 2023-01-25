@@ -2,7 +2,7 @@ import React from 'react'
 
 const FooterRights = () => {
   return (
-    <div className="grid items-center justify-items-center lg:justify-items-start gap-y-4 lg:gap-y-0 lg:grid-cols-4 py-8">
+    <div className="grid items-center justify-items-center lg:justify-items-start gap-y-4 lg:gap-y-0 lg:grid-cols-4 py-4 md:py-8">
       <div className="lg:col-start-1 lg:col-end-4 lg:pl-10 xl:pl-20">
         <p className="text-center lg:text-left text-sm opacity-60">
           © Copyright 2022. Vinarija Dumo. All Rights Reserved

@@ -12,8 +12,13 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    document.querySelector('html')?.classList.toggle('overflow-y-scroll')
-    document.querySelector('html')?.classList.toggle('overflow-y-hidden')
+    if (open) {
+      document.querySelector('html')?.classList.remove('overflow-y-scroll')
+      document.querySelector('html')?.classList.add('overflow-y-hidden')
+    } else {
+      document.querySelector('html')?.classList.add('overflow-y-scroll')
+      document.querySelector('html')?.classList.remove('overflow-y-hidden')
+    }
   }, [open])
 
   useEffect(() => {
