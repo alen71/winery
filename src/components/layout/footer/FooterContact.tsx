@@ -10,7 +10,7 @@ type Props = contactStyleProps & {}
 const contactStyle = cva('font-light text-sm text-center md:text-left', {
   variants: {
     place: {
-      menu: 'text-black text-center',
+      menu: 'text-black text-center flex flex-col items-center',
       footer: 'text-white'
     }
   }
@@ -28,7 +28,7 @@ const lineStyle = cva('h-[1px] w-5 my-5', {
 const titleStyle = cva('text-2xl', {
   variants: {
     place: {
-      menu: 'text-primary',
+      menu: 'text-primary text-center',
       footer: 'text-white'
     }
   }
