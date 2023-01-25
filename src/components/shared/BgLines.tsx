@@ -7,7 +7,7 @@ const BgLines = () => {
       {Array.from({ length: 5 }, (_, i) => (
         <div
           key={i}
-          className={clsx('h-full w-[1px] bg-gray-light opacity-40', {
+          className={clsx('h-full w-[1px] bg-gray-light opacity-15', {
             'ml-[-1px]': i === 0,
             'mr-[-1px]': i === 4
           })}
