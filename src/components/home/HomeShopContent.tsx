@@ -9,7 +9,7 @@ import BottlesSlider from '../shared/BottlesSlider'
 const HomeShopContent = () => {
   return (
     <>
-      <div className="container relative">
+      <div className="container relative z-[1]">
         <Ornament />
         <BottlesSlider />
       </div>

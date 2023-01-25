@@ -40,9 +40,9 @@ const Navbar = () => {
     <>
       <header
         className={clsx('h-20 lg:h-28 w-screen duration-200 ease-in-out', {
-          'sticky top-[-100%] left-0 z-10':
+          'sticky top-[-100%] left-0 z-40':
             isScrollTopOfPage === false && !isScroll,
-          'backdrop-blur-md bg-gray-primary-alfa bg-blend-color sticky top-0 left-0 z-10':
+          'backdrop-blur-md bg-gray-primary-alfa bg-blend-color sticky top-0 left-0 z-40':
             isScrollTopOfPage === false && !isScrollTopOfPage && isScroll
         })}
       >

@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 import RoseWine from '/public/images/Rose-Kesten-boca-vina.png'
 import MMXVIII from '/public/images/Pinot-Noir-Odsjaj-2.png'
 import KestenWine from '/public/images/Crno-Kesten.png'
+import clsx from 'clsx'
 
 type Props = {}
 
@@ -35,22 +36,23 @@ const shopWines = [
 ]
 
 const BottlesSlider = ({}: Props) => {
-  const slides = Math.ceil(shopWines.length / 3)
-
-  console.log(slides)
+  const [focusBottle, setFocusBottle] = useState(2)
 
   return (
     <>
-      {/* {Array.from({ length: slides }, (_, i) => ( */}
       <div
-        // key={i}
-        className={`bg-gray-primary-alfa py-16 sm:py-24 grid md:grid-cols-4 justify-items-center gap-8 md:gap-0`}
+        className={`bg-gray-primary py-16 sm:py-24 grid md:grid-cols-4 justify-items-center gap-8 md:gap-0`}
       >
         {shopWines.map(({ key, imageUrl, name, type, title, position }) => {
           return (
             <div
               key={key}
-              className={`max-w-[156px] lg:max-w-[226px] flex flex-col items-center md:row-start-1 md:row-end-2 ${position}`}
+              className={clsx(
+                `max-w-[156px] lg:max-w-[226px] flex flex-col items-center md:row-start-1 md:row-end-2 ${position}`,
+                {
+                  'opacity-50 scale-75': focusBottle !== key
+                }
+              )}
             >
               <Image src={imageUrl} alt={name} quality={100} />
               <p className="font-light text-lg lg:text-[22px]">
@@ -64,7 +66,6 @@ const BottlesSlider = ({}: Props) => {
           )
         })}
       </div>
-      {/* ))} */}
     </>
   )
 }
