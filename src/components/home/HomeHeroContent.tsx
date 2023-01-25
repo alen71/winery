@@ -40,7 +40,7 @@ const HomeHeroContent = () => {
           loop
         />
 
-        <div className="absolute left-8 top-0 h-full pl-5 sm:pl-20 flex justify-center flex-col gap-5">
+        <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20 flex justify-center flex-col gap-5">
           <h1 className="text-4xl sm:text-5xl font-black">
             <span>Dobrodošli</span> <br />u vinariju
             <span className="uppercase text-primary"> DUMO</span>
