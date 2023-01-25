@@ -7,7 +7,7 @@ import Logo from '../../shared/Logo'
 const links = [
   {
     text: 'Vinarija',
-    href: '#'
+    href: '/vinarija-dumo'
   },
   {
     text: 'Vinograd',
