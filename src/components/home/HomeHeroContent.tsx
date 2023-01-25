@@ -19,7 +19,7 @@ const HomeHeroContent = () => {
         initial={{ x: '100%' }}
         animate={{ x: '0%' }}
         transition={{ duration: 1.5, ease: 'anticipate' }}
-        className="absolute top-[300px] md:top-0 right-0 w-[50%] sm:w-[40%] z-10 justify-end flex"
+        className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-10 "
       >
         <Image src={blackGrape} alt="Crno Grožđe vinarije DUMO" quality={100} />
       </motion.div>
