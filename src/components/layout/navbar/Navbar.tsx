@@ -13,11 +13,11 @@ const Navbar = () => {
 
   useEffect(() => {
     if (open) {
-      document.querySelector('html')?.classList.remove('overflow-y-scroll')
-      document.querySelector('html')?.classList.add('overflow-y-hidden')
+      document.querySelector('body')?.classList.remove('overflow-y-scroll')
+      document.querySelector('body')?.classList.add('overflow-y-hidden')
     } else {
-      document.querySelector('html')?.classList.add('overflow-y-scroll')
-      document.querySelector('html')?.classList.remove('overflow-y-hidden')
+      document.querySelector('body')?.classList.add('overflow-y-scroll')
+      document.querySelector('body')?.classList.remove('overflow-y-hidden')
     }
   }, [open])
 
