@@ -35,7 +35,7 @@ const HomeHeroContent = () => {
         <Overlay video="dark" />
         <video
           src={require('/public/vinarija-dumo-video.mp4')}
-          style={{ width: '100%', height: '580px', objectFit: 'cover' }}
+          className="w-full h-[480px] sm:h-[580px] object-cover"
           autoPlay
           loop
         />
