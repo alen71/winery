@@ -85,7 +85,7 @@ const HomeHeroContent = () => {
           <div className="flex justify-center h-fit">
             <div className="relative max-w-[391px]">
               <Overlay image="light" />
-              <div className="absolute left-0 sm:left-[-100px] bottom-[-10%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]">
+              <div className="absolute left-0 sm:left-[-100px] bottom-[-8%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]">
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
               </div>
               <Image
