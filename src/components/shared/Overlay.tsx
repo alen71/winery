@@ -15,8 +15,8 @@ const overlayStyle = cva('absolute opacity-50 h-full', {
     },
     video: {
       light:
-        'left-8 right-8 top-0 bg-darker-primary opacity-60 mix-blend-color',
-      dark: 'left-8 right-8 top-0 bg-gray-primary opacity-60 mix-blend-normal'
+        'left-4 right-4 top-0 bg-darker-primary opacity-60 mix-blend-color',
+      dark: 'left-4 right-4 top-0 bg-gray-primary opacity-60 mix-blend-normal'
     }
   }
 })

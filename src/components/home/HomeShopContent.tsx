@@ -18,7 +18,7 @@ const HomeShopContent = () => {
         whileInView={{ x: '0%' }}
         viewport={{ once: true, margin: '0px 0px -500px 0px' }}
         transition={{ duration: 0.8, ease: 'anticipate' }}
-        className="absolute bottom-[-15%] md:bottom-[-40%] left-0 w-[40%] md:w-[30%] z-10"
+        className="absolute left-0 bottom-[-15%] md:bottom-[-40%]  w-[40%] md:w-[30%] z-10"
       >
         <Image src={whiteGrape} alt="Belo grožđe" quality={100} />
       </motion.div>

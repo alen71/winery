@@ -14,7 +14,7 @@ const Ornament = () => {
   const width = useWindowWidth()
 
   return (
-    <div className="absolute left-8 right-8 top-[-1%] md:top-[-6%] lg:top-[-4.5%] flex items-center justify-between">
+    <div className="absolute left-4 right-4 top-[-1%] md:top-[-6%] lg:top-[-4.5%] flex items-center justify-between">
       <p className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] uppercase text-primary font-semibold md:text-4xl">
         Shop
       </p>

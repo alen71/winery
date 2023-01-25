@@ -7,10 +7,14 @@ import Title from 'src/components/shared/Title'
 
 import Lineage from '/public/images/dumo-lineage.png'
 import BlackWine from '/public/images/Pinot-Noir-Odsjaj-2.png'
+import bgImage from '/public/images/Slika-Pozadina-Vinograd 1 (2).png'
 
 const HomeVineyard = () => {
   return (
     <>
+      <div className="absolute left-0 top-[-20%] md:top-[-40%] lg:top-[-70%] w-full z-0">
+        <Image src={bgImage} alt="Pozadinska slika vinograda" />
+      </div>
       <div className="container relative">
         <div className="grid lg:grid-cols-2">
           <div className="relative xl:pr-28 h-full px-5 sm:px-10 lg:px-0 pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
