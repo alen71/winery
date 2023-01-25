@@ -15,14 +15,20 @@ import Overlay from 'src/components/shared/Overlay'
 const HomeHeroContent = () => {
   return (
     <>
-      <motion.div
-        initial={{ x: '100%' }}
-        animate={{ x: '0%' }}
-        transition={{ duration: 1.5, ease: 'anticipate' }}
-        className="absolute top-[300px] md:top-0 right-0 w-[50%] sm:w-[40%] z-10 translate-x-[100%] justify-end flex"
-      >
-        <Image src={blackGrape} alt="Crno Grožđe vinarije DUMO" quality={100} />
-      </motion.div>
+      <div className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-10 overflow-hidden">
+        <motion.div
+          initial={{ x: '100%' }}
+          animate={{ x: '0%' }}
+          transition={{ duration: 1.5, ease: 'anticipate' }}
+        >
+          <Image
+            src={blackGrape}
+            alt="Crno Grožđe vinarije DUMO"
+            quality={100}
+            style={{ marginLeft: 'auto' }}
+          />
+        </motion.div>
+      </div>
       <div className="container relative">
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10 hidden xl:block">
           <Image
@@ -35,12 +41,12 @@ const HomeHeroContent = () => {
         <Overlay video="dark" />
         <video
           src={require('/public/vinarija-dumo-video.mp4')}
-          style={{ width: '100%', height: '580px', objectFit: 'cover' }}
+          className="w-full h-[480px] sm:h-[580px] object-cover"
           autoPlay
           loop
         />
 
-        <div className="absolute left-8 top-0 h-full pl-5 sm:pl-20 flex justify-center flex-col gap-5">
+        <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20 flex justify-center flex-col gap-5">
           <h1 className="text-4xl sm:text-5xl font-black">
             <span>Dobrodošli</span> <br />u vinariju
             <span className="uppercase text-primary"> DUMO</span>

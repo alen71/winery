@@ -12,7 +12,13 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    document.querySelector('html')?.classList.toggle('open')
+    if (open) {
+      document.querySelector('body')?.classList.remove('overflow-y-scroll')
+      document.querySelector('body')?.classList.add('overflow-y-hidden')
+    } else {
+      document.querySelector('body')?.classList.add('overflow-y-scroll')
+      document.querySelector('body')?.classList.remove('overflow-y-hidden')
+    }
   }, [open])
 
   useEffect(() => {
@@ -40,7 +46,7 @@ const Navbar = () => {
             isScrollTopOfPage === false && !isScrollTopOfPage && isScroll
         })}
       >
-        <div className="container px-10 sm:px-16 h-full flex items-center justify-between">
+        <div className="container px-5 sm:px-10 h-full flex items-center justify-between">
           <div className="flex gap-8 lg:gap-14 items-center text-primary scale-[0.8] lg:scale-100">
             <Logo />
             <p className="font-black">
