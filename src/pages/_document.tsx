@@ -5,7 +5,7 @@ import { fonts } from 'src/style/fonts'
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html className="overflow-x-hidden">
+      <Html>
         <Head>
           <link
             rel="apple-touch-icon"
@@ -27,7 +27,7 @@ export default class Document extends NextDocument {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0047ff" />
         </Head>
         <body
-          className={`bg-gray-bg text-white h-screen text-base md:text-lg ${fonts.jeko.className}`}
+          className={`bg-gray-bg text-white h-screen text-base md:text-lg ${fonts.jeko.className} overflow-hidden`}
         >
           <Main />
           <NextScript />
