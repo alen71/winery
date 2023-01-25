@@ -11,9 +11,9 @@ const Navbar = () => {
   const [isScrollTopOfPage, setIsScrollTopOfPage] = useState(true)
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    document.querySelector('html')?.classList.toggle('open')
-  }, [open])
+  // useEffect(() => {
+  //   document.querySelector('html')?.classList.toggle('open')
+  // }, [open])
 
   useEffect(() => {
     let currPageOffset = 0

@@ -5,7 +5,7 @@ import { fonts } from 'src/style/fonts'
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html>
+      <Html className="overflow-x-hidden overflow-y-scroll">
         <Head>
           <link
             rel="apple-touch-icon"
