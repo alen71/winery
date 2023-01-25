@@ -27,7 +27,7 @@ export default class Document extends NextDocument {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0047ff" />
         </Head>
         <body
-          className={`bg-gray-bg text-white  text-base md:text-lg ${fonts.jeko.className}`}
+          className={`bg-gray-bg text-white overflow-x-hidden text-base md:text-lg ${fonts.jeko.className}`}
         >
           <Main />
           <NextScript />
