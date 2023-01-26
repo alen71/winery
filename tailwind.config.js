@@ -26,5 +26,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [require('@kamona/tailwindcss-perspective')]
 }

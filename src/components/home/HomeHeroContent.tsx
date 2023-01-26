@@ -58,7 +58,7 @@ const HomeHeroContent = () => {
         </div>
       </div>
       <div className="container">
-        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
+        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 pb-5 sm:pb-0 pt-10 sm:pt-0 sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
           <div className="flex flex-col gap-9 h-fit">
             <Title type="h2" text="O vinariji" highlightText="Dumo" />
             <div className="text-justify">

@@ -5,13 +5,14 @@ import { motion } from 'framer-motion'
 import whiteGrape from '/public/images/belo-grožđe.png'
 import Ornament from '../shared/Ornament'
 import BottlesSlider from '../shared/BottlesSlider'
+import MobileBottlesSlider from '../shared/MobileBottleSlider'
 
 const HomeShopContent = () => {
   return (
     <>
-      <div className="container relative z-[1]">
+      <div className="container relative z-[1] ">
         <Ornament />
-        <BottlesSlider />
+        <MobileBottlesSlider />
       </div>
       <motion.div
         initial={{ x: '-100%' }}

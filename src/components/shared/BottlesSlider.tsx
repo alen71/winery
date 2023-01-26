@@ -47,12 +47,7 @@ const BottlesSlider = ({}: Props) => {
           return (
             <div
               key={key}
-              className={clsx(
-                `max-w-[156px] lg:max-w-[226px] flex flex-col items-center md:row-start-1 md:row-end-2 ${position}`,
-                {
-                  'opacity-50 scale-75': focusBottle !== key
-                }
-              )}
+              className={`max-w-[156px] lg:max-w-[226px] flex flex-col items-center md:row-start-1 md:row-end-2 ${position}`}
             >
               <Image src={imageUrl} alt={name} quality={100} />
               <p className="font-light text-lg lg:text-[22px]">
