@@ -29,7 +29,7 @@ const HomeVineyard = () => {
               />
             </div>
 
-            <div className="max-w-[136px] sm:max-w-[236px] absolute right-0 xl:right-[112px] bottom-[-5%] sm:bottom-[-7%] z-[11]">
+            <div className="max-w-[136px] sm:max-w-[190px] lg:max-w-[236px] absolute right-0 xl:right-[112px] bottom-0 translate-y-[7%] sm:translate-y-[0] lg:translate-y-[5%] sm:bottom-[-7%] z-[11]">
               <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
             </div>
           </div>

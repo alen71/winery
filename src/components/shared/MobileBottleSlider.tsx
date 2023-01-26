@@ -51,10 +51,14 @@ const MobileBottlesSlider = ({}: Props) => {
   const [currDeg, setCurrDeg] = useState(72)
   const [rotateBottle, setRotateBottle] = useState(0)
 
+  const test = (e: any) => {
+    console.log(e)
+  }
+
   return (
     <>
       <div
-        className={`bg-gray-primary pb-16 pt-28 sm:py-24 relative h-[500px] overflow-hidden flex justify-center items-center`}
+        className={`bg-gray-primary pb-16 pt-28 sm:py-24 relative h-[500px] overflow-hidden flex justify-center items-center z-[1]`}
       >
         <div
           className="relative w-[156px] h-full"
