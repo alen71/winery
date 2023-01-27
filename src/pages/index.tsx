@@ -8,19 +8,19 @@ import SectionWrapper from 'src/components/shared/SectionWrapper'
 export default function Home() {
   return (
     <PageLayout>
-      <SectionWrapper Zindex={2}>
+      <SectionWrapper>
         <HomeHeroContent />
       </SectionWrapper>
 
-      <SectionWrapper Zindex={3}>
+      <SectionWrapper>
         <HomeShopContent />
       </SectionWrapper>
 
-      <SectionWrapper Zindex={2}>
+      <SectionWrapper>
         <HomeVineyard />
       </SectionWrapper>
 
-      <SectionWrapper Zindex={2}>
+      <SectionWrapper>
         <HomeToursContent />
       </SectionWrapper>
     </PageLayout>

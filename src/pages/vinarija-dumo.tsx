@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PageLayout from 'src/components/layout/PageLayout'
-import BlogCtaRow from 'src/components/shared/BlogCtaRow'
+import BlogCtaRow from 'src/components/shared/NewsRow'
 import PageDescriptionRow from 'src/components/shared/PageDescriptionRow'
 import PagesHero from 'src/components/shared/PagesHero'
 import SectionWrapper from 'src/components/shared/SectionWrapper'
@@ -27,14 +27,6 @@ const WineryDumo = () => {
         <PageDescriptionRow
           titleHighlight="Kada smo nastali?"
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask. Nay projecting unpleasing boisterous eat discovered solicitude. Own six moments produce elderly pasture far arrival."
-          src={WineBarrels}
-          alt="Vinska burad vinarije Dumo"
-        />
-
-        <BlogCtaRow
-          titleHighlight="NASLOV ČLANKA"
-          description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two."
-          href="#"
           src={WineBarrels}
           alt="Vinska burad vinarije Dumo"
         />

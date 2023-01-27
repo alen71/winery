@@ -31,6 +31,10 @@ const links = [
     href: '#'
   },
   {
+    text: 'Članci',
+    href: '/news'
+  },
+  {
     text: 'Shop',
     href: '#'
   }

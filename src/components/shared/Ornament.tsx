@@ -14,20 +14,20 @@ const Ornament = () => {
   const width = useWindowWidth()
 
   return (
-    <div className="absolute left-4 right-4 top-0 translate-y-[-50%] flex items-center justify-between z-[2]">
-      <p className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] uppercase text-primary font-semibold md:text-4xl">
+    <div className="absolute left-0 right-0 top-0 translate-y-[-50%] flex items-center justify-between z-[2]">
+      <p className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] uppercase text-primary font-semibold ">
         Shop
       </p>
-      <div className="w-[31px] md:w-[123px]">
-        {width > 768 ? <LeftOrnament /> : <LeftOrnamentMobile />}
+      <div className="w-[31px] ">
+        <LeftOrnamentMobile />
       </div>
       <span className="h-[1px] w-full bg-primary" />
-      <div className="w-[116px] md:w-[288px]">
-        {width > 768 ? <ShopOrnament /> : <ShopOrnamentMobile />}
+      <div className="w-[116px] ">
+        <ShopOrnamentMobile />
       </div>
       <span className="h-[1px] w-full bg-primary" />
-      <div className="w-[31px] md:w-[123px]">
-        {width > 768 ? <RightOrnament /> : <RightOrnamentMobile />}
+      <div className="w-[31px] ">
+        <RightOrnamentMobile />
       </div>
     </div>
   )

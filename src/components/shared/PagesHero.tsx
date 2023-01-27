@@ -26,7 +26,9 @@ const PagesHero = ({
           <p className="font-normal w-full lg:max-w-[80%]">{description}</p>
         </div>
         <div className="relative lg:absolute lg:right-0">
-          <Image src={ImageProps.src} alt={ImageProps.alt} />
+          {ImageProps.alt.length > 0 && (
+            <Image src={ImageProps.src} alt={ImageProps.alt} />
+          )}
         </div>
       </div>
     </div>
