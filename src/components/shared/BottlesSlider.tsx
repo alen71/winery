@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 import RoseWine from '/public/images/Rose-Kesten-boca-vina.png'
 import MMXVIII from '/public/images/Pinot-Noir-Odsjaj-2.png'
 import KestenWine from '/public/images/Crno-Kesten.png'
+import clsx from 'clsx'
 
 type Props = {}
 
@@ -35,16 +36,12 @@ const shopWines = [
 ]
 
 const BottlesSlider = ({}: Props) => {
-  const slides = Math.ceil(shopWines.length / 3)
-
-  console.log(slides)
+  const [focusBottle, setFocusBottle] = useState(2)
 
   return (
     <>
-      {/* {Array.from({ length: slides }, (_, i) => ( */}
       <div
-        // key={i}
-        className={`bg-gray-primary-alfa py-16 sm:py-24 grid md:grid-cols-4 justify-items-center gap-8 md:gap-0`}
+        className={`bg-gray-primary py-16 sm:py-24 grid md:grid-cols-4 justify-items-center gap-8 md:gap-0`}
       >
         {shopWines.map(({ key, imageUrl, name, type, title, position }) => {
           return (
@@ -64,7 +61,6 @@ const BottlesSlider = ({}: Props) => {
           )
         })}
       </div>
-      {/* ))} */}
     </>
   )
 }

@@ -21,6 +21,7 @@ module.exports = {
         'gray-primary': '#222',
         'gray-primary-alfa': '#222222a3',
         'gray-light': '#E5E5E5',
+        lines: '#3E3C34',
         white: '#fff',
         black: '#000'
       }

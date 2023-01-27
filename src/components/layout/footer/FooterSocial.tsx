@@ -8,17 +8,14 @@ type contactStyleProps = VariantProps<typeof socialStyle>
 
 type Props = contactStyleProps & {}
 
-const socialStyle = cva(
-  'font-light text-sm flex flex-col items-center md:items-start',
-  {
-    variants: {
-      place: {
-        menu: 'text-black items-center',
-        footer: 'text-white'
-      }
+const socialStyle = cva('font-light text-sm flex flex-col items-center', {
+  variants: {
+    place: {
+      menu: 'text-black text-center items-center',
+      footer: 'text-white md:items-start'
     }
   }
-)
+})
 
 const lineStyle = cva('h-[1px] w-5 my-5 ', {
   variants: {
@@ -32,7 +29,7 @@ const lineStyle = cva('h-[1px] w-5 my-5 ', {
 const titleStyle = cva('text-2xl', {
   variants: {
     place: {
-      menu: 'text-primary',
+      menu: 'text-primary text-center',
       footer: 'text-white'
     }
   }

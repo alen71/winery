@@ -3,25 +3,26 @@ import HomeShopContent from 'src/components/home/HomeShopContent'
 import HomeToursContent from 'src/components/home/HomeToursContent'
 import HomeVineyard from 'src/components/home/HomeVineyard'
 import PageLayout from 'src/components/layout/PageLayout'
+import SectionWrapper from 'src/components/shared/SectionWrapper'
 
 export default function Home() {
   return (
     <PageLayout>
-      <section className="relative z-[2] mb-20 md:mb-32">
+      <SectionWrapper Zindex={2}>
         <HomeHeroContent />
-      </section>
+      </SectionWrapper>
 
-      <section className="relative z-[3] mb-20 md:mb-32">
+      <SectionWrapper Zindex={3}>
         <HomeShopContent />
-      </section>
+      </SectionWrapper>
 
-      <section className="relative z-[2] mb-20 md:mb-32">
+      <SectionWrapper Zindex={2}>
         <HomeVineyard />
-      </section>
+      </SectionWrapper>
 
-      <section className="relative z-[2] mb-20 md:mb-32">
+      <SectionWrapper Zindex={2}>
         <HomeToursContent />
-      </section>
+      </SectionWrapper>
     </PageLayout>
   )
 }

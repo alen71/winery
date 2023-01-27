@@ -20,7 +20,7 @@ const links = [
   },
   {
     text: 'Vinarija',
-    href: '#'
+    href: '/vinarija-dumo'
   },
   {
     text: 'Vinograd',
@@ -37,12 +37,12 @@ const links = [
 ]
 
 const Menubar = ({ open, toggleOpen }: Props) => {
-  const { asPath } = useRouter()
+  const { pathname } = useRouter()
 
   return (
     <div
       className={clsx(
-        'w-full sm:w-[500px] px-16 py-12 bg-white fixed z-50 top-0 right-0 h-screen overflow-y-scroll duration-500 translate-x-[100%] pb-12',
+        'w-full sm:w-[500px] px-10 sm:px-16 pt-12 bg-white fixed z-50 top-0 right-0 h-screen overflow-y-scroll duration-500 translate-x-[100%] pb-32',
         { 'translate-x-0': open }
       )}
     >
@@ -61,7 +61,7 @@ const Menubar = ({ open, toggleOpen }: Props) => {
             href={href}
             className={clsx(
               'py-5 border-b-[1px] border-primary text-primary font-semibold text-xl w-full text-center uppercase hover:text-black',
-              { 'text-black': asPath.includes(href) }
+              { 'text-black': pathname === href }
             )}
             onClick={toggleOpen}
           >

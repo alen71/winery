@@ -47,7 +47,7 @@ const HomeHeroContent = () => {
         />
 
         <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20 flex justify-center flex-col gap-5">
-          <h1 className="text-4xl sm:text-5xl font-black">
+          <h1 className="text-4xl sm:text-5xl font-semibold">
             <span>Dobrodošli</span> <br />u vinariju
             <span className="uppercase text-primary"> DUMO</span>
           </h1>
@@ -58,7 +58,7 @@ const HomeHeroContent = () => {
         </div>
       </div>
       <div className="container">
-        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
+        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 pb-5 sm:pb-0 pt-10 sm:pt-0 sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
           <div className="flex flex-col gap-9 h-fit">
             <Title type="h2" text="O vinariji" highlightText="Dumo" />
             <div className="text-justify">
@@ -85,7 +85,7 @@ const HomeHeroContent = () => {
           <div className="flex justify-center h-fit">
             <div className="relative max-w-[391px]">
               <Overlay image="light" />
-              <div className="absolute left-0 sm:left-[-100px] top-[40%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]">
+              <div className="absolute left-0 sm:left-[-100px] bottom-[-8%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]">
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
               </div>
               <Image

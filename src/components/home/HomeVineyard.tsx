@@ -17,7 +17,7 @@ const HomeVineyard = () => {
       </div>
       <div className="container relative">
         <div className="grid lg:grid-cols-2">
-          <div className="relative xl:pr-28 h-full px-5 sm:px-10 lg:px-0 pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
+          <div className="relative xl:pr-28 h-full px-5 sm:px-10 lg:px-0 pb-5 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
             <div className="h-[400px] lg:h-full w-full relative">
               <Overlay image="light" />
               <Image
@@ -29,7 +29,7 @@ const HomeVineyard = () => {
               />
             </div>
 
-            <div className="max-w-[136px] sm:max-w-[236px] absolute right-0 xl:right-[112px] bottom-[-2%] sm:bottom-[-15%] z-[11]">
+            <div className="max-w-[136px] sm:max-w-[190px] lg:max-w-[236px] absolute right-0 xl:right-[112px] bottom-0 translate-y-[7%] sm:translate-y-[0] lg:translate-y-[5%] sm:bottom-[-7%] z-[11]">
               <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
             </div>
           </div>

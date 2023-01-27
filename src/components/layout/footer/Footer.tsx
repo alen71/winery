@@ -26,7 +26,7 @@ const footerColumns = [
 const Footer = () => {
   return (
     <div className="container relative">
-      <div className="absolute left-4 right-4 top-[-4%] flex items-center">
+      <div className="absolute left-4 right-4 top-0 translate-y-[-50%] flex items-center">
         <span className="w-full h-[1px] bg-primary"></span>
         <div className="w-[27px]">
           <DIcon />
