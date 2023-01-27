@@ -110,8 +110,11 @@ const MobileBottlesSlider = ({}: Props) => {
                     <Image src={imageUrl} alt={name} quality={100} />
                     <div
                       className={clsx(
-                        'absolute -bottom-7 text-center duration-500 opacity-0',
-                        { 'opacity-100': focusedBottle === key }
+                        'absolute -bottom-7 text-center duration-500',
+                        {
+                          'opacity-100': focusedBottle === key,
+                          'opacity-0': focusedBottle !== key
+                        }
                       )}
                     >
                       <p className="font-light text-lg lg:text-[22px]">
