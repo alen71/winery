@@ -6,9 +6,7 @@ import whiteGrape from '/public/images/belo-grožđe.png'
 import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unsplash 1.jpg'
 
 import Ornament from '../shared/Ornament'
-import BottlesSlider from '../shared/BottlesSlider'
 import MobileBottlesSlider from '../shared/MobileBottleSlider'
-import NewsRow from '../shared/NewsRow'
 import Title from '../shared/Title'
 import ShopBtn from '../shared/ShopBtn'
 
@@ -16,16 +14,28 @@ const HomeShopContent = () => {
   return (
     <div className="container relative z-[1] ">
       <div className="grid gap-20 sm:gap-0 xl:grid-cols-2">
-        <div className="relative bg-gray-primary border-b-[1px] border-primary pb-16 sm:pb-0">
+        <motion.div
+          initial={{ x: '-100%' }}
+          whileInView={{ x: '0%' }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: 'easeIn' }}
+          className="relative bg-gray-primary border-b-[1px] border-primary pb-16 sm:pb-0"
+        >
           <Ornament />
           <MobileBottlesSlider />
-          <div className="absolute bottom-[-10.5%] left-[50%]  sm:translate-x-0 sm:static w-fit mx-auto my-10">
-            <ShopBtn />
+          <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:translate-x-0 sm:static w-fit mx-auto my-10">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <ShopBtn />
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
         <div>
           <div className="xl:ml-28 flex flex-col h-96 xl:h-full bg-gray-primary">
-            <div className="group relative overflow-hidden w-full h-72 lg:h-full">
+            <div className="group relative overflow-hidden w-full h-[400px] lg:h-full">
               <Image
                 src={WineBarrels}
                 alt="Burad vinarije dumo"

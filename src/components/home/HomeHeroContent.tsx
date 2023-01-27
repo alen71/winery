@@ -18,8 +18,9 @@ const HomeHeroContent = () => {
       <div className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden">
         <motion.div
           initial={{ x: '100%' }}
-          animate={{ x: '0%' }}
-          transition={{ duration: 1.5, ease: 'anticipate' }}
+          whileInView={{ x: '0%' }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: 'easeIn' }}
         >
           <Image
             src={blackGrape}
@@ -33,7 +34,8 @@ const HomeHeroContent = () => {
       <div className="container relative">
         <motion.div
           initial={{ opacity: 0, y: '-45%', x: '-50%' }}
-          animate={{ opacity: 1, y: '-50%', x: '-50%' }}
+          whileInView={{ opacity: 1, y: '-50%', x: '-50%' }}
+          viewport={{ once: true }}
           transition={{ type: 'tween', duration: 0.3 }}
           className="absolute top-[50%] left-[50%] z-10 hidden xl:block"
         >
@@ -68,13 +70,18 @@ const HomeHeroContent = () => {
               <motion.div
                 initial={{ y: '-200%' }}
                 animate={{ y: '0%' }}
-                transition={{ duration: 0.4, delay: 0.9, type: 'spring' }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.9,
+                  type: 'spring',
+                  stiffness: 80
+                }}
                 className="absolute left-0 top-0 h-full w-[3px] bg-primary"
               />
               <motion.p
                 initial={{ x: '-100%' }}
                 animate={{ x: '0%' }}
-                transition={{ duration: 0.4, ease: 'anticipate', delay: 1.4 }}
+                transition={{ duration: 0.5, ease: 'anticipate', delay: 1.6 }}
                 className="w-fit text-sm sm:text-base md:text-lg  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
@@ -96,21 +103,20 @@ const HomeHeroContent = () => {
         <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
           <div className="flex flex-col gap-9 h-fit">
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
             >
               <Title type="h2" text="O vinariji" highlightText="Dumo" />
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              // viewport={{ once: true }}
+              viewport={{ margin: '-100px 0px 0px 0px' }}
               transition={{
                 ease: 'easeIn',
-                duration: 0.3,
-                delay: 0.3,
-                type: 'tween'
+                duration: 0.4
               }}
               className="text-justify"
             >
@@ -146,11 +152,13 @@ const HomeHeroContent = () => {
               >
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
               </motion.div>
+
               <div className="overflow-hidden">
                 <motion.div
                   initial={{ x: '100%' }}
                   whileInView={{ x: '0' }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.5, ease: 'easeIn' }}
+                  viewport={{ margin: '-100px 0px 0px 0px' }}
                   className="relative h-full w-full"
                 >
                   <Overlay image="light" />

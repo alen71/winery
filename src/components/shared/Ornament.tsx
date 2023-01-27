@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import LeftOrnament from 'src/assets/leftOrnament.svg'
 import RightOrnament from 'src/assets/rightOrnament.svg'
@@ -14,7 +15,13 @@ const Ornament = () => {
   const width = useWindowWidth()
 
   return (
-    <div className="absolute left-0 right-0 top-0 translate-y-[-50%] flex items-center justify-between z-[2]">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: 1.5 }}
+      className="absolute left-0 right-0 top-0 translate-y-[-50%] flex items-center justify-between z-[2]"
+    >
       <p className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] uppercase text-primary font-semibold ">
         Shop
       </p>
@@ -29,7 +36,7 @@ const Ornament = () => {
       <div className="w-[31px] ">
         <RightOrnamentMobile />
       </div>
-    </div>
+    </motion.div>
   )
 }
 
