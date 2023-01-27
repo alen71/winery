@@ -29,14 +29,20 @@ const HomeHeroContent = () => {
           />
         </motion.div>
       </div>
+
       <div className="container relative">
-        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10 hidden xl:block">
+        <motion.div
+          initial={{ opacity: 0, y: '-45%', x: '-50%' }}
+          animate={{ opacity: 1, y: '-50%', x: '-50%' }}
+          transition={{ type: 'tween', duration: 0.3 }}
+          className="absolute top-[50%] left-[50%] z-10 hidden xl:block"
+        >
           <Image
             src={mainWineBottle}
             alt="Flaša vina pinot noir"
             quality={100}
           />
-        </div>
+        </motion.div>
         <Overlay video="light" />
         <Overlay video="dark" />
         <video
@@ -46,22 +52,68 @@ const HomeHeroContent = () => {
           loop
         />
 
-        <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20 flex justify-center flex-col gap-5">
-          <h1 className="text-4xl sm:text-5xl font-semibold">
-            <span>Dobrodošli</span> <br />u vinariju
-            <span className="uppercase text-primary"> DUMO</span>
-          </h1>
-          <p className="pl-[14px] text-sm sm:text-base md:text-lg border-l-[3px] border-primary max-w-[279px] leading-6">
-            Naručite sada uz besplatnu i bezbednu dostavu!
-          </p>
-          <ShopBtn />
+        <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20">
+          <div className="flex justify-center flex-col gap-5 h-full overflow-hidden">
+            <motion.h1
+              initial={{ x: '-100%' }}
+              animate={{ x: '0%' }}
+              transition={{ duration: 0.5, ease: 'easeIn', delay: 0.4 }}
+              className="text-4xl sm:text-5xl font-semibold"
+            >
+              <span>Dobrodošli</span> <br />u vinariju
+              <span className="uppercase text-primary"> DUMO</span>
+            </motion.h1>
+
+            <div className="relative pl-[14px] max-w-[279px]">
+              <motion.div
+                initial={{ y: '-200%' }}
+                animate={{ y: '0%' }}
+                transition={{ duration: 0.4, delay: 0.9, type: 'spring' }}
+                className="absolute left-0 top-0 h-full w-[3px] bg-primary"
+              />
+              <motion.p
+                initial={{ x: '-100%' }}
+                animate={{ x: '0%' }}
+                transition={{ duration: 0.4, ease: 'anticipate', delay: 1.4 }}
+                className="w-fit text-sm sm:text-base md:text-lg  leading-6 "
+              >
+                Naručite sada uz besplatnu i bezbednu dostavu!
+              </motion.p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <ShopBtn />
+            </motion.div>
+          </div>
         </div>
       </div>
+
       <div className="container">
-        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 pb-5 sm:pb-0 pt-10 sm:pt-0 sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
+        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
           <div className="flex flex-col gap-9 h-fit">
-            <Title type="h2" text="O vinariji" highlightText="Dumo" />
-            <div className="text-justify">
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Title type="h2" text="O vinariji" highlightText="Dumo" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              // viewport={{ once: true }}
+              transition={{
+                ease: 'easeIn',
+                duration: 0.3,
+                delay: 0.3,
+                type: 'tween'
+              }}
+              className="text-justify"
+            >
               <p>
                 Finished her are its honoured drawings nor. Pretty see mutual
                 thrown all not edward ten. Particular an boisterous up he
@@ -79,20 +131,36 @@ const HomeHeroContent = () => {
                 discourse extremely. Ask doubt noisy shade guest did built her
                 him. Ignorant repeated hastened it do.
               </p>
-            </div>
+            </motion.div>
+
             <ReadMoreBtn href="/" />
           </div>
+
           <div className="flex justify-center h-fit">
             <div className="relative max-w-[391px]">
-              <Overlay image="light" />
-              <div className="absolute left-0 sm:left-[-100px] bottom-[-8%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]">
+              <motion.div
+                initial={{ opacity: 0, marginBottom: '20px' }}
+                whileInView={{ opacity: 1, marginBottom: '0px' }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="absolute left-0 sm:left-[-100px] bottom-[-10%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]"
+              >
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
+              </motion.div>
+              <div className="overflow-hidden">
+                <motion.div
+                  initial={{ x: '100%' }}
+                  whileInView={{ x: '0' }}
+                  transition={{ duration: 0.3 }}
+                  className="relative h-full w-full"
+                >
+                  <Overlay image="light" />
+                  <Image
+                    src={vinograd}
+                    alt="Vinograd"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </motion.div>
               </div>
-              <Image
-                src={vinograd}
-                alt="Vinograd"
-                style={{ objectFit: 'cover' }}
-              />
             </div>
           </div>
         </div>

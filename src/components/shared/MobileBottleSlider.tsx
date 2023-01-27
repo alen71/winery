@@ -89,14 +89,14 @@ const MobileBottlesSlider = ({}: Props) => {
                     transformStyle: 'preserve-3d',
                     transform: `rotateY(${
                       BOTTLES_SLIDER_DEGREE * i
-                    }deg) translateZ(30px) rotateY(-${
+                    }deg) translateZ(90px) rotateY(-${
                       BOTTLES_SLIDER_DEGREE * i
                     }deg)`
                   }}
                 >
                   <div
                     className={clsx(
-                      `w-[126px] sm:w-[156px] absolute duration-1000`
+                      `w-[126px] sm:w-[156px] absolute duration-1000 flex flex-col items-center`
                     )}
                     style={{ transform: `rotateY(${rotateBottle}deg)` }}
                   >
@@ -134,7 +134,7 @@ const MobileBottlesSlider = ({}: Props) => {
           </div>
         </div>
 
-        <div className="absolute translate-y-24 sm:translate-y-0 left-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center">
+        <div className="absolute left-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center">
           <div className="absolute right-5 rotate-45 bg-gray-bg h-32 w-32 rounded-tr-3xl flex items-center">
             <div
               className="absolute top-3 sm:top-4 -rotate-45 right-3 sm:right-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary rounded-full flex justify-center items-center cursor-pointer"
@@ -160,7 +160,7 @@ const MobileBottlesSlider = ({}: Props) => {
           </div>
         </div>
 
-        <div className="absolute translate-y-24 sm:translate-y-0 right-0 w-[52px] sm:w-[72px] h-44 overflow-hidden flex items-center">
+        <div className="absolute right-0 w-[52px] sm:w-[72px] h-44 overflow-hidden flex items-center">
           <div className="absolute left-5 rotate-45 bg-gray-bg h-32 w-32 rounded-bl-3xl flex items-center">
             <div
               className="absolute bottom-3 sm:bottom-4 rotate-[135deg] left-3 sm:left-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary rounded-full  flex justify-center items-center cursor-pointer"

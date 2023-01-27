@@ -19,7 +19,7 @@ const HomeShopContent = () => {
         <div className="relative bg-gray-primary border-b-[1px] border-primary pb-16 sm:pb-0">
           <Ornament />
           <MobileBottlesSlider />
-          <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:static w-fit mx-auto my-10">
+          <div className="absolute bottom-[-10.5%] left-[50%]  sm:translate-x-0 sm:static w-fit mx-auto my-10">
             <ShopBtn />
           </div>
         </div>
@@ -34,7 +34,7 @@ const HomeShopContent = () => {
                 style={{ objectFit: 'cover' }}
               />
             </div>
-            <div className="px-5 sm:px-20 py-5 flex flex-col justify-center">
+            <div className="px-5 sm:px-20 py-10 sm:py-16 flex flex-col justify-center">
               <Title type="h2" text="NAJNOVIJI ČLANKA" />
               <div className="w-10 h-[3px] bg-primary my-5" />
               <p className="mb-3">
