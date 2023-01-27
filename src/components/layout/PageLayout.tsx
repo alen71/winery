@@ -15,7 +15,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
       <Navbar />
       <BgLines />
       <ScrollUpButton />
-      <main>{children}</main>
+      <main className="relative z-[2]">{children}</main>
       <Footer />
     </div>
   )

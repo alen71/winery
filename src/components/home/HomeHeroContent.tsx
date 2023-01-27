@@ -15,7 +15,7 @@ import Overlay from 'src/components/shared/Overlay'
 const HomeHeroContent = () => {
   return (
     <>
-      <div className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-10 overflow-hidden">
+      <div className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden">
         <motion.div
           initial={{ x: '100%' }}
           animate={{ x: '0%' }}

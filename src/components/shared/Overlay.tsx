@@ -17,12 +17,16 @@ const overlayStyle = cva('absolute opacity-50 h-full', {
       light:
         'left-4 right-4 top-0 bg-darker-primary opacity-60 mix-blend-color',
       dark: 'left-4 right-4 top-0 bg-gray-primary opacity-60 mix-blend-normal'
+    },
+    bottle: {
+      light: 'inset-0 bg-darker-primary opacity-70 mix-blend-color z-10',
+      dark: 'inset-0 bg-gray-primary opacity-70 mix-blend-normal z-10'
     }
   }
 })
 
-const Overlay = ({ image, video }: OverlayProps) => {
-  return <div className={overlayStyle({ image, video })} />
+const Overlay = ({ image, video, bottle }: OverlayProps) => {
+  return <div className={overlayStyle({ image, video, bottle })} />
 }
 
 export default Overlay
