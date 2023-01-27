@@ -15,16 +15,16 @@ import ShopBtn from '../shared/ShopBtn'
 const HomeShopContent = () => {
   return (
     <div className="container relative z-[1] ">
-      <div className="grid xl:grid-cols-2">
-        <div className="relative bg-gray-primary border-b-[1px] border-primary">
+      <div className="grid gap-20 sm:gap-0 xl:grid-cols-2">
+        <div className="relative bg-gray-primary border-b-[1px] border-primary pb-16 sm:pb-0">
           <Ornament />
           <MobileBottlesSlider />
-          <div className="w-fit mx-auto my-10">
+          <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:static w-fit mx-auto my-10">
             <ShopBtn />
           </div>
         </div>
         <div>
-          <div className="xl:ml-28 flex flex-col h-96 xl-h-full bg-gray-primary">
+          <div className="xl:ml-28 flex flex-col h-96 xl:h-full bg-gray-primary">
             <div className="group relative overflow-hidden w-full h-72 lg:h-full">
               <Image
                 src={WineBarrels}

@@ -89,7 +89,7 @@ const MobileBottlesSlider = ({}: Props) => {
                     transformStyle: 'preserve-3d',
                     transform: `rotateY(${
                       BOTTLES_SLIDER_DEGREE * i
-                    }deg) translateZ(100px) rotateY(-${
+                    }deg) translateZ(30px) rotateY(-${
                       BOTTLES_SLIDER_DEGREE * i
                     }deg)`
                   }}
