@@ -51,14 +51,10 @@ const HomeToursContent = () => {
             </motion.div>
             <ReadMoreBtn href="/" />
           </div>
-          <div className="relative xl:pl-28 h-full px-5 sm:px-10 lg:px-0 pb-5 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent">
+          <div className="relative xl:pl-28 h-full sm:px-10 lg:px-0 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent">
             <div className="h-[400px] lg:h-full w-full relative">
               <div className="overflow-hidden w-full h-full">
                 <motion.div
-                  // initial={{ x: '100%' }}
-                  // whileInView={{ x: '0%' }}
-                  // viewport={{ margin: '-100px 0px 0px 0px' }}
-                  // transition={{ duration: 0.5, ease: 'easeIn' }}
                   style={{ scale: imgScale }}
                   className="h-[400px] lg:h-full w-full relative"
                 >

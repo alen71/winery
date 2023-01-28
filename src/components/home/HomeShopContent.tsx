@@ -13,7 +13,7 @@ import ShopBtn from '../shared/ShopBtn'
 const HomeShopContent = () => {
   return (
     <div className="container relative z-[1] ">
-      <div className="grid gap-20 sm:gap-0 xl:grid-cols-2">
+      <div className="grid gap-20 xl:gap-0 xl:grid-cols-2">
         <motion.div
           initial={{ x: '-100%' }}
           whileInView={{ x: '0%' }}
@@ -34,15 +34,15 @@ const HomeShopContent = () => {
             </motion.div>
           </div>
         </motion.div>
-        <div>
+        <div className="h-[500px] lg:h-full">
           <motion.div
             initial={{ x: '100%' }}
             whileInView={{ x: '0%' }}
             viewport={{ once: true }}
             transition={{ duration: 1.4, ease: 'anticipate' }}
-            className="xl:ml-28 flex flex-col h-96 xl:h-full bg-gray-primary"
+            className="xl:ml-28 flex flex-col h-full bg-gray-primary"
           >
-            <div className="group relative overflow-hidden w-full h-[400px] lg:h-full">
+            <div className="group relative overflow-hidden w-full h-full">
               <Image
                 src={WineBarrels}
                 alt="Burad vinarije dumo"

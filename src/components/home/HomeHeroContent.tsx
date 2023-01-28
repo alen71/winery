@@ -29,7 +29,7 @@ const HomeHeroContent = () => {
     <>
       <motion.div
         style={{ y: yGrapesValue }}
-        className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
+        className="absolute right-0 top-[250px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
       >
         <motion.div
           initial={{ x: '100%' }}
@@ -75,7 +75,12 @@ const HomeHeroContent = () => {
             <motion.h1
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
-              transition={{ duration: 0.5, ease: 'easeIn', delay: 0.4 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.4,
+                type: 'spring',
+                stiffness: 35
+              }}
               className="text-4xl sm:text-5xl font-semibold"
             >
               <span>Dobrodošli</span> <br />u vinariju
@@ -88,16 +93,16 @@ const HomeHeroContent = () => {
                 animate={{ y: '0%' }}
                 transition={{
                   duration: 0.6,
-                  delay: 0.9,
+                  delay: 1,
                   type: 'spring',
                   stiffness: 80
                 }}
                 className="absolute left-0 top-0 h-full w-[3px] bg-primary"
               />
               <motion.p
-                initial={{ x: '-100%' }}
+                initial={{ x: '-110%' }}
                 animate={{ x: '0%' }}
-                transition={{ duration: 0.5, ease: 'anticipate', delay: 1.6 }}
+                transition={{ duration: 0.7, ease: 'anticipate', delay: 1.7 }}
                 className="w-fit text-sm sm:text-base md:text-lg  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
@@ -116,7 +121,7 @@ const HomeHeroContent = () => {
       </div>
 
       <div className="container">
-        <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10 sm:pt-0 sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
+        <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10  sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
           <div className="flex flex-col gap-9 h-fit px-5 sm:px-0">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -165,7 +170,7 @@ const HomeHeroContent = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3 }}
-                className="absolute left-0 sm:left-[-100px] bottom-[-10%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]"
+                className="absolute left-0 sm:translate-x-[-50%] bottom-[-17%] sm:top-[50%] sm:translate-y-[-50%] w-[162px] sm:w-[200px] z-[11]"
               >
                 <motion.div style={{ y: yBottleValue }}>
                   <Image src={roseVineBottle} alt="Vinograd" quality={100} />
@@ -174,10 +179,6 @@ const HomeHeroContent = () => {
 
               <div className="overflow-hidden">
                 <motion.div
-                  // initial={{ x: '100%' }}
-                  // whileInView={{ x: '0' }}
-                  // transition={{ duration: 0.5, ease: 'easeIn' }}
-                  // viewport={{ margin: '-100px 0px 0px 0px' }}
                   style={{ scale: imgScale }}
                   className="relative h-full w-full"
                 >
