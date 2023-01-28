@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
@@ -11,6 +11,14 @@ import BlackWine from '/public/images/Pinot-Noir-Odsjaj-2.png'
 import bgImage from '/public/images/Slika-Pozadina-Vinograd 1 (2).png'
 
 const HomeVineyard = () => {
+  const { scrollYProgress } = useScroll()
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.5])
+  const yBottleValue = useTransform(
+    scrollYProgress,
+    [0, 0.7, 1],
+    [0, -10, -100]
+  )
+
   return (
     <>
       <div className="absolute left-0 top-[-20%] md:top-[-40%] lg:top-[-70%] w-full z-0">
@@ -25,6 +33,7 @@ const HomeVineyard = () => {
                 // whileInView={{ x: '0%' }}
                 // viewport={{ margin: '-100px 0px 0px 0px' }}
                 // transition={{ duration: 0.5, ease: 'easeIn' }}
+                style={{ scale: imgScale }}
                 className="h-[400px] lg:h-full w-full relative"
               >
                 <Overlay image="light" />
@@ -43,14 +52,29 @@ const HomeVineyard = () => {
               whileInView={{ opacity: 1, marginBottom: '0px' }}
               viewport={{ margin: '-100px 0px 0px 0px' }}
               transition={{ duration: 0.3, delay: 0.3 }}
-              className="max-w-[136px] sm:max-w-[190px] lg:max-w-[236px] absolute right-0 xl:right-[112px] bottom-0 translate-y-[7%] sm:translate-y-[0] lg:translate-y-[5%] sm:bottom-[-7%] z-[11]"
+              className="max-w-[136px] sm:max-w-[190px] lg:max-w-[236px] absolute right-0 xl:right-[112px] bottom-0 translate-y-[20%] z-[11]"
             >
-              <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
+              <motion.div style={{ y: yBottleValue }}>
+                <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
+              </motion.div>
             </motion.div>
           </div>
           <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
-            <Title type="h2" text="Vinogradi" highlightText="Dumo" />
-            <div className="text-justify">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: '-100px 0px 0px 0px' }}
+              transition={{ duration: 0.3 }}
+            >
+              <Title type="h2" text="Vinogradi" highlightText="Dumo" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: '-100px 0px 0px 0px' }}
+              transition={{ duration: 0.3 }}
+              className="text-justify"
+            >
               <p>
                 Finished her are its honoured drawings nor. Pretty see mutual
                 thrown all not edward ten. Particular an boisterous up he
@@ -68,7 +92,7 @@ const HomeVineyard = () => {
                 discourse extremely. Ask doubt noisy shade guest did built her
                 him. Ignorant repeated hastened it do.
               </p>
-            </div>
+            </motion.div>
             <ReadMoreBtn href="/" />
           </div>
         </div>

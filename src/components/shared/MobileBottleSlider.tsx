@@ -184,7 +184,7 @@ const MobileBottlesSlider = ({}: Props) => {
         <motion.div
           initial={{ x: '-100%' }}
           whileInView={{ x: '0%' }}
-          transition={{ duration: 0.4, type: 'spring' }}
+          transition={{ duration: 0.3, type: 'spring', stiffness: 50 }}
           viewport={{ margin: '-100px 0px 0px 0px' }}
           className="absolute left-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center"
         >
@@ -201,9 +201,9 @@ const MobileBottlesSlider = ({}: Props) => {
         <motion.div
           initial={{ x: '100%' }}
           whileInView={{ x: '0%' }}
-          transition={{ duration: 0.4, type: 'spring' }}
+          transition={{ duration: 0.3, type: 'spring', stiffness: 50 }}
           viewport={{ margin: '-100px 0px 0px 0px' }}
-          className="absolute right-0 w-[52px] sm:w-[72px] h-44 overflow-hidden flex items-center"
+          className="absolute right-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center"
         >
           <div className="absolute left-5 rotate-45 bg-gray-bg h-32 w-32 rounded-bl-3xl flex items-center">
             <div

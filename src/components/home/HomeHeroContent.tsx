@@ -21,14 +21,14 @@ const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, -500])
-  const grapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
-
-  console.log(yValue)
+  const yBottleValue = useTransform(scrollYProgress, [0, 1], [0, -200])
+  const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 2])
 
   return (
     <>
       <motion.div
-        style={{ y: grapesValue }}
+        style={{ y: yGrapesValue }}
         className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
       >
         <motion.div
@@ -51,7 +51,7 @@ const HomeHeroContent = () => {
           initial={{ opacity: 0, top: '-32%', x: '-50%' }}
           whileInView={{ opacity: 1, top: '-22%', x: '-50%' }}
           viewport={{ once: true }}
-          transition={{ type: 'tween', duration: 0.3 }}
+          transition={{ type: 'spring', stiffness: 50, duration: 0.3 }}
           style={{ y: yValue }}
           className="absolute left-[50%] z-10 hidden xl:block"
         >
@@ -116,11 +116,12 @@ const HomeHeroContent = () => {
       </div>
 
       <div className="container">
-        <div className="bg-gray-primary-alfa px-5 sm:px-10 xl:px-20 py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
-          <div className="flex flex-col gap-9 h-fit">
+        <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10 sm:pt-0 sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
+          <div className="flex flex-col gap-9 h-fit px-5 sm:px-0">
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: '-100px 0px 0px 0px' }}
               transition={{ duration: 0.3 }}
             >
               <Title type="h2" text="O vinariji" highlightText="Dumo" />
@@ -131,8 +132,7 @@ const HomeHeroContent = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: '-100px 0px 0px 0px' }}
               transition={{
-                ease: 'easeIn',
-                duration: 0.4
+                duration: 0.3
               }}
               className="text-justify"
             >
@@ -159,15 +159,17 @@ const HomeHeroContent = () => {
           </div>
 
           <div className="flex justify-center h-fit">
-            <div className="relative max-w-[391px]">
+            <div className="relative w-full sm:max-w-[391px]">
               <motion.div
-                initial={{ opacity: 0, marginBottom: '-20px' }}
+                initial={{ opacity: 0, marginBottom: '20px' }}
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3 }}
                 className="absolute left-0 sm:left-[-100px] bottom-[-10%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]"
               >
-                <Image src={roseVineBottle} alt="Vinograd" quality={100} />
+                <motion.div style={{ y: yBottleValue }}>
+                  <Image src={roseVineBottle} alt="Vinograd" quality={100} />
+                </motion.div>
               </motion.div>
 
               <div className="overflow-hidden">
@@ -176,6 +178,7 @@ const HomeHeroContent = () => {
                   // whileInView={{ x: '0' }}
                   // transition={{ duration: 0.5, ease: 'easeIn' }}
                   // viewport={{ margin: '-100px 0px 0px 0px' }}
+                  style={{ scale: imgScale }}
                   className="relative h-full w-full"
                 >
                   <Overlay image="light" />
