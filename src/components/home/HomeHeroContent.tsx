@@ -18,20 +18,24 @@ import roseVineBottle from '/public/images/Rose-Kesten-boca-vina.png'
 import Overlay from 'src/components/shared/Overlay'
 
 const HomeHeroContent = () => {
-  const { scrollYProgress } = useViewportScroll()
+  const { scrollYProgress } = useScroll()
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, -500])
+  const grapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
 
   console.log(yValue)
 
   return (
     <>
-      <div className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden">
+      <motion.div
+        style={{ y: grapesValue }}
+        className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
+      >
         <motion.div
           initial={{ x: '100%' }}
           whileInView={{ x: '0%' }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeIn' }}
+          transition={{ duration: 1.5, ease: 'anticipate' }}
         >
           <Image
             src={blackGrape}
@@ -40,16 +44,16 @@ const HomeHeroContent = () => {
             style={{ marginLeft: 'auto' }}
           />
         </motion.div>
-      </div>
+      </motion.div>
 
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, x: '-50%' }}
-          whileInView={{ opacity: 1, x: '-50%' }}
+          initial={{ opacity: 0, top: '-32%', x: '-50%' }}
+          whileInView={{ opacity: 1, top: '-22%', x: '-50%' }}
           viewport={{ once: true }}
           transition={{ type: 'tween', duration: 0.3 }}
           style={{ y: yValue }}
-          className="absolute top-[-22%] left-[50%] z-10 hidden xl:block"
+          className="absolute left-[50%] z-10 hidden xl:block"
         >
           <Image
             src={mainWineBottle}
