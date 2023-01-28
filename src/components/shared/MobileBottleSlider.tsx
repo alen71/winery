@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 
 import RoseWine from '/public/images/Rose-Kesten-boca-vina.png'
 import MMXVIII from '/public/images/Pinot-Noir-Odsjaj-2.png'
@@ -57,11 +58,39 @@ const MobileBottlesSlider = ({}: Props) => {
 
   const wineBottles = shopWines.length + 1
 
-  const test = (e: any) => {
-    console.log(e)
+  const prevBottle = () => {
+    setCurrDeg(currDeg + BOTTLES_SLIDER_DEGREE)
+    setRotateBottle(rotateBottle - BOTTLES_SLIDER_DEGREE)
+
+    let newFocusedBottle = focusedBottle - 1
+
+    if (newFocusedBottle === wineBottles) {
+      newFocusedBottle = 1
+    }
+
+    if (newFocusedBottle < 1) {
+      newFocusedBottle = wineBottles - 1
+    }
+
+    setFocusedBottle(newFocusedBottle)
   }
 
-  console.log(focusedBottle)
+  const nextBottle = () => {
+    setCurrDeg(currDeg - BOTTLES_SLIDER_DEGREE)
+    setRotateBottle(rotateBottle + BOTTLES_SLIDER_DEGREE)
+
+    let newFocusedBottle = focusedBottle + 1
+
+    if (newFocusedBottle === wineBottles) {
+      newFocusedBottle = 1
+    }
+
+    if (newFocusedBottle < 1) {
+      newFocusedBottle = wineBottles - 1
+    }
+
+    setFocusedBottle(newFocusedBottle)
+  }
 
   return (
     <>
@@ -96,7 +125,7 @@ const MobileBottlesSlider = ({}: Props) => {
                 >
                   <div
                     className={clsx(
-                      `w-[126px] sm:w-[156px] absolute duration-1000`
+                      `w-[126px] sm:w-[156px] absolute duration-1000 flex flex-col items-center`
                     )}
                     style={{ transform: `rotateY(${rotateBottle}deg)` }}
                   >
@@ -110,19 +139,40 @@ const MobileBottlesSlider = ({}: Props) => {
                     <Image src={imageUrl} alt={name} quality={100} />
                     <div
                       className={clsx(
-                        'absolute -bottom-7 text-center duration-500 opacity-0',
-                        { 'opacity-100': focusedBottle === key }
+                        'absolute -bottom-7 text-center duration-500',
+                        {
+                          'opacity-100': focusedBottle === key,
+                          'opacity-0': focusedBottle !== key
+                        }
                       )}
                     >
-                      <p className="font-light text-lg lg:text-[22px]">
+                      <motion.p
+                        initial={{ x: 50, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          duration: 0.3,
+                          type: 'spring',
+                          stiffness: 60
+                        }}
+                        className="font-light text-lg lg:text-[22px]"
+                      >
                         <span className="font-bold text-primary uppercase">
                           {name}
                         </span>{' '}
                         {type}
-                      </p>
-                      <p className="font-light text-xs text-primary uppercase">
+                      </motion.p>
+                      <motion.p
+                        initial={{ x: -50, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          duration: 0.3,
+                          type: 'spring',
+                          stiffness: 60
+                        }}
+                        className="font-light text-xs text-primary uppercase"
+                      >
                         {title}
-                      </p>
+                      </motion.p>
                     </div>
                   </div>
                 </div>
@@ -131,57 +181,39 @@ const MobileBottlesSlider = ({}: Props) => {
           </div>
         </div>
 
-        <div className="absolute translate-y-24 sm:translate-y-0 left-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center">
+        <motion.div
+          initial={{ x: '-100%' }}
+          whileInView={{ x: '0%' }}
+          transition={{ duration: 0.3, type: 'spring', stiffness: 50 }}
+          viewport={{ margin: '-100px 0px 0px 0px' }}
+          className="absolute left-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center"
+        >
           <div className="absolute right-5 rotate-45 bg-gray-bg h-32 w-32 rounded-tr-3xl flex items-center">
             <div
               className="absolute top-3 sm:top-4 -rotate-45 right-3 sm:right-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary rounded-full flex justify-center items-center cursor-pointer"
-              onClick={() => {
-                setCurrDeg(currDeg + BOTTLES_SLIDER_DEGREE)
-                setRotateBottle(rotateBottle - BOTTLES_SLIDER_DEGREE)
-
-                let newFocusedBottle = focusedBottle - 1
-
-                if (newFocusedBottle === wineBottles) {
-                  newFocusedBottle = 1
-                }
-
-                if (newFocusedBottle < 1) {
-                  newFocusedBottle = wineBottles - 1
-                }
-
-                setFocusedBottle(newFocusedBottle)
-              }}
+              onClick={prevBottle}
             >
               <Arrow />
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="absolute translate-y-24 sm:translate-y-0 right-0 w-[52px] sm:w-[72px] h-44 overflow-hidden flex items-center">
+        <motion.div
+          initial={{ x: '100%' }}
+          whileInView={{ x: '0%' }}
+          transition={{ duration: 0.3, type: 'spring', stiffness: 50 }}
+          viewport={{ margin: '-100px 0px 0px 0px' }}
+          className="absolute right-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center"
+        >
           <div className="absolute left-5 rotate-45 bg-gray-bg h-32 w-32 rounded-bl-3xl flex items-center">
             <div
               className="absolute bottom-3 sm:bottom-4 rotate-[135deg] left-3 sm:left-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary rounded-full  flex justify-center items-center cursor-pointer"
-              onClick={() => {
-                setCurrDeg(currDeg - BOTTLES_SLIDER_DEGREE)
-                setRotateBottle(rotateBottle + BOTTLES_SLIDER_DEGREE)
-
-                let newFocusedBottle = focusedBottle + 1
-
-                if (newFocusedBottle === wineBottles) {
-                  newFocusedBottle = 1
-                }
-
-                if (newFocusedBottle < 1) {
-                  newFocusedBottle = wineBottles - 1
-                }
-
-                setFocusedBottle(newFocusedBottle)
-              }}
+              onClick={nextBottle}
             >
               <Arrow />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   )
