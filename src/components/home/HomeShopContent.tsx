@@ -34,7 +34,7 @@ const HomeShopContent = () => {
             </motion.div>
           </div>
         </motion.div>
-        <div className="h-[500px] lg:h-full">
+        <div className="h-[500px] xl:h-full">
           <motion.div
             initial={{ x: '100%' }}
             whileInView={{ x: '0%' }}
@@ -75,7 +75,6 @@ const HomeShopContent = () => {
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3 }}
                 className="mb-3"
               >

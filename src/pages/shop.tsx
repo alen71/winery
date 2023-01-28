@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar, Controller, Navigation } from 'swiper'
 
@@ -13,6 +14,7 @@ import KestenWine from '/public/images/Crno-Kesten.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
 import Image from 'next/image'
+import useWindowWidth from 'src/hooks/useWindowWidth'
 
 const wineList = [
   {
@@ -53,6 +55,8 @@ const wineList = [
 ]
 
 const Shop = () => {
+  const windowWidth = useWindowWidth()
+
   return (
     <div className="relative h-screen w-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
       <Navbar />
@@ -65,12 +69,12 @@ const Shop = () => {
               slidesPerView: 2
             },
             1200: {
-              spaceBetween: 100,
+              spaceBetween: 50,
               slidesPerView: 3
             },
             1500: {
-              spaceBetween: 100,
-              slidesPerView: 4
+              spaceBetween: 0,
+              slidesPerView: 3
             }
           }}
           modules={[Scrollbar, Navigation]}
@@ -80,13 +84,14 @@ const Shop = () => {
           }}
           allowSlideNext
           allowSlidePrev
-          className="mySwiper mx-auto w-[70%]"
+          className="mySwiper"
+          style={{ padding: windowWidth > 767 ? '0 150px' : '0' }}
         >
           {wineList.map(({ key, imageUrl, name, type, title }, i) => {
             return (
               <SwiperSlide
                 key={key}
-                className="flex items-center justify-center"
+                className="flex items-center justify-center w-fit"
               >
                 <div className="flex flex-col gap-2 items-center justify-center">
                   <motion.div
@@ -98,7 +103,7 @@ const Shop = () => {
                       duration: 0.3,
                       delay: (i * 1.3) / 2
                     }}
-                    className="max-w-[200px] sm:max-w-[250px] md:h-full"
+                    className="max-w-[200px] sm:max-w-[250px] md:max-w-[300px]"
                   >
                     <Image src={imageUrl} alt={name} />
                   </motion.div>
@@ -143,13 +148,14 @@ const Shop = () => {
         >
           <Arrow className="sm:scale-[2]" />
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-10 rounded-full border-[1px] border-primary w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer rotate-180 grid place-content-center"
+          className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-10 rounded-full border-[1px] border-primary w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer grid place-content-center"
         >
-          <Arrow className="sm:scale-[2]" />
+          <Arrow className="sm:scale-[2] rotate-180" />
         </motion.div>
       </main>
     </div>

@@ -148,7 +148,7 @@ const MobileBottlesSlider = ({}: Props) => {
                         transition={{
                           duration: 0.3,
                           type: 'spring',
-                          stiffness: 60
+                          stiffness: 80
                         }}
                         className="font-light text-lg lg:text-[22px]"
                       >
@@ -163,7 +163,7 @@ const MobileBottlesSlider = ({}: Props) => {
                         transition={{
                           duration: 0.3,
                           type: 'spring',
-                          stiffness: 60
+                          stiffness: 80
                         }}
                         className="font-light text-xs text-primary uppercase"
                       >
@@ -180,7 +180,7 @@ const MobileBottlesSlider = ({}: Props) => {
         <motion.div
           initial={{ x: '-100%' }}
           whileInView={{ x: '0%' }}
-          transition={{ duration: 0.3, type: 'spring', stiffness: 50 }}
+          transition={{ duration: 0.4 }}
           viewport={{ margin: '-100px 0px 0px 0px' }}
           className="absolute left-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center"
         >
@@ -197,7 +197,7 @@ const MobileBottlesSlider = ({}: Props) => {
         <motion.div
           initial={{ x: '100%' }}
           whileInView={{ x: '0%' }}
-          transition={{ duration: 0.3, type: 'spring', stiffness: 50 }}
+          transition={{ duration: 0.4 }}
           viewport={{ margin: '-100px 0px 0px 0px' }}
           className="absolute right-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center"
         >

@@ -14,12 +14,11 @@ const HomeToursContent = () => {
   return (
     <>
       <div className="container relative">
-        <div className="grid lg:grid-cols-2">
-          <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
+        <div className="grid lg:grid-cols-2 ">
+          <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full xl-h-[900px]">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ margin: '-100px 0px 0px 0px' }}
               transition={{ duration: 0.3 }}
             >
               <Title type="h2" text="Vinogradi" highlightText="Dumo" />
