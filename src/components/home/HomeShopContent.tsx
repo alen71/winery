@@ -18,7 +18,7 @@ const HomeShopContent = () => {
           initial={{ x: '-100%' }}
           whileInView={{ x: '0%' }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeIn' }}
+          transition={{ duration: 1.4, ease: 'anticipate' }}
           className="relative bg-gray-primary border-b-[1px] border-primary pb-16 sm:pb-0"
         >
           <Ornament />

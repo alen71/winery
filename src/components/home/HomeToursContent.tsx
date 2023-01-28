@@ -39,10 +39,10 @@ const HomeToursContent = () => {
             <div className="h-[400px] lg:h-full w-full relative">
               <div className="overflow-hidden w-full h-full">
                 <motion.div
-                  initial={{ x: '100%' }}
-                  whileInView={{ x: '0%' }}
-                  viewport={{ margin: '-100px 0px 0px 0px' }}
-                  transition={{ duration: 0.5, ease: 'easeIn' }}
+                  // initial={{ x: '100%' }}
+                  // whileInView={{ x: '0%' }}
+                  // viewport={{ margin: '-100px 0px 0px 0px' }}
+                  // transition={{ duration: 0.5, ease: 'easeIn' }}
                   className="h-[400px] lg:h-full w-full relative"
                 >
                   <Overlay image="light" />

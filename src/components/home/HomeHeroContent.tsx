@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useViewportScroll
+} from 'framer-motion'
 
 import ShopBtn from 'src/components/shared/ShopBtn'
 import Title from 'src/components/shared/Title'
@@ -13,6 +18,12 @@ import roseVineBottle from '/public/images/Rose-Kesten-boca-vina.png'
 import Overlay from 'src/components/shared/Overlay'
 
 const HomeHeroContent = () => {
+  const { scrollYProgress } = useViewportScroll()
+
+  const yValue = useTransform(scrollYProgress, [0, 1], [0, -500])
+
+  console.log(yValue)
+
   return (
     <>
       <div className="absolute right-0 top-[300px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden">
@@ -33,11 +44,12 @@ const HomeHeroContent = () => {
 
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, y: '-45%', x: '-50%' }}
-          whileInView={{ opacity: 1, y: '-50%', x: '-50%' }}
+          initial={{ opacity: 0, x: '-50%' }}
+          whileInView={{ opacity: 1, x: '-50%' }}
           viewport={{ once: true }}
           transition={{ type: 'tween', duration: 0.3 }}
-          className="absolute top-[50%] left-[50%] z-10 hidden xl:block"
+          style={{ y: yValue }}
+          className="absolute top-[-22%] left-[50%] z-10 hidden xl:block"
         >
           <Image
             src={mainWineBottle}
@@ -145,9 +157,10 @@ const HomeHeroContent = () => {
           <div className="flex justify-center h-fit">
             <div className="relative max-w-[391px]">
               <motion.div
-                initial={{ opacity: 0, marginBottom: '20px' }}
+                initial={{ opacity: 0, marginBottom: '-20px' }}
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
-                transition={{ duration: 0.3, delay: 0.3 }}
+                viewport={{ margin: '-100px 0px 0px 0px' }}
+                transition={{ duration: 0.3 }}
                 className="absolute left-0 sm:left-[-100px] bottom-[-10%] sm:top-[50%] sm:translate-y-[-50%] w-[132px] sm:w-[200px] z-[11]"
               >
                 <Image src={roseVineBottle} alt="Vinograd" quality={100} />
@@ -155,10 +168,10 @@ const HomeHeroContent = () => {
 
               <div className="overflow-hidden">
                 <motion.div
-                  initial={{ x: '100%' }}
-                  whileInView={{ x: '0' }}
-                  transition={{ duration: 0.5, ease: 'easeIn' }}
-                  viewport={{ margin: '-100px 0px 0px 0px' }}
+                  // initial={{ x: '100%' }}
+                  // whileInView={{ x: '0' }}
+                  // transition={{ duration: 0.5, ease: 'easeIn' }}
+                  // viewport={{ margin: '-100px 0px 0px 0px' }}
                   className="relative h-full w-full"
                 >
                   <Overlay image="light" />

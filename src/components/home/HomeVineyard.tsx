@@ -21,10 +21,10 @@ const HomeVineyard = () => {
           <div className="relative xl:pr-28 h-full w-full px-5 sm:px-10 lg:px-0 pb-5 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
             <div className="overflow-hidden w-full h-full">
               <motion.div
-                initial={{ x: '-100%' }}
-                whileInView={{ x: '0%' }}
-                viewport={{ margin: '-100px 0px 0px 0px' }}
-                transition={{ duration: 0.5, ease: 'easeIn' }}
+                // initial={{ x: '-100%' }}
+                // whileInView={{ x: '0%' }}
+                // viewport={{ margin: '-100px 0px 0px 0px' }}
+                // transition={{ duration: 0.5, ease: 'easeIn' }}
                 className="h-[400px] lg:h-full w-full relative"
               >
                 <Overlay image="light" />
@@ -38,9 +38,15 @@ const HomeVineyard = () => {
               </motion.div>
             </div>
 
-            <div className="max-w-[136px] sm:max-w-[190px] lg:max-w-[236px] absolute right-0 xl:right-[112px] bottom-0 translate-y-[7%] sm:translate-y-[0] lg:translate-y-[5%] sm:bottom-[-7%] z-[11]">
+            <motion.div
+              initial={{ opacity: 0, marginBottom: '20px' }}
+              whileInView={{ opacity: 1, marginBottom: '0px' }}
+              viewport={{ margin: '-100px 0px 0px 0px' }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="max-w-[136px] sm:max-w-[190px] lg:max-w-[236px] absolute right-0 xl:right-[112px] bottom-0 translate-y-[7%] sm:translate-y-[0] lg:translate-y-[5%] sm:bottom-[-7%] z-[11]"
+            >
               <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
-            </div>
+            </motion.div>
           </div>
           <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />
