@@ -67,11 +67,9 @@ const MobileBottlesSlider = ({}: Props) => {
     if (newFocusedBottle === wineBottles) {
       newFocusedBottle = 1
     }
-
     if (newFocusedBottle < 1) {
       newFocusedBottle = wineBottles - 1
     }
-
     setFocusedBottle(newFocusedBottle)
   }
 
@@ -84,11 +82,9 @@ const MobileBottlesSlider = ({}: Props) => {
     if (newFocusedBottle === wineBottles) {
       newFocusedBottle = 1
     }
-
     if (newFocusedBottle < 1) {
       newFocusedBottle = wineBottles - 1
     }
-
     setFocusedBottle(newFocusedBottle)
   }
 
