@@ -1,10 +1,12 @@
 import React from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar, Controller, Navigation } from 'swiper'
+import { Scrollbar, Navigation } from 'swiper'
 
 import Navbar from 'src/components/layout/navbar/Navbar'
 
@@ -13,7 +15,6 @@ import MMXVIII from '/public/images/Pinot-Noir-Odsjaj-2.png'
 import KestenWine from '/public/images/Crno-Kesten.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
-import Image from 'next/image'
 import useWindowWidth from 'src/hooks/useWindowWidth'
 
 const wineList = [
@@ -22,35 +23,40 @@ const wineList = [
     imageUrl: RoseWine,
     name: 'Kesten',
     type: 'Rose',
-    title: 'Pinot Noir'
+    title: 'Pinot Noir',
+    href: '#'
   },
   {
     key: 2,
     imageUrl: MMXVIII,
     name: 'MMXVIII',
     type: 'Crno',
-    title: 'Pinot Noir'
+    title: 'Pinot Noir',
+    href: '#'
   },
   {
     key: 3,
     imageUrl: KestenWine,
     name: 'Kesten',
     type: 'Crno',
-    title: 'Pinot Noir'
+    title: 'Pinot Noir',
+    href: '#'
   },
   {
     key: 4,
     imageUrl: KestenWine,
     name: 'Kesten',
     type: 'Crno',
-    title: 'Pinot Noir'
+    title: 'Pinot Noir',
+    href: '#'
   },
   {
     key: 5,
     imageUrl: KestenWine,
     name: 'Kesten',
     type: 'Crno',
-    title: 'Pinot Noir'
+    title: 'Pinot Noir',
+    href: '#'
   }
 ]
 
@@ -60,9 +66,10 @@ const Shop = () => {
   return (
     <div className="relative h-screen w-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
       <Navbar />
-      <main className="h-full w-full pb-20">
+      <main className="h-[90%] pb-20">
         <Swiper
           direction="horizontal"
+          speed={1000}
           breakpoints={{
             767: {
               spaceBetween: 100,
@@ -78,6 +85,11 @@ const Shop = () => {
             }
           }}
           modules={[Scrollbar, Navigation]}
+          scrollbar={{
+            el: '.custom-swiper-scrollbar',
+            dragClass: 'custom-swiper-scrollbar-drag',
+            draggable: true
+          }}
           navigation={{
             nextEl: '.swiper-next',
             prevEl: '.swiper-prev'
@@ -85,78 +97,116 @@ const Shop = () => {
           allowSlideNext
           allowSlidePrev
           className="mySwiper"
-          style={{ padding: windowWidth > 767 ? '0 150px' : '0' }}
+          style={{ padding: windowWidth > 767 ? '0 120px' : '0' }}
         >
-          {wineList.map(({ key, imageUrl, name, type, title }, i) => {
+          {wineList.map(({ key, imageUrl, name, type, title, href }, i) => {
             return (
               <SwiperSlide
                 key={key}
                 className="flex items-center justify-center w-fit"
               >
-                <div className="flex flex-col gap-2 items-center justify-center">
+                <Link
+                  href={href}
+                  className="flex flex-col items-center justify-center"
+                >
                   <motion.div
-                    initial={{ opacity: 0, y: -30 }}
+                    initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
+                      duration: 0.5,
                       type: 'spring',
-                      stiffness: 60,
-                      duration: 0.3,
-                      delay: (i * 1.3) / 2
+                      stiffness: 50,
+                      delay: (i * 1.5) / 2
                     }}
-                    className="max-w-[200px] sm:max-w-[250px] md:max-w-[300px]"
+                    className="max-w-[200px] sm:max-w-[250px] md:max-w-[300px] "
                   >
                     <Image src={imageUrl} alt={name} />
                   </motion.div>
-                  <motion.p
+                  <motion.div
                     initial={{ x: 50, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
+                    animate={{ x: 0, opacity: 1 }}
                     transition={{
                       duration: 0.3,
                       type: 'spring',
-                      stiffness: 50
+                      stiffness: 50,
+                      delay: (i * 1.5) / 2
                     }}
-                    className="font-light text-lg lg:text-[22px]"
+                    className="mb-2"
                   >
-                    <span className="font-bold text-primary uppercase">
-                      {name}
-                    </span>{' '}
-                    {type}
-                  </motion.p>
-                  <motion.p
+                    <motion.p
+                      initial={{ x: 50, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        type: 'spring',
+                        stiffness: 50
+                      }}
+                      className="font-light text-lg lg:text-[22px]"
+                    >
+                      <span className="font-bold text-primary uppercase">
+                        {name}
+                      </span>{' '}
+                      {type}
+                    </motion.p>
+                  </motion.div>
+
+                  <motion.div
                     initial={{ x: -50, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
+                    animate={{ x: 0, opacity: 1 }}
                     transition={{
                       duration: 0.3,
                       type: 'spring',
-                      stiffness: 60
+                      stiffness: 50,
+                      delay: (i * 1.5) / 2
                     }}
-                    className="font-light text-xs text-primary uppercase"
                   >
-                    {title}
-                  </motion.p>
-                </div>
+                    <motion.p
+                      initial={{ x: -50, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        type: 'spring',
+                        stiffness: 60
+                      }}
+                      className="font-light text-xs text-primary uppercase"
+                    >
+                      {title}
+                    </motion.p>
+                  </motion.div>
+                </Link>
               </SwiperSlide>
             )
           })}
         </Swiper>
 
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, x: '-200%' }}
+          animate={{ opacity: 1, x: '0%' }}
+          transition={{ duration: 0.6, ease: 'easeIn' }}
           className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-10 rounded-full border-[1px] border-primary w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer grid place-content-center"
         >
           <Arrow className="sm:scale-[2]" />
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, x: '200%' }}
+          animate={{ opacity: 1, x: '0%' }}
+          transition={{ duration: 0.6, ease: 'easeIn' }}
           className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-10 rounded-full border-[1px] border-primary w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer grid place-content-center"
         >
           <Arrow className="sm:scale-[2] rotate-180" />
         </motion.div>
+
+        <div className="absolute left-[50%] bottom-10 h-1 w-[80%] lg:w-[800px] translate-x-[-50%]">
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="custom-swiper-scrollbar w-full h-full rounded-lg overflow-hidden bg-white/25"
+          >
+            <div className="custom-swiper-scrollbar-drag h-full w-[100px] bg-white rounded-lg" />
+          </motion.div>
+        </div>
       </main>
     </div>
   )

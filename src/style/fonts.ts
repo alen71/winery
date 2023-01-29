@@ -18,8 +18,13 @@ const jeko = localFont({
       style: 'normal'
     },
     {
-      path: '../../public/fonts/Jeko Medium.ttf',
+      path: '../../public/fonts/Jeko Regular.ttf',
       weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/Jeko Medium.ttf',
+      weight: '500',
       style: 'normal'
     },
     {

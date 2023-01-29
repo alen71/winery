@@ -76,8 +76,8 @@ const HomeHeroContent = () => {
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
               transition={{
-                duration: 0.5,
-                delay: 0.4,
+                duration: 0.7,
+                delay: 0.5,
                 type: 'spring',
                 stiffness: 35
               }}
