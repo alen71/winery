@@ -9,13 +9,13 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar, Navigation } from 'swiper'
 
 import Navbar from 'src/components/layout/navbar/Navbar'
+import useWindowWidth from 'src/hooks/useWindowWidth'
 
 import RoseWine from '/public/images/Rose-Kesten-boca-vina.png'
 import MMXVIII from '/public/images/Pinot-Noir-Odsjaj-2.png'
 import KestenWine from '/public/images/Crno-Kesten.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
-import useWindowWidth from 'src/hooks/useWindowWidth'
 
 const wineList = [
   {

@@ -20,7 +20,7 @@ import Overlay from 'src/components/shared/Overlay'
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
 
-  const yValue = useTransform(scrollYProgress, [0, 1], [0, -500])
+  const yValue = useTransform(scrollYProgress, [0, 1], [0, 700])
   const yBottleValue = useTransform(scrollYProgress, [0, 1], [0, -200])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 2])
@@ -123,14 +123,7 @@ const HomeHeroContent = () => {
       <div className="container">
         <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10  sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
           <div className="flex flex-col gap-9 h-fit px-5 sm:px-0">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ margin: '-100px 0px 0px 0px' }}
-              transition={{ duration: 0.3 }}
-            >
-              <Title type="h2" text="O vinariji" highlightText="Dumo" />
-            </motion.div>
+            <Title type="h2" text="O vinariji" highlightText="Dumo" />
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}

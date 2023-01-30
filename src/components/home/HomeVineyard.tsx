@@ -56,14 +56,8 @@ const HomeVineyard = () => {
             </motion.div>
           </div>
           <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ margin: '-100px 0px 0px 0px' }}
-              transition={{ duration: 0.3 }}
-            >
-              <Title type="h2" text="Vinogradi" highlightText="Dumo" />
-            </motion.div>
+            <Title type="h2" text="Vinogradi" highlightText="Dumo" />
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
