@@ -82,7 +82,7 @@ const HomeHeroContent = () => {
               <span className="uppercase text-primary"> DUMO</span>
             </motion.h1>
 
-            <div className="relative pl-[14px] max-w-[279px]">
+            <div className="relative pl-[14px] max-w-[300px]">
               <motion.div
                 initial={{ y: '-200%' }}
                 animate={{ y: '0%' }}
@@ -98,7 +98,7 @@ const HomeHeroContent = () => {
                 initial={{ x: '-110%' }}
                 animate={{ x: '0%' }}
                 transition={{ duration: 0.7, ease: 'anticipate', delay: 1.7 }}
-                className="w-fit text-sm sm:text-base md:text-lg  leading-6 "
+                className="w-fit text-sm sm:text-lg md:text-xl  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
               </motion.p>

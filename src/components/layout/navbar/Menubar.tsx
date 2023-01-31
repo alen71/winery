@@ -24,15 +24,15 @@ const links = [
   },
   {
     text: 'Vinograd',
-    href: '#'
+    href: '/vinogradi'
   },
   {
     text: 'Obilasci',
-    href: '#'
+    href: '/obilasci'
   },
   {
     text: 'Članci',
-    href: '/news'
+    href: '/novosti'
   },
   {
     text: 'Shop',

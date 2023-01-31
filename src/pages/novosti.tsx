@@ -5,6 +5,8 @@ import PagesHero from 'src/components/shared/PagesHero'
 import SectionWrapper from 'src/components/shared/SectionWrapper'
 
 import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unsplash 1.jpg'
+import oil from '/public/images/novosti/david-goldman-27G8PF-fjrs-unsplash 2.png'
+import window from '/public/images/novosti/david-goldman-27G8PF-fjrs-unsplash 3.png'
 
 const News = () => {
   return (
@@ -29,13 +31,13 @@ const News = () => {
         <NewsRow
           titleHighlight="NASLOV ČLANKA"
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two."
-          src={WineBarrels}
+          src={oil}
           alt="Vinska burad vinarije Dumo"
         />
         <NewsRow
           titleHighlight="NASLOV ČLANKA"
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two."
-          src={WineBarrels}
+          src={window}
           alt="Vinska burad vinarije Dumo"
         />
       </div>

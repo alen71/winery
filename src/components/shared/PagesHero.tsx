@@ -31,7 +31,7 @@ const PagesHero = ({
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
               transition={{ duration: 1.5, ease: 'anticipate' }}
-              className="font-bold mt-9"
+              className="font-bold mt-9 text-xl sm:text-2xl"
             >
               {underTitleText}
             </motion.p>
@@ -48,17 +48,23 @@ const PagesHero = ({
             transition={{
               duration: 0.3
             }}
-            className="font-normal w-full lg:max-w-[80%]"
+            className="font-normal text-lg sm:text-xl w-full lg:max-w-[80%]"
           >
             {description}
           </motion.p>
         </div>
         <motion.div
           style={{ scale: imgScale }}
-          className="relative lg:absolute lg:right-0"
+          className="relative lg:absolute lg:right-0 h-[400px] lg:h-full w-full lg:w-[80%]"
         >
           {ImageProps.alt.length > 0 && (
-            <Image src={ImageProps.src} alt={ImageProps.alt} />
+            <Image
+              src={ImageProps.src}
+              fill
+              alt={ImageProps.alt}
+              quality={100}
+              style={{ objectFit: 'cover' }}
+            />
           )}
         </motion.div>
       </div>
