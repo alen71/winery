@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
         <span className="w-full h-[1px] bg-primary"></span>
       </div>
-      <div className="py-12 border-b-[1px] border-primary grid gap-y-20 lg:gap-y-0 justify-items-center lg:justify-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="py-12 border-b-1 border-primary grid gap-y-20 lg:gap-y-0 justify-items-center lg:justify-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {footerColumns.map(({ col }, i) => {
           return (
             <div key={i} className="lg:pl-10 xl:pl-20">

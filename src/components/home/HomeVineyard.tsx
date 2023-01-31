@@ -12,12 +12,8 @@ import bgImage from '/public/images/Slika-Pozadina-Vinograd 1 (2).png'
 
 const HomeVineyard = () => {
   const { scrollYProgress } = useScroll()
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
-  const yBottleValue = useTransform(
-    scrollYProgress,
-    [0, 0.7, 1],
-    [0, -10, -100]
-  )
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
+  const yBottleValue = useTransform(scrollYProgress, [0, 0.7, 1], [0, 10, 60])
 
   return (
     <>
@@ -33,7 +29,7 @@ const HomeVineyard = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute right-0 translate-x-[35%] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[20%] z-[11]"
+                className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute right-0 translate-x-[35%] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[15%] z-[11]"
               >
                 <motion.div style={{ y: yBottleValue }}>
                   <Image
@@ -59,7 +55,7 @@ const HomeVineyard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
+          <div className="bg-gray-primary-alfa lg:border-b-1 border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />
 
             <motion.div

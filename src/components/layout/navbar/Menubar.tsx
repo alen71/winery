@@ -58,13 +58,13 @@ const Menubar = ({ open, toggleOpen }: Props) => {
           <SquareIcon />
         </div>
       </div>
-      <div className="flex flex-col border-t-[1px] border-primary mb-14">
+      <div className="flex flex-col border-t-1 border-primary mb-14">
         {links.map(({ text, href }) => (
           <Link
             key={text}
             href={href}
             className={clsx(
-              'py-5 border-b-[1px] border-primary text-primary font-semibold text-xl w-full text-center uppercase hover:text-black',
+              'py-5 border-b-1 border-primary text-primary font-semibold text-xl w-full text-center uppercase hover:text-black',
               { 'text-black': pathname === href }
             )}
             onClick={toggleOpen}

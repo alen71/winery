@@ -23,7 +23,7 @@ const PagesHero = ({
 
   return (
     <div className="container">
-      <div className="lg:p-20 bg-gray-primary-alfa relative flex flex-col lg:flex-row items-center border-b-[1px] border-primary overflow-hidden">
+      <div className="lg:p-20 bg-gray-primary-alfa relative flex flex-col lg:flex-row items-center border-b-1 border-primary overflow-hidden">
         <div className="p-5 sm:p-10 pb-0 lg:p-0 lg:max-w-[50%] overflow-hidden">
           <Title type="h1" text={titleText} highlightText={titleHighlight} />
           {underTitleText && (

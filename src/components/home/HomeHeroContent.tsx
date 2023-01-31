@@ -16,7 +16,7 @@ const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
-  const yBottleValue = useTransform(scrollYProgress, [0, 1], [0, -200])
+  const yBottleValue = useTransform(scrollYProgress, [0, 1], [0, 200])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
 
@@ -76,7 +76,7 @@ const HomeHeroContent = () => {
                 type: 'spring',
                 stiffness: 35
               }}
-              className="text-4xl sm:text-5xl font-semibold"
+              className="text-4xl sm:text-5xl font-black"
             >
               <span>Dobrodošli</span> <br />u vinariju
               <span className="uppercase text-primary"> DUMO</span>
@@ -116,7 +116,7 @@ const HomeHeroContent = () => {
       </div>
 
       <div className="container">
-        <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10  sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
+        <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10  sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-1 border-primary">
           <div className="flex flex-col gap-9 h-fit px-5 sm:px-0">
             <Title type="h2" text="O vinariji" highlightText="Dumo" />
 

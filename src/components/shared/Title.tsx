@@ -16,7 +16,7 @@ const Title = ({ type, text, highlightText }: TitleProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: '-100px 0px 0px 0px' }}
           transition={{ duration: 0.3 }}
-          className="text-4xl sm:text-5xl font-semibold"
+          className="text-4xl sm:text-5xl font-black"
         >
           {text} <span className="uppercase text-primary">{highlightText}</span>
         </motion.h1>
@@ -26,7 +26,7 @@ const Title = ({ type, text, highlightText }: TitleProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: '-100px 0px 0px 0px' }}
           transition={{ duration: 0.3 }}
-          className="text-3xl sm:text-4xl font-semibold"
+          className="text-3xl sm:text-4xl font-black"
         >
           {text} <span className="uppercase text-primary">{highlightText}</span>
         </motion.h2>

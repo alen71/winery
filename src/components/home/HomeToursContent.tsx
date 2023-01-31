@@ -10,17 +10,13 @@ import kestenWine from '/public/images/vina/Crno-Kesten.png'
 const HomeToursContent = () => {
   const { scrollYProgress } = useScroll()
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
-  const yBottleValue = useTransform(
-    scrollYProgress,
-    [0, 0.7, 1],
-    [0, -10, -100]
-  )
+  const yBottleValue = useTransform(scrollYProgress, [0, 0.6, 1], [0, 10, 100])
 
   return (
     <>
       <div className="container relative">
         <div className="grid lg:grid-cols-2">
-          <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full xl-h-[900px]">
+          <div className="bg-gray-primary-alfa lg:border-b-1 border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full xl-h-[900px]">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />
 
             <motion.div
@@ -57,7 +53,7 @@ const HomeToursContent = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute left-0 translate-x-[-35%] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[35%] z-[11]"
+                className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute left-0 translate-x-[-35%] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[0%] z-[11]"
               >
                 <motion.div style={{ y: yBottleValue }}>
                   <Image

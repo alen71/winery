@@ -1,6 +1,6 @@
 import localFont from '@next/font/local'
 
-const jeko = localFont({
+export const jeko = localFont({
   src: [
     {
       path: '../../public/fonts/Jeko Thin.ttf',
@@ -44,7 +44,6 @@ const jeko = localFont({
     }
   ],
   fallback: ['sans-serif'],
-  display: 'swap'
+  display: 'swap',
+  variable: '--font-jeko'
 })
-
-export const fonts = { jeko }

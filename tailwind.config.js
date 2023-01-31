@@ -24,6 +24,12 @@ module.exports = {
         lines: '#3E3C34',
         white: '#fff',
         black: '#000'
+      },
+      fontFamily: {
+        sans: ['var(--font-jeko)']
+      },
+      borderWidth: {
+        1: '1px'
       }
     }
   },
