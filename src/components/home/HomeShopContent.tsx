@@ -2,8 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
 
-import whiteGrape from '/public/images/belo-grožđe.png'
-import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unsplash 1.jpg'
+import glassesOfWine from '/public/images/dvije-case-vina.png'
 
 import Ornament from '../shared/Ornament'
 import MobileBottlesSlider from '../shared/MobileBottleSlider'
@@ -34,7 +33,7 @@ const HomeShopContent = () => {
             </motion.div>
           </div>
         </motion.div>
-        <div className="h-[500px] xl:h-full">
+        <div className="h-[700px] xl:h-full">
           <motion.div
             initial={{ x: '100%' }}
             whileInView={{ x: '0%' }}
@@ -44,14 +43,14 @@ const HomeShopContent = () => {
           >
             <div className="group relative overflow-hidden w-full h-full">
               <Image
-                src={WineBarrels}
+                src={glassesOfWine}
                 alt="Burad vinarije dumo"
                 fill
                 className="group-hover:scale-105 duration-300"
                 style={{ objectFit: 'cover' }}
               />
             </div>
-            <div className="px-5 sm:px-20 py-10 sm:py-16 flex flex-col justify-center">
+            <div className="px-5 sm:px-16 py-10 sm:py-10 flex flex-col justify-center">
               <Title type="h2" text="NAJNOVIJI ČLANKA" />
 
               <motion.div

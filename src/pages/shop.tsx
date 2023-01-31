@@ -11,9 +11,9 @@ import { Scrollbar, Navigation } from 'swiper'
 import Navbar from 'src/components/layout/navbar/Navbar'
 import useWindowWidth from 'src/hooks/useWindowWidth'
 
-import RoseWine from '/public/images/Rose-Kesten-boca-vina.png'
-import MMXVIII from '/public/images/Pinot-Noir-Odsjaj-2.png'
-import KestenWine from '/public/images/Crno-Kesten.png'
+import RoseWine from '/public/images/vina/Rose-Kesten-boca-vina.png'
+import MMXVIII from '/public/images/vina/Pinot-Noir-Odsjaj-2.png'
+import KestenWine from '/public/images/vina/Crno-Kesten.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
 
@@ -69,6 +69,7 @@ const Shop = () => {
       <main className="h-[90%] pb-20">
         <Swiper
           direction="horizontal"
+          // loop
           speed={1000}
           breakpoints={{
             767: {
@@ -183,18 +184,18 @@ const Shop = () => {
           initial={{ opacity: 0, x: '-200%' }}
           animate={{ opacity: 1, x: '0%' }}
           transition={{ duration: 0.6, ease: 'easeIn' }}
-          className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-10 rounded-full border-[1px] border-primary w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer grid place-content-center"
+          className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-10 rounded-full border-[1px] border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer grid place-content-center"
         >
-          <Arrow className="sm:scale-[2]" />
+          <Arrow className="sm:scale-[2.5]" />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: '200%' }}
           animate={{ opacity: 1, x: '0%' }}
           transition={{ duration: 0.6, ease: 'easeIn' }}
-          className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-10 rounded-full border-[1px] border-primary w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer grid place-content-center"
+          className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-10 rounded-full border-[1px] border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer grid place-content-center"
         >
-          <Arrow className="sm:scale-[2] rotate-180" />
+          <Arrow className="sm:scale-[2.5] rotate-180" />
         </motion.div>
 
         <div className="absolute left-[50%] bottom-10 h-1 w-[80%] lg:w-[800px] translate-x-[-50%]">

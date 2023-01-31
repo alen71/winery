@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useViewportScroll
-} from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 import ShopBtn from 'src/components/shared/ShopBtn'
 import Title from 'src/components/shared/Title'
@@ -13,17 +8,17 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 
 import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
-import vinograd from '/public/images/Vinograd.png'
-import roseVineBottle from '/public/images/Rose-Kesten-boca-vina.png'
+import dumoHouse from '/public/images/dumo-house.png'
+import roseVineBottle from '/public/images/vina/Rose-Kesten-boca-vina.png'
 import Overlay from 'src/components/shared/Overlay'
 
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
 
-  const yValue = useTransform(scrollYProgress, [0, 1], [0, 700])
+  const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const yBottleValue = useTransform(scrollYProgress, [0, 1], [0, -200])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 2])
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
 
   return (
     <>
@@ -174,9 +169,8 @@ const HomeHeroContent = () => {
                   style={{ scale: imgScale }}
                   className="relative h-full w-full"
                 >
-                  <Overlay image="light" />
                   <Image
-                    src={vinograd}
+                    src={dumoHouse}
                     alt="Vinograd"
                     style={{ objectFit: 'cover' }}
                   />

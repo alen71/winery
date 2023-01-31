@@ -7,12 +7,12 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import Title from 'src/components/shared/Title'
 
 import Lineage from '/public/images/dumo-lineage.png'
-import BlackWine from '/public/images/Pinot-Noir-Odsjaj-2.png'
+import BlackWine from '/public/images/vina/Pinot-Noir-Odsjaj-2.png'
 import bgImage from '/public/images/Slika-Pozadina-Vinograd 1 (2).png'
 
 const HomeVineyard = () => {
   const { scrollYProgress } = useScroll()
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.7])
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
   const yBottleValue = useTransform(
     scrollYProgress,
     [0, 0.7, 1],
@@ -26,34 +26,38 @@ const HomeVineyard = () => {
       </div>
       <div className="container relative">
         <div className="grid lg:grid-cols-2">
-          <div className="relative xl:pr-28 h-full w-full sm:px-10 lg:px-0 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
-            <div className="overflow-hidden w-full h-full">
+          <div className="relative xl:pr-[30%] h-full w-full sm:px-10 lg:px-0 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
+            <div className="h-[400px] lg:h-full w-full relative">
               <motion.div
-                style={{ scale: imgScale }}
-                className="h-[400px] lg:h-full w-full relative"
+                initial={{ opacity: 0, marginBottom: '20px' }}
+                whileInView={{ opacity: 1, marginBottom: '0px' }}
+                viewport={{ margin: '-100px 0px 0px 0px' }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute right-0 translate-x-[35%] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[20%] z-[11]"
               >
-                <Overlay image="light" />
-                <Image
-                  src={Lineage}
-                  fill
-                  alt="Slika vinove loze"
-                  quality={100}
-                  style={{ objectFit: 'cover' }}
-                />
+                <motion.div style={{ y: yBottleValue }}>
+                  <Image
+                    src={BlackWine}
+                    alt="Slika vinove loze"
+                    quality={100}
+                  />
+                </motion.div>
               </motion.div>
+              <div className="overflow-hidden w-full h-full relative">
+                <motion.div
+                  style={{ scale: imgScale }}
+                  className="h-[400px] lg:h-full w-full relative"
+                >
+                  <Image
+                    src={Lineage}
+                    fill
+                    alt="Slika vinove loze"
+                    quality={100}
+                    style={{ objectFit: 'cover' }}
+                  />
+                </motion.div>
+              </div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, marginBottom: '20px' }}
-              whileInView={{ opacity: 1, marginBottom: '0px' }}
-              viewport={{ margin: '-100px 0px 0px 0px' }}
-              transition={{ duration: 0.3, delay: 0.3 }}
-              className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute right-0 xl:right-[112px] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[17%] z-[11]"
-            >
-              <motion.div style={{ y: yBottleValue }}>
-                <Image src={BlackWine} alt="Slika vinove loze" quality={100} />
-              </motion.div>
-            </motion.div>
           </div>
           <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />

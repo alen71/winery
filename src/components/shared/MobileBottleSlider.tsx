@@ -2,9 +2,9 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-import RoseWine from '/public/images/Rose-Kesten-boca-vina.png'
-import MMXVIII from '/public/images/Pinot-Noir-Odsjaj-2.png'
-import KestenWine from '/public/images/Crno-Kesten.png'
+import RoseWine from '/public/images/vina/Rose-Kesten-boca-vina.png'
+import MMXVIII from '/public/images/vina/Pinot-Noir-Odsjaj-2.png'
+import KestenWine from '/public/images/vina/Crno-Kesten.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
 import clsx from 'clsx'
