@@ -50,14 +50,6 @@ const wineList = [
     type: 'Crno',
     title: 'Pinot Noir',
     href: '#'
-  },
-  {
-    key: 5,
-    imageUrl: KestenWine,
-    name: 'Kesten',
-    type: 'Crno',
-    title: 'Pinot Noir',
-    href: '#'
   }
 ]
 

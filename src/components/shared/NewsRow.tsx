@@ -27,7 +27,7 @@ const NewsRow = ({
           style={{ objectFit: 'cover' }}
         />
       </div>
-      <div className="px-5 sm:px-20 py-5 flex flex-col justify-center">
+      <div className="px-5 sm:px-20 py-10 flex flex-col justify-center">
         <Title type="h2" text={title} highlightText={titleHighlight} />
         <motion.div
           initial={{ opacity: 0, x: 200 }}
