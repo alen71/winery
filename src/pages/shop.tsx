@@ -16,6 +16,7 @@ import MMXVIII from '/public/images/vina/Pinot-Noir-Odsjaj-2.png'
 import KestenWine from '/public/images/vina/Crno-Kesten.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
+import useProductList from 'src/store/useProductList'
 
 const wineList = [
   {
@@ -62,6 +63,8 @@ const wineList = [
 
 const Shop = () => {
   const windowWidth = useWindowWidth()
+
+  const { vines } = useProductList()
 
   return (
     <div className="relative h-screen w-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
