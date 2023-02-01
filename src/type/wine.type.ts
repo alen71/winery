@@ -29,6 +29,7 @@ export type IWineSpecs = {
 }
 
 export type IWine = {
+  id: string
   age: number
   image: string
   name: string
@@ -39,10 +40,4 @@ export type IWine = {
   price: number
   variety?: Variety
   specs: IWineSpecs
-}
-
-export type WineList = {
-  id: string
-  featuredImage: string
-  wines: IWine[]
 }

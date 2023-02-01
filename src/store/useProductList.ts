@@ -1,14 +1,14 @@
 import { create } from 'zustand'
 
-import { WineList } from 'src/type/wine.type'
 import { productsData } from 'src/data/products'
 import { convertToSlug } from 'src/utils/helper'
+import { IWine } from 'src/type/wine.type'
 
-type vinesType = { vines: WineList[]; setSlug: (vines: WineList[]) => void }
+type vinesType = { vines: IWine[]; setSlug: (vines: IWine[]) => void }
 
 const useProductList = create<vinesType>(set => ({
   vines: [],
-  setSlug: (vines: WineList[]) => {
+  setSlug: (vines: IWine[]) => {
     set((): any => {
       vines: vines
     })
