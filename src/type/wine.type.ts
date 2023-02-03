@@ -36,6 +36,8 @@ export type IWine = {
   price: number
   specs: IWineSpecs
   variety?: Variety
+  slug?: string
+  group: string // enum
 }
 
 export type WineCategory = {

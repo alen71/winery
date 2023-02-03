@@ -2,22 +2,19 @@ import { create } from 'zustand'
 
 import { productsData } from 'src/data/products'
 import { convertToSlug } from 'src/utils/helper'
-import { WineCategory } from 'src/type/wine.type'
+import { IWine } from 'src/type/wine.type'
 
-type vinesType = {
-  wines: WineCategory[]
-  setSlug: (wines: WineCategory[]) => void
+type VinesType = {
+  wines: IWine[]
 }
 
-const useProductList = create<vinesType>(set => ({
+const useProductList = create<VinesType>(set => ({
   wines: productsData.map(product => {
-    return { ...product, slug: convertToSlug(product.id) }
-  }),
-  setSlug: (wines: WineCategory[]) => {
-    set((): any => {
-      wines: wines
-    })
-  }
+    return {
+      ...product,
+      slug: convertToSlug(`${product.name} ${product.age} ${product.type}`)
+    }
+  })
 }))
 
 export default useProductList
