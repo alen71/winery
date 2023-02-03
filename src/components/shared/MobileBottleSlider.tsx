@@ -2,9 +2,9 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-import RoseWine from '/public/images/vina/Rose-Kesten-boca-vina.png'
-import MMXVIII from '/public/images/vina/Pinot-Noir-Odsjaj-2.png'
-import KestenWine from '/public/images/vina/Crno-Kesten.png'
+import RoseWine from '/public/images/vina/Dumo Rose 2021.png'
+import MMXVIII from '/public/images/vina/Pinot Noir 2020.png'
+import KestenWine from '/public/images/vina/Kesten Pinot Noir 2020 Barik.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
 import clsx from 'clsx'
@@ -91,7 +91,7 @@ const MobileBottlesSlider = ({}: Props) => {
   return (
     <>
       <div
-        className={`pt-28 relative h-[430px] sm:h-[500px] overflow-hidden flex justify-center items-center z-[1]`}
+        className={`pt-28 relative h-[430px] sm:h-[500px]  flex justify-center items-center z-[1]`}
       >
         <div
           className="relative w-[126px] sm:w-[156px] h-full"
@@ -132,10 +132,12 @@ const MobileBottlesSlider = ({}: Props) => {
                     >
                       <Overlay bottle="dark" />
                     </div>
-                    <Image src={imageUrl} alt={name} quality={100} />
+                    <div className=" max-w-[60px] sm:max-w-[80px]">
+                      <Image src={imageUrl} alt={name} quality={100} />
+                    </div>
                     <div
                       className={clsx(
-                        'absolute -bottom-7 text-center duration-500',
+                        'absolute -bottom-20 text-center duration-500',
                         {
                           'opacity-100': focusedBottle === key,
                           'opacity-0': focusedBottle !== key
@@ -186,7 +188,7 @@ const MobileBottlesSlider = ({}: Props) => {
         >
           <div className="absolute right-5 rotate-45 bg-gray-bg h-32 w-32 rounded-tr-3xl flex items-center">
             <div
-              className="absolute top-3 sm:top-4 -rotate-45 right-3 sm:right-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary rounded-full flex justify-center items-center cursor-pointer"
+              className="absolute top-3 sm:top-4 -rotate-45 right-3 sm:right-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary text-primary rounded-full flex justify-center items-center cursor-pointer "
               onClick={prevBottle}
             >
               <Arrow />
@@ -203,7 +205,7 @@ const MobileBottlesSlider = ({}: Props) => {
         >
           <div className="absolute left-5 rotate-45 bg-gray-bg h-32 w-32 rounded-bl-3xl flex items-center">
             <div
-              className="absolute bottom-3 sm:bottom-4 rotate-[135deg] left-3 sm:left-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary rounded-full  flex justify-center items-center cursor-pointer"
+              className="absolute bottom-3 sm:bottom-4 rotate-[135deg] left-3 sm:left-4 w-7 sm:w-9 h-7 sm:h-9 border-[1px] border-primary text-primary rounded-full  flex justify-center items-center cursor-pointer"
               onClick={nextBottle}
             >
               <Arrow />

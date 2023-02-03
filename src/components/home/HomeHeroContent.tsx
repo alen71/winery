@@ -9,14 +9,14 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
 import dumoHouse from '/public/images/dumo-house.png'
-import roseVineBottle from '/public/images/vina/Rose-Kesten-boca-vina.png'
+import DumoBadge from '/public/images/Dumo-bedž.png'
 import Overlay from 'src/components/shared/Overlay'
 
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
-  const yBottleValue = useTransform(scrollYProgress, [0, 1], [0, 200])
+  const yBadge = useTransform(scrollYProgress, [0, 1], [0, 200])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
 
@@ -28,7 +28,7 @@ const HomeHeroContent = () => {
       >
         <motion.div
           initial={{ x: '100%' }}
-          whileInView={{ x: '0%' }}
+          whileInView={{ x: '20%' }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, ease: 'anticipate' }}
         >
@@ -43,12 +43,12 @@ const HomeHeroContent = () => {
 
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, top: '-32%', x: '-50%' }}
-          whileInView={{ opacity: 1, top: '-22%', x: '-50%' }}
+          initial={{ opacity: 0, top: '-28%', x: '-50%' }}
+          whileInView={{ opacity: 1, top: '-18%', x: '-50%' }}
           viewport={{ once: true }}
           transition={{ type: 'spring', stiffness: 50, duration: 0.3 }}
           style={{ y: yValue }}
-          className="absolute left-[50%] z-10 hidden xl:block"
+          className="absolute left-[50%] z-10 hidden xl:block max-w-[300px]"
         >
           <Image
             src={mainWineBottle}
@@ -157,10 +157,10 @@ const HomeHeroContent = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3 }}
-                className="absolute left-0 sm:translate-x-[-50%] bottom-[-17%] sm:top-[50%] sm:translate-y-[-50%] w-[162px] sm:w-[200px] z-[11]"
+                className="absolute left-0 sm:translate-x-[-50%] top-0 sm:top-[50%] sm:translate-y-[-50%] w-[162px] sm:w-[134px] z-[11]"
               >
-                <motion.div style={{ y: yBottleValue }}>
-                  <Image src={roseVineBottle} alt="Vinograd" quality={100} />
+                <motion.div style={{ y: yBadge }}>
+                  <Image src={DumoBadge} alt="Vinograd" quality={100} />
                 </motion.div>
               </motion.div>
 

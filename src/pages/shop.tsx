@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -11,9 +11,9 @@ import { Scrollbar, Navigation } from 'swiper'
 import Navbar from 'src/components/layout/navbar/Navbar'
 import useWindowWidth from 'src/hooks/useWindowWidth'
 
-import RoseWine from '/public/images/vina/Rose-Kesten-boca-vina.png'
-import MMXVIII from '/public/images/vina/Pinot-Noir-Odsjaj-2.png'
-import KestenWine from '/public/images/vina/Crno-Kesten.png'
+import RoseWine from '/public/images/vina/Pinot Grigio 2022.png'
+import MMXVIII from '/public/images/vina/Pinot Noir 2018.png'
+import KestenWine from '/public/images/vina/Kesten Pinot Noir 2020 Barik.png'
 
 import Arrow from 'src/assets/sliderArrow.svg'
 import useProductList from 'src/store/useProductList'
@@ -54,9 +54,13 @@ const wineList = [
 ]
 
 const Shop = () => {
+  const { wines } = useProductList()
+  const [allWines, setAllwines] = useState(
+    wines.map(wineProduct => wineProduct.wine).flat()
+  )
   const windowWidth = useWindowWidth()
 
-  const { vines } = useProductList()
+  console.log(allWines)
 
   return (
     <div className="relative h-screen w-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
@@ -95,14 +99,14 @@ const Shop = () => {
           className="mySwiper"
           style={{ padding: windowWidth > 767 ? '0 120px' : '0' }}
         >
-          {wineList.map(({ key, imageUrl, name, type, title, href }, i) => {
+          {allWines.map(({ image, name, type }, i) => {
             return (
               <SwiperSlide
-                key={key}
+                key={i}
                 className="flex items-center justify-center w-fit"
               >
                 <Link
-                  href={href}
+                  href="#"
                   className="flex flex-col items-center justify-center"
                 >
                   <motion.div
@@ -114,9 +118,9 @@ const Shop = () => {
                       stiffness: 50,
                       delay: (i * 1.5) / 2
                     }}
-                    className="max-w-[200px] sm:max-w-[250px] md:max-w-[300px] "
+                    className="max-w-[80px] sm:max-w-[100px] md:max-w-[150px] "
                   >
-                    <Image src={imageUrl} alt={name} />
+                    <Image src={image} alt={name} />
                   </motion.div>
                   <motion.div
                     initial={{ x: 50, opacity: 0 }}
@@ -166,7 +170,7 @@ const Shop = () => {
                       }}
                       className="font-light text-xs text-primary uppercase"
                     >
-                      {title}
+                      {type}
                     </motion.p>
                   </motion.div>
                 </Link>

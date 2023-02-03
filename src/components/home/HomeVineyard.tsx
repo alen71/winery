@@ -7,7 +7,7 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import Title from 'src/components/shared/Title'
 
 import Lineage from '/public/images/dumo-lineage.png'
-import BlackWine from '/public/images/vina/Pinot-Noir-Odsjaj-2.png'
+import BlackWine from '/public/images/vina/Pinot Grigio 2022.png'
 import bgImage from '/public/images/Slika-Pozadina-Vinograd 1 (2).png'
 
 const HomeVineyard = () => {
@@ -29,7 +29,7 @@ const HomeVineyard = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute right-0 translate-x-[35%] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[15%] z-[11]"
+                className="max-w-[80px] sm:max-w-[100px] lg:max-w-[130px] absolute right-0 sm:translate-x-[25%] bottom-0 translate-y-[5%] z-[11]"
               >
                 <motion.div style={{ y: yBottleValue }}>
                   <Image

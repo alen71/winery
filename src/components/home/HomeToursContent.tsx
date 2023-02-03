@@ -5,12 +5,12 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import Title from 'src/components/shared/Title'
 
 import glassOfWine from '/public/images/case-za-vino.png'
-import kestenWine from '/public/images/vina/Crno-Kesten.png'
+import roseWine from '/public/images/vina/Dumo Rose 2021.png'
 
 const HomeToursContent = () => {
   const { scrollYProgress } = useScroll()
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
-  const yBottleValue = useTransform(scrollYProgress, [0, 0.6, 1], [0, 10, 100])
+  const yBottleValue = useTransform(scrollYProgress, [0, 0.6, 1], [0, 10, 50])
 
   return (
     <>
@@ -53,14 +53,10 @@ const HomeToursContent = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="max-w-[166px] sm:max-w-[200px] lg:max-w-[236px] absolute left-0 translate-x-[-35%] bottom-0 translate-y-[15%] sm:translate-y-[10%] lg:translate-y-[0%] z-[11]"
+                className="max-w-[90px] lg:max-w-[114px] absolute left-0 sm:translate-x-[-25%] bottom-0  z-[11]"
               >
                 <motion.div style={{ y: yBottleValue }}>
-                  <Image
-                    src={kestenWine}
-                    alt="Slika vinove loze"
-                    quality={100}
-                  />
+                  <Image src={roseWine} alt="Slika vinove loze" quality={100} />
                 </motion.div>
               </motion.div>
               <div className="overflow-hidden w-full h-full">

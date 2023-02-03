@@ -1,11 +1,9 @@
+import { StaticImageData } from 'next/image'
+
 export enum WineTypes {
   PINOT_NOIR = 'Pinot Noir',
-  PINOT_GRIGIO = 'Pinot Grigio'
-}
-
-export enum WineColors {
-  BLACK = 'crno',
-  ROSE = 'rose'
+  PINOT_GRIGIO = 'Pinot Grigio',
+  ROSE = 'Rose'
 }
 
 export enum Variety {
@@ -29,15 +27,18 @@ export type IWineSpecs = {
 }
 
 export type IWine = {
-  id: string
   age: number
-  image: string
+  image: StaticImageData
   name: string
   type: WineTypes
-  color: WineColors
   medals: WineMedals[]
   description: string
   price: number
-  variety?: Variety
   specs: IWineSpecs
+  variety?: Variety
+}
+
+export type WineCategory = {
+  id: string
+  wine: IWine[]
 }
