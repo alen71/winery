@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useViewportScroll
-} from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 import ShopBtn from 'src/components/shared/ShopBtn'
 import Title from 'src/components/shared/Title'
@@ -13,17 +8,17 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 
 import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
-import vinograd from '/public/images/Vinograd.png'
-import roseVineBottle from '/public/images/Rose-Kesten-boca-vina.png'
+import dumoHouse from '/public/images/dumo-house.png'
+import DumoBadge from '/public/images/Dumo-bedž.png'
 import Overlay from 'src/components/shared/Overlay'
 
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
 
-  const yValue = useTransform(scrollYProgress, [0, 1], [0, -500])
-  const yBottleValue = useTransform(scrollYProgress, [0, 1], [0, -200])
+  const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
+  const yBadge = useTransform(scrollYProgress, [0, 1], [0, 200])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 2])
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
 
   return (
     <>
@@ -33,7 +28,7 @@ const HomeHeroContent = () => {
       >
         <motion.div
           initial={{ x: '100%' }}
-          whileInView={{ x: '0%' }}
+          whileInView={{ x: '20%' }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, ease: 'anticipate' }}
         >
@@ -48,12 +43,12 @@ const HomeHeroContent = () => {
 
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, top: '-32%', x: '-50%' }}
-          whileInView={{ opacity: 1, top: '-22%', x: '-50%' }}
+          initial={{ opacity: 0, top: '-28%', x: '-50%' }}
+          whileInView={{ opacity: 1, top: '-18%', x: '-50%' }}
           viewport={{ once: true }}
           transition={{ type: 'spring', stiffness: 50, duration: 0.3 }}
           style={{ y: yValue }}
-          className="absolute left-[50%] z-10 hidden xl:block"
+          className="absolute left-[50%] z-10 hidden xl:block max-w-[300px]"
         >
           <Image
             src={mainWineBottle}
@@ -76,18 +71,18 @@ const HomeHeroContent = () => {
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
               transition={{
-                duration: 0.5,
-                delay: 0.4,
+                duration: 0.7,
+                delay: 0.5,
                 type: 'spring',
                 stiffness: 35
               }}
-              className="text-4xl sm:text-5xl font-semibold"
+              className="text-4xl sm:text-5xl font-black"
             >
               <span>Dobrodošli</span> <br />u vinariju
               <span className="uppercase text-primary"> DUMO</span>
             </motion.h1>
 
-            <div className="relative pl-[14px] max-w-[279px]">
+            <div className="relative pl-[14px] max-w-[300px]">
               <motion.div
                 initial={{ y: '-200%' }}
                 animate={{ y: '0%' }}
@@ -103,7 +98,7 @@ const HomeHeroContent = () => {
                 initial={{ x: '-110%' }}
                 animate={{ x: '0%' }}
                 transition={{ duration: 0.7, ease: 'anticipate', delay: 1.7 }}
-                className="w-fit text-sm sm:text-base md:text-lg  leading-6 "
+                className="w-fit text-sm sm:text-lg md:text-xl  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
               </motion.p>
@@ -121,21 +116,13 @@ const HomeHeroContent = () => {
       </div>
 
       <div className="container">
-        <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10  sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-[1px] border-primary">
+        <div className="bg-gray-primary-alfa sm:px-10 xl:px-20 pt-10  sm:py-10 lg:py-16 xl:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 xl:gap-40 h-fit border-b-1 border-primary">
           <div className="flex flex-col gap-9 h-fit px-5 sm:px-0">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ margin: '-100px 0px 0px 0px' }}
-              transition={{ duration: 0.3 }}
-            >
-              <Title type="h2" text="O vinariji" highlightText="Dumo" />
-            </motion.div>
+            <Title type="h2" text="O vinariji" highlightText="Dumo" />
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ margin: '-100px 0px 0px 0px' }}
               transition={{
                 duration: 0.3
               }}
@@ -170,10 +157,10 @@ const HomeHeroContent = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3 }}
-                className="absolute left-0 sm:translate-x-[-50%] bottom-[-17%] sm:top-[50%] sm:translate-y-[-50%] w-[162px] sm:w-[200px] z-[11]"
+                className="absolute left-0 sm:translate-x-[-50%] top-0 sm:top-[50%] sm:translate-y-[-50%] w-[162px] sm:w-[134px] z-[11]"
               >
-                <motion.div style={{ y: yBottleValue }}>
-                  <Image src={roseVineBottle} alt="Vinograd" quality={100} />
+                <motion.div style={{ y: yBadge }}>
+                  <Image src={DumoBadge} alt="Vinograd" quality={100} />
                 </motion.div>
               </motion.div>
 
@@ -182,9 +169,8 @@ const HomeHeroContent = () => {
                   style={{ scale: imgScale }}
                   className="relative h-full w-full"
                 >
-                  <Overlay image="light" />
                   <Image
-                    src={vinograd}
+                    src={dumoHouse}
                     alt="Vinograd"
                     style={{ objectFit: 'cover' }}
                   />

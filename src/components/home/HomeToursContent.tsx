@@ -1,29 +1,24 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
-import Overlay from 'src/components/shared/Overlay'
 import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import Title from 'src/components/shared/Title'
 
-import glassOfWine from '/public/images/casa-crnog-vina.png'
+import glassOfWine from '/public/images/case-za-vino.png'
+import roseWine from '/public/images/vina/Dumo Rose 2021.png'
 
 const HomeToursContent = () => {
   const { scrollYProgress } = useScroll()
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.5])
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
+  const yBottleValue = useTransform(scrollYProgress, [0, 0.6, 1], [0, 10, 50])
 
   return (
     <>
       <div className="container relative">
         <div className="grid lg:grid-cols-2">
-          <div className="bg-gray-primary-alfa lg:border-b-[1px] border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ margin: '-100px 0px 0px 0px' }}
-              transition={{ duration: 0.3 }}
-            >
-              <Title type="h2" text="Vinogradi" highlightText="Dumo" />
-            </motion.div>
+          <div className="bg-gray-primary-alfa lg:border-b-1 border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full xl-h-[900px]">
+            <Title type="h2" text="Vinogradi" highlightText="Dumo" />
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -51,14 +46,24 @@ const HomeToursContent = () => {
             </motion.div>
             <ReadMoreBtn href="/" />
           </div>
-          <div className="relative xl:pl-28 h-full sm:px-10 lg:px-0 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent">
+          <div className="relative xl:pl-[30%] h-full sm:px-10 lg:px-0 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent">
             <div className="h-[400px] lg:h-full w-full relative">
+              <motion.div
+                initial={{ opacity: 0, marginBottom: '20px' }}
+                whileInView={{ opacity: 1, marginBottom: '0px' }}
+                viewport={{ margin: '-100px 0px 0px 0px' }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="max-w-[90px] lg:max-w-[114px] absolute left-0 sm:translate-x-[-25%] bottom-0  z-[11]"
+              >
+                <motion.div style={{ y: yBottleValue }}>
+                  <Image src={roseWine} alt="Slika vinove loze" quality={100} />
+                </motion.div>
+              </motion.div>
               <div className="overflow-hidden w-full h-full">
                 <motion.div
                   style={{ scale: imgScale }}
                   className="h-[400px] lg:h-full w-full relative"
                 >
-                  <Overlay image="light" />
                   <Image
                     src={glassOfWine}
                     fill

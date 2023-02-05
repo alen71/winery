@@ -6,7 +6,11 @@ import MenuBtn from './MenuBtn'
 import Menubar from './Menubar'
 import useWindowWidth from 'src/hooks/useWindowWidth'
 
-const Navbar = () => {
+type NavbarProps = {
+  wide?: boolean
+}
+
+const Navbar = ({ wide }: NavbarProps) => {
   const [isScroll, setIsScroll] = useState(false)
   const [isScrollTopOfPage, setIsScrollTopOfPage] = useState(true)
   const [open, setOpen] = useState(false)
@@ -46,7 +50,14 @@ const Navbar = () => {
             isScrollTopOfPage === false && !isScrollTopOfPage && isScroll
         })}
       >
-        <div className="container px-5 sm:px-10 h-full flex items-center justify-between">
+        <div
+          className={clsx(
+            'px-5 sm:px-10 h-full flex items-center justify-between',
+            {
+              container: !wide
+            }
+          )}
+        >
           <div className="flex gap-8 lg:gap-14 items-center text-primary scale-[0.8] lg:scale-100">
             <Logo />
             <p className="font-black">

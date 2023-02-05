@@ -1,7 +1,7 @@
 import Image, { ImageProps } from 'next/image'
-import Link from 'next/link'
 import React from 'react'
-import ReadMoreBtn from './ReadMoreBtn'
+import { motion } from 'framer-motion'
+
 import Title from './Title'
 
 type Props = ImageProps & {
@@ -27,10 +27,25 @@ const NewsRow = ({
           style={{ objectFit: 'cover' }}
         />
       </div>
-      <div className="px-5 sm:px-20 py-5 flex flex-col justify-center">
+      <div className="px-5 sm:px-20 py-10 flex flex-col justify-center">
         <Title type="h2" text={title} highlightText={titleHighlight} />
-        <div className="w-10 h-[3px] bg-primary my-5" />
-        <p className="mb-3">{description}</p>
+        <motion.div
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="w-10 h-[3px] bg-primary my-5"
+        />
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.3
+          }}
+          className="mb-3"
+        >
+          {description}
+        </motion.p>
       </div>
     </div>
   )

@@ -1,7 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
-import { fonts } from 'src/style/fonts'
-
 export default class Document extends NextDocument {
   render() {
     return (
@@ -27,7 +25,7 @@ export default class Document extends NextDocument {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0047ff" />
         </Head>
         <body
-          className={`bg-gray-bg text-white overflow-x-hidden overflow-y-scroll text-base md:text-lg ${fonts.jeko.className}`}
+          className={`bg-gray-bg text-white overflow-x-hidden overflow-y-scroll text-base md:text-lg`}
         >
           <Main />
           <NextScript />

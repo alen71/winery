@@ -2,8 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
 
-import whiteGrape from '/public/images/belo-grožđe.png'
-import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unsplash 1.jpg'
+import glassesOfWine from '/public/images/dvije-case-vina.png'
 
 import Ornament from '../shared/Ornament'
 import MobileBottlesSlider from '../shared/MobileBottleSlider'
@@ -19,11 +18,11 @@ const HomeShopContent = () => {
           whileInView={{ x: '0%' }}
           viewport={{ once: true }}
           transition={{ duration: 1.4, ease: 'anticipate' }}
-          className="relative bg-gray-primary border-b-[1px] border-primary pb-16 sm:pb-0"
+          className="relative bg-gray-primary border-b-1 border-primary pb-16 sm:pb-0"
         >
           <Ornament />
           <MobileBottlesSlider />
-          <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:translate-x-0 sm:static w-fit mx-auto my-10">
+          <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:translate-x-0 sm:static w-fit mx-auto mb-10 mt-40">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -34,7 +33,7 @@ const HomeShopContent = () => {
             </motion.div>
           </div>
         </motion.div>
-        <div className="h-[500px] lg:h-full">
+        <div className="h-[700px] xl:h-full">
           <motion.div
             initial={{ x: '100%' }}
             whileInView={{ x: '0%' }}
@@ -44,26 +43,20 @@ const HomeShopContent = () => {
           >
             <div className="group relative overflow-hidden w-full h-full">
               <Image
-                src={WineBarrels}
+                src={glassesOfWine}
                 alt="Burad vinarije dumo"
                 fill
                 className="group-hover:scale-105 duration-300"
                 style={{ objectFit: 'cover' }}
               />
             </div>
-            <div className="px-5 sm:px-20 py-10 sm:py-16 flex flex-col justify-center">
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: '-100px 0px 0px 0px' }}
-                transition={{ duration: 0.3 }}
-              >
-                <Title type="h2" text="NAJNOVIJI ČLANKA" />
-              </motion.div>
+            <div className="px-5 sm:px-16 py-10 sm:py-10 flex flex-col justify-center">
+              <Title type="h2" text="NAJNOVIJI ČLANKA" />
+
               <motion.div
                 initial={{ opacity: 0, x: 400 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ margin: '-100px 0px 0px 0px' }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 0.5,
                   delay: 0.3,
@@ -75,7 +68,6 @@ const HomeShopContent = () => {
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3 }}
                 className="mb-3"
               >

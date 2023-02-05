@@ -30,6 +30,18 @@ const WineryDumo = () => {
           src={WineBarrels}
           alt="Vinska burad vinarije Dumo"
         />
+        <PageDescriptionRow
+          titleHighlight="Kada smo nastali?"
+          description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask. Nay projecting unpleasing boisterous eat discovered solicitude. Own six moments produce elderly pasture far arrival."
+          src={WineBarrels}
+          alt="Vinska burad vinarije Dumo"
+        />
+        <PageDescriptionRow
+          titleHighlight="Kada smo nastali?"
+          description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask. Nay projecting unpleasing boisterous eat discovered solicitude. Own six moments produce elderly pasture far arrival."
+          src={WineBarrels}
+          alt="Vinska burad vinarije Dumo"
+        />
       </div>
     </PageLayout>
   )
