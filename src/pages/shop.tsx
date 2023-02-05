@@ -110,6 +110,9 @@ const Shop = () => {
                       >
                         <Link
                           href={`/${slug}`}
+                          aria-label={`Pogledajte detalje o nasem ${name} ${age} ${type} ${
+                            variety ? variety : ''
+                          }`}
                           className="block w-fit uppercase border-[3px] border-primary text-primary font-black py-2 px-4 sm:px-8 rounded-xl hover:bg-primary hover:text-white duration-200 text-base lg:text-lg"
                         >
                           Detaljnije o vinu

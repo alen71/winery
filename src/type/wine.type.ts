@@ -1,5 +1,12 @@
 import { StaticImageData } from 'next/image'
 
+import awcSilver2018 from '/public/images/medals/awc-silver-2018.png'
+import biwfcGold2020 from '/public/images/medals/biwcf-gold-2020.png'
+import biwfcGold2021 from '/public/images/medals/biwfc-gold-2021.png'
+import biwfcBronze2020 from '/public/images/medals/biwfc-bronze-2020.png'
+import decanterBronze2020 from '/public/images/medals/decanter-bronze-2020.png'
+import decanterSilver2017 from '/public/images/medals/decanter-silver-2017.png'
+
 export enum WineTypes {
   PINOT_NOIR = 'Pinot Noir',
   PINOT_GRIGIO = 'Pinot Grigio',
@@ -10,13 +17,13 @@ export enum Variety {
   BARIK = 'Barik'
 }
 
-export enum WineMedals {
-  AWC_SILVER_2018 = '/public/images/medals/awc-silver-2018.png',
-  BIWCF_GOLD_2020 = '/public/images/medals/biwcf-gold-2020.png',
-  BIWCF_GOLD_2021 = '/public/images/medals/biwcf-gold-2021.png',
-  BIWCF_BRONZE_2020 = '/public/images/medals/biwfc-bronze-2020.png',
-  DECANTER_BRONZE_2020 = '/public/images/medals/decanter-bronze-2020.png',
-  DECANTER_SILVER_2017 = '/public/images/medals/decanter-silver-2017.png'
+export const WineMedals = {
+  AWC_SILVER_2018: awcSilver2018,
+  BIWCF_GOLD_2020: biwfcGold2020,
+  BIWCF_GOLD_2021: biwfcGold2021,
+  BIWCF_BRONZE_2020: biwfcBronze2020,
+  DECANTER_BRONZE_2020: decanterBronze2020,
+  DECANTER_SILVER_2017: decanterSilver2017
 }
 
 export enum Group {
@@ -38,7 +45,7 @@ export type IWine = {
   image: StaticImageData
   name: string
   type: WineTypes
-  medals: WineMedals[]
+  medals: StaticImageData[]
   description: string
   price: number
   specs: IWineSpecs
