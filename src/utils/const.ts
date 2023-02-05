@@ -1,1 +1,1 @@
-export const BOTTLES_SLIDER_DEGREE = 72
+export const BOTTLES_SLIDER_DEGREE = 36

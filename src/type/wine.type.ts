@@ -19,6 +19,13 @@ export enum WineMedals {
   DECANTER_SILVER_2017 = '/public/images/medals/decanter-silver-2017.png'
 }
 
+export enum Group {
+  DUMO_PINOT_NOIR = 'Dumo_Pinot_Noir',
+  KESTEN_PINOT_NOIR = 'Kesten_Pinot_Noir',
+  DUMO_PINOT_GRIGIO = 'Dumo_Pinot_Grigio',
+  DUMO_ROSE = 'Dumo_Rose'
+}
+
 export type IWineSpecs = {
   alcohol: string
   manufactured: number
@@ -35,9 +42,10 @@ export type IWine = {
   description: string
   price: number
   specs: IWineSpecs
+  group: Group
+  slug: string
   variety?: Variety
-  slug?: string
-  group: string // enum
+  orgNum?: number
 }
 
 export type WineCategory = {
