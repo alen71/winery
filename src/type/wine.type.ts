@@ -33,11 +33,18 @@ export enum Group {
   DUMO_ROSE = 'Dumo_Rose'
 }
 
+export enum SpecsNames {
+  ALCOHOL = 'alkohol',
+  MANUFACTURED = 'proizvedeno u seriji',
+  MAINTENANCE = 'odležavanje',
+  DRINK_ON = 'piti na'
+}
+
 export type IWineSpecs = {
-  alcohol: string
-  manufactured: number
-  maintenance: string
-  drinkOn: string
+  [SpecsNames.ALCOHOL]: string
+  [SpecsNames.MANUFACTURED]: number
+  [SpecsNames.MAINTENANCE]: string
+  [SpecsNames.DRINK_ON]: string
 }
 
 export type IWine = {
@@ -53,6 +60,8 @@ export type IWine = {
   slug: string
   variety?: Variety
   orgNum?: number
+  archived?: boolean
+  sold?: boolean
 }
 
 export type WineCategory = {

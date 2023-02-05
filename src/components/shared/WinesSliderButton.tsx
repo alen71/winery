@@ -14,8 +14,8 @@ type Props = {
 const WinesSliderButton = ({ side, action, color, className }: Props) => {
   return (
     <motion.div
-      initial={{ x: side === 'right' ? '100%' : '-100%', y: '-50%' }}
-      whileInView={{ x: '0%', y: '-50%' }}
+      initial={{ opacity: 0, y: '-50%' }}
+      whileInView={{ opacity: 1, y: '-50%' }}
       transition={{ duration: 0.4 }}
       viewport={{ margin: '-100px 0px 0px 0px' }}
       className={`absolute top-[50%] ${side}-0 w-[52px] sm:w-[72px] h-32 sm:h-44 overflow-hidden flex items-center z-10 ${className}`}

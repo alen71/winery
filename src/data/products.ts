@@ -1,6 +1,7 @@
 import {
   Group,
   IWine,
+  SpecsNames,
   Variety,
   WineCategory,
   WineMedals,
@@ -30,10 +31,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.DUMO_ROSE
   },
@@ -52,10 +53,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.DUMO_PINOT_NOIR
   },
@@ -74,10 +75,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.DUMO_PINOT_NOIR
   },
@@ -96,10 +97,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.DUMO_PINOT_NOIR
   },
@@ -118,10 +119,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.DUMO_PINOT_NOIR
   },
@@ -140,10 +141,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.DUMO_PINOT_NOIR
   },
@@ -162,30 +163,29 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.DUMO_PINOT_NOIR
   },
   {
     slug: '',
-    age: 2020,
+    age: 2021,
     image: KestenPinotGrigioBarik2020,
-    name: 'Kesten',
+    name: 'Dumo',
     type: WineTypes.PINOT_GRIGIO,
     medals: [],
     description:
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
-    variety: Variety.BARIK,
     group: Group.DUMO_PINOT_GRIGIO
   },
   {
@@ -199,10 +199,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     group: Group.KESTEN_PINOT_NOIR
   },
@@ -217,10 +217,10 @@ export const productsData: IWine[] = [
       'Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask.',
     price: 1700,
     specs: {
-      alcohol: '13%',
-      maintenance: '10 meseci u Francuskom hrastu',
-      drinkOn: '14-16C',
-      manufactured: 2000
+      [SpecsNames.ALCOHOL]: '13%',
+      [SpecsNames.MAINTENANCE]: '10 meseci u Francuskom hrastu',
+      [SpecsNames.DRINK_ON]: '14-16C',
+      [SpecsNames.MANUFACTURED]: 2000
     },
     variety: Variety.BARIK,
     group: Group.KESTEN_PINOT_NOIR

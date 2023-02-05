@@ -62,30 +62,18 @@ const Shop = () => {
                   <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 md:gap-5 lg:gap-32">
                     <div className="max-w-[430px]">
                       <motion.p
-                        initial={{ x: 50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{
-                          duration: 0.4,
-                          type: 'spring',
-                          stiffness: 50,
-                          delay: 0.4
-                        }}
-                        className="font-light text-lg lg:text-[22px] text-center lg:text-left"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.5 }}
+                        className="font-medium text-center lg:text-left text-primary uppercase text-lg sm:text-4xl lg:text-5xl"
                       >
-                        <span className="text-primary uppercase text-lg sm:text-4xl lg:text-5xl ">
-                          {name} {age} {variety && `| ${variety}`}
-                        </span>
+                        {name} {age} {variety && `| ${variety}`}
                       </motion.p>
 
                       <motion.p
-                        initial={{ x: -50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{
-                          duration: 0.4,
-                          type: 'spring',
-                          stiffness: 60,
-                          delay: 0.4
-                        }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.5 }}
                         className="font-black text-2xl sm:text-5xl lg:text-7xl uppercase mb-5 lg:mb-0 text-center lg:text-left"
                       >
                         {type}

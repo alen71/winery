@@ -13,13 +13,7 @@ const HomeShopContent = () => {
   return (
     <div className="container relative z-[1] ">
       <div className="grid gap-20 xl:gap-0 xl:grid-cols-2">
-        <motion.div
-          initial={{ x: '-100%' }}
-          whileInView={{ x: '0%' }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.4, ease: 'anticipate' }}
-          className="relative bg-gray-primary border-b-1 border-primary pb-16 sm:pb-0"
-        >
+        <div className="relative bg-gray-primary border-b-1 border-primary pb-16 sm:pb-0">
           <Ornament />
           <MobileBottlesSlider />
           <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:translate-x-0 sm:static w-fit mx-auto mb-10 mt-40">
@@ -32,15 +26,10 @@ const HomeShopContent = () => {
               <ShopBtn />
             </motion.div>
           </div>
-        </motion.div>
+        </div>
+
         <div className="h-[700px] xl:h-full">
-          <motion.div
-            initial={{ x: '100%' }}
-            whileInView={{ x: '0%' }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.4, ease: 'anticipate' }}
-            className="xl:ml-28 flex flex-col h-full bg-gray-primary"
-          >
+          <div className="xl:ml-28 flex flex-col h-full bg-gray-primary">
             <div className="group relative overflow-hidden w-full h-full">
               <Image
                 src={glassesOfWine}
@@ -77,7 +66,7 @@ const HomeShopContent = () => {
                 two.
               </motion.p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
