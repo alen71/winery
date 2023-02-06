@@ -9,6 +9,7 @@ import roseWine from '/public/images/vina/Dumo Rose 2021.png'
 
 const HomeToursContent = () => {
   const { scrollYProgress } = useScroll()
+
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
   const yBottleValue = useTransform(scrollYProgress, [0, 0.6, 1], [0, 10, 50])
 
@@ -53,7 +54,7 @@ const HomeToursContent = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="max-w-[90px] lg:max-w-[114px] absolute left-0 sm:translate-x-[-25%] bottom-0  z-[11]"
+                className="max-w-[90px] lg:max-w-[114px] absolute left-4 sm:left-0 sm:translate-x-[-25%] bottom-0 z-[11]"
               >
                 <motion.div style={{ y: yBottleValue }}>
                   <Image src={roseWine} alt="Slika vinove loze" quality={100} />

@@ -9,14 +9,12 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
 import dumoHouse from '/public/images/dumo-house.png'
-import DumoBadge from '/public/images/Dumo-bedž.png'
 import Overlay from 'src/components/shared/Overlay'
 
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
-  const yBadge = useTransform(scrollYProgress, [0, 1], [0, 200])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
 
@@ -152,18 +150,6 @@ const HomeHeroContent = () => {
 
           <div className="flex justify-center h-fit">
             <div className="relative w-full sm:max-w-[391px]">
-              <motion.div
-                initial={{ opacity: 0, marginBottom: '20px' }}
-                whileInView={{ opacity: 1, marginBottom: '0px' }}
-                viewport={{ margin: '-100px 0px 0px 0px' }}
-                transition={{ duration: 0.3 }}
-                className="absolute left-0 sm:translate-x-[-50%] top-0 sm:top-[50%] sm:translate-y-[-50%] w-[162px] sm:w-[134px] z-[11]"
-              >
-                <motion.div style={{ y: yBadge }}>
-                  <Image src={DumoBadge} alt="Vinograd" quality={100} />
-                </motion.div>
-              </motion.div>
-
               <div className="overflow-hidden">
                 <motion.div
                   style={{ scale: imgScale }}

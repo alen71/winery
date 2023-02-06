@@ -51,7 +51,7 @@ const MobileBottlesSlider = () => {
   return (
     <>
       <div
-        className={`pt-36 relative h-[430px] sm:h-[400px]  flex justify-center items-center z-[1]`}
+        className={`pt-36 relative h-[430px] sm:h-[400px] flex justify-center items-center z-[1]`}
       >
         <div
           className="relative w-[126px] sm:w-[156px] h-full"

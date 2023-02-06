@@ -18,7 +18,7 @@ const NewsRow = ({
 }: Props) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 bg-gray-primary">
-      <div className="group relative overflow-hidden w-full h-72 lg:h-full">
+      <div className="group relative overflow-hidden w-full h-72 lg:h-[460px]">
         <Image
           src={ImageProps.src}
           alt={ImageProps.alt}

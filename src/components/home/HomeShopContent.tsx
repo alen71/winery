@@ -4,17 +4,26 @@ import { motion } from 'framer-motion'
 
 import glassesOfWine from '/public/images/dvije-case-vina.png'
 
-import Ornament from '../shared/Ornament'
+import ShopOrnament from 'src/assets/ShopRectangle.svg'
+import ShopOrnamentMobile from 'src/assets/ShopRectangleMobile.svg'
 import MobileBottlesSlider from '../shared/MobileBottleSlider'
 import Title from '../shared/Title'
 import ShopBtn from '../shared/ShopBtn'
+import useWindowWidth from 'src/hooks/useWindowWidth'
 
 const HomeShopContent = () => {
+  const width = useWindowWidth()
+
   return (
-    <div className="container relative z-[1] ">
+    <div className="container relative z-[1]">
       <div className="grid gap-20 xl:gap-0 xl:grid-cols-2">
-        <div className="relative bg-gray-primary border-b-1 border-primary pb-16 sm:pb-0">
-          <Ornament />
+        <div className="relative bg-gray-primary border-y-1 border-primary pb-16 sm:pb-0">
+          <div className="absolute left-0 top-0 translate-y-[-50%] w-full flex justify-center items-center">
+            {width < 641 ? <ShopOrnamentMobile /> : <ShopOrnament />}
+            <p className="absolute font-semibold text-2xl sm:text-3xl text-primary">
+              Dumo vina
+            </p>
+          </div>
           <MobileBottlesSlider />
           <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:translate-x-0 sm:static w-fit mx-auto mb-10 mt-40">
             <motion.div

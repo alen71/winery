@@ -58,6 +58,7 @@ export const productsData: IWine[] = [
       [SpecsNames.DRINK_ON]: '14-16C',
       [SpecsNames.MANUFACTURED]: 2000
     },
+    archived: true,
     group: Group.DUMO_PINOT_NOIR
   },
   {
@@ -80,6 +81,7 @@ export const productsData: IWine[] = [
       [SpecsNames.DRINK_ON]: '14-16C',
       [SpecsNames.MANUFACTURED]: 2000
     },
+    sold: true,
     group: Group.DUMO_PINOT_NOIR
   },
   {

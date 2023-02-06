@@ -7,7 +7,7 @@ const ShopBtn = () => {
       aria-label="Pogledajte naše proizvode"
       href="/shop"
       className={
-        'uppercase w-28 h-6 sm:h-8 flex items-center justify-center bg-primary hover:bg-darker-primary text-sm sm:text-base font-black rounded-full'
+        'uppercase w-28 h-8 flex items-center justify-center bg-primary hover:bg-darker-primary text-sm sm:text-base font-black rounded-full'
       }
     >
       Shop

@@ -11,6 +11,8 @@ import Logo from 'src/components/shared/Logo'
 import XIcon from 'src/assets/XIcon.svg'
 import Arrow from 'src/assets/arrow.svg'
 
+import ArchivedOrnament from '/public/images/archived.png'
+
 export default function Product() {
   // get slug from query
   const router = useRouter()
@@ -72,25 +74,58 @@ export default function Product() {
     return wineFromNextGroup?.slug
   }
 
-  console.log(findNextGroup())
-
   return (
-    <div className="grid grid-cols-[1fr_77px_1fr] ">
-      <div className="h-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex justify-start items-center relative">
-        <div className="absolute top-5 left-5 text-primary">
-          <Logo />
+    <div className="grid lg:grid-cols-[1fr_77px_1fr] ">
+      <div className="bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex flex-col sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
+        <div className="h-screen w-full flex justify-start items-center relative">
+          <div className="absolute top-5 left-0 w-full px-5 flex justify-between items-center">
+            <div className=" text-primary">
+              <Logo />
+            </div>
+
+            <Link
+              href="/shop"
+              aria-label="Vratite se nazad u Shop"
+              className="block lg:hidden"
+            >
+              <XIcon />
+            </Link>
+          </div>
+
+          <div className="max-w-[35%] sm:max-w-[25%] lg:max-w-[35%] xl:max-w-[25%] mx-auto">
+            <Image
+              src={wine.image}
+              alt={`${wine.name} ${wine.type} ${wine.age}`}
+              quality={100}
+            />
+          </div>
+
+          <div className="absolute lg:bottom-6 right-5 sm:right-6 flex flex-col gap-4">
+            {wine.medals &&
+              wine.medals.map((medal, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="h-14 sm:h-20 xl:h-[90px] w-14 sm:w-20 xl:w-[90px]"
+                  >
+                    <Image src={medal} alt="Dumo medal" />
+                  </div>
+                )
+              })}
+          </div>
         </div>
 
-        <div className="max-w-[25%] mx-auto">
-          <Image
-            src={wine.image}
-            alt={`${wine.name} ${wine.type} ${wine.age}`}
-            quality={100}
-          />
-        </div>
-
-        <div className="absolute left-5 flex flex-col gap-2 pl-7">
-          <div className="absolute left-0 top-[50%] translate-y-[-52%] h-[84%] flex flex-col justify-between items-center">
+        <div className="relative sm:absolute sm:left-5 flex flex-col gap-2 pl-7">
+          <div
+            className={clsx(
+              'absolute left-0 top-[50%] translate-y-[-52%] flex flex-col justify-between items-center',
+              {
+                'h-[54%]': winesGroup.length === 2,
+                'h-[84%]': winesGroup.length > 2,
+                'h-[50px] top-[100%]': winesGroup.length === 1
+              }
+            )}
+          >
             <div className="absolute bg-primary w-[1px] h-full" />
             {winesGroup.map((w, i) => {
               const age = `${w.age} ${w.variety ? `| ${w.variety}` : ''}`
@@ -137,66 +172,72 @@ export default function Product() {
             )
           })}
         </div>
-
-        <div className="absolute bottom-6 right-6 flex flex-col gap-4">
-          {wine.medals &&
-            wine.medals.map((medal, i) => {
-              return (
-                <Image
-                  key={i}
-                  src={medal}
-                  alt="Dumo medal"
-                  width={90}
-                  height={90}
-                />
-              )
-            })}
-        </div>
       </div>
 
-      <div className="bg-white border-r-1 border-primary py-12 flex flex-col justify-between items-center">
-        <Link href="/shop" aria-label="Vratite se nazad u Shop">
+      <div className="bg-white border-b-1 lg:border-r-1 border-primary sm:px-12 lg:px-0 lg:py-12 flex flex-row lg:flex-col justify-center lg:justify-between items-center relative">
+        <Link
+          href="/shop"
+          aria-label="Vratite se nazad u Shop"
+          className="hidden lg:block"
+        >
           <XIcon />
         </Link>
 
-        <div className="text-primary flex flex-col gap-2 text-2xl">
+        <div className="text-primary flex lg:flex-col items-center gap-5 lg:gap-2 text-2xl py-5 lg:py-0">
           <span>0{currentGroupIndex + 1}</span>
-          <span className="bg-primary h-[1px] w-full" />
+          <span className="bg-primary h-[1px] w-7 lg:w-full" />
           <span>0{uniqueGroups.length}</span>
         </div>
 
-        <div>
+        <div className="absolute left-8 sm:left-12 right-8 sm:right-12 flex items-center lg:block lg:static">
           <Link
             href={`/${findNextGroup()}`}
             aria-label="Idite na sljedeće vino"
-            className="block cursor-pointer scale-125"
+            className="absolute right-0 lg:static block cursor-pointer scale-125"
           >
             <Arrow />
           </Link>
           <Link
             href={`/${findPrevGroup()}`}
             aria-label="Idite na prethodno vino"
-            className="block rotate-180 mt-4 cursor-pointer scale-125"
+            className="absolute left-0 lg:static block rotate-180 lg:mt-4 cursor-pointer scale-125"
           >
             <Arrow />
           </Link>
         </div>
       </div>
 
-      <div className="h-screen overflow-y-scroll text-gray-primary bg-white py-14 px-20 flex flex-col gap-16">
-        <div>
-          <p className="font-medium text-3xl">
-            {wine.name} {wine.age}
-          </p>
+      <div className="h-fit lg:h-screen lg:overflow-y-scroll overflow-x-hidden text-gray-primary bg-white py-10 xl:py-14 px-7 sm:px-10 xl:px-20 flex flex-col gap-10 md:gap-16 relative">
+        <h1 className="text-center lg:text-left">
+          <span className="font-medium text-xl sm:text-3xl">
+            {wine.name} {wine.age} {wine.variety ? `| ${wine.variety}` : ''}
+          </span>
+          <br />
+          <span className="text-primary font-black text-4xl sm:text-6xl">
+            {wine.type}
+          </span>
+        </h1>
 
-          <p className="text-primary font-black text-6xl">{wine.type}</p>
-        </div>
+        {wine.archived && (
+          <div className="relative lg:absolute flex items-center justify-center max-w-[210px] xl:max-w-[294px] lg:right-[-4%] mx-auto lg:mx-0">
+            <Image src={ArchivedOrnament} alt="Arhivirano" />
+            <p className="absolute text-white font-bold text-xl xl:text-3xl">
+              Arhiva
+            </p>
+          </div>
+        )}
 
-        <p className="text-xl">{wine.description}</p>
+        <p className="text-base sm:text-xl">{wine.description}</p>
 
-        <div className="flex gap-8 text-base items-center">
-          <button className="bg-primary hover:bg-darker-primary text-white py-2 px-6 rounded-full font-black ">
-            {wine.price} RSD | Dodaj u korpu
+        <div className="flex gap-8 flex-col xl:flex-row text-base xl:items-center">
+          <button
+            className={clsx('w-fit y text-white font-black', {
+              'bg-primary hover:bg-darker-primary rounded-full py-2 px-6':
+                !wine.sold,
+              'bg-gray-primary rounded-md py-1 px-12': wine.sold
+            })}
+          >
+            {wine.sold ? 'Rasprodato' : `${wine.price} RSD | Dodaj u korpu`}
           </button>
 
           <div>
@@ -211,9 +252,9 @@ export default function Product() {
         </div>
 
         <div className="font-semibold">
-          <p className="text-[32px] mb-9">Specifikacije</p>
+          <p className="text-2xl sm:text-[32px] mb-6 sm:mb-9">Specifikacije</p>
 
-          <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 sm:gap-y-10">
             {wine.specs &&
               Object.entries(wine.specs).map(spec => {
                 const key = spec[0]
@@ -221,7 +262,7 @@ export default function Product() {
 
                 return (
                   <div key={key} className="border-b-1 border-primary pb-2">
-                    <p className="text-primary text-xl mb-2 first-letter:capitalize">
+                    <p className="text-primary text-lg sm:text-xl mb-2 first-letter:capitalize">
                       {key}
                     </p>
 
