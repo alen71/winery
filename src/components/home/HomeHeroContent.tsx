@@ -57,9 +57,10 @@ const HomeHeroContent = () => {
         <Overlay video="light" />
         <Overlay video="dark" />
         <video
-          className="w-full h-[480px] sm:h-[580px] object-cover"
           autoPlay
+          playsInline
           loop
+          className="w-full h-[480px] sm:h-[580px] object-cover"
         >
           <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
         </video>
