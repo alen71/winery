@@ -4,6 +4,7 @@ import PageLayout from 'src/components/layout/PageLayout'
 import PageDescriptionRow from 'src/components/shared/PageDescriptionRow'
 import PagesHero from 'src/components/shared/PagesHero'
 import SectionWrapper from 'src/components/shared/SectionWrapper'
+import VineyardsMap from 'src/components/shared/VineyardsMap'
 
 import glassesOfWine from '/public/images/obilasci/kelsey-knight-udj2tD3WKsY-unsplash 1.png'
 import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unsplash 1.jpg'
@@ -20,6 +21,10 @@ const VineYard = () => {
           src={glassesOfWine}
           alt="Grožđe"
         />
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <VineyardsMap />
       </SectionWrapper>
 
       <div className="container relative flex flex-col gap-32">

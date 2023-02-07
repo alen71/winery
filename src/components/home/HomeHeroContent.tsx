@@ -57,11 +57,12 @@ const HomeHeroContent = () => {
         <Overlay video="light" />
         <Overlay video="dark" />
         <video
-          src={require('/public/vinarija-dumo-video.mp4')}
           className="w-full h-[480px] sm:h-[580px] object-cover"
           autoPlay
           loop
-        />
+        >
+          <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
+        </video>
 
         <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20">
           <div className="flex justify-center flex-col gap-5 h-full overflow-hidden">

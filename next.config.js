@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const withVideos = require('next-videos')
-
-const nextConfig = withVideos({
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
@@ -15,6 +13,6 @@ const nextConfig = withVideos({
 
     return config
   }
-})
+}
 
 module.exports = nextConfig

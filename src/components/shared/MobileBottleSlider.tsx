@@ -28,7 +28,7 @@ const MobileBottlesSlider = () => {
       newFocusedBottle = 0
     }
     if (newFocusedBottle < 0) {
-      newFocusedBottle = wineBottles
+      newFocusedBottle = wineBottles - 1
     }
     setFocusedBottle(newFocusedBottle)
   }
