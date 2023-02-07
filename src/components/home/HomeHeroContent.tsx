@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
@@ -58,8 +58,8 @@ const HomeHeroContent = () => {
         <Overlay video="dark" />
         <video
           autoPlay
-          playsInline
           loop
+          muted
           className="w-full h-[480px] sm:h-[580px] object-cover"
         >
           <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
