@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import React, { Dispatch, SetStateAction, useEffect } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 import XIcon from 'src/assets/XIcon.svg'
 import SquareIcon from 'src/assets/squareIcon.svg'
 import FooterContact from '../footer/FooterContact'
 import FooterSocial from '../footer/FooterSocial'
 import { useRouter } from 'next/router'
+import useWindowWidth from 'src/hooks/useWindowWidth'
 
 type Props = {
   open?: boolean
@@ -45,12 +46,13 @@ const Menubar = ({ open, toggleOpen }: Props) => {
 
   return (
     <div
-      className={clsx(
-        'w-0 bg-white fixed z-50 top-0 right-0 h-screen overflow-y-scroll overflow-x-hidden duration-500  ',
-        { 'w-full sm:w-[500px]': open }
-      )}
+      className={`bg-white fixed z-50 top-0 right-0 h-screen overflow-y-scroll overflow-x-hidden duration-500 ${
+        open ? `w-full sm:w-[500px]` : 'w-0'
+      }`}
     >
-      <div className="w-full sm:w-[500px] px-10 sm:px-16 pt-12 bg-white absolute z-50 top-0 right-0 h-screen overflow-y-scroll pb-32">
+      <div
+        className={`w-screen sm:min-w-[500px] px-10 sm:px-16 pt-12 bg-white absolute z-50 top-0 right-0 h-screen overflow-y-scroll pb-32`}
+      >
         <div className="mb-11 relative">
           <div onClick={toggleOpen} className="cursor-pointer">
             <XIcon />
