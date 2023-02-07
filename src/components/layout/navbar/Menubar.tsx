@@ -51,7 +51,7 @@ const Menubar = ({ open, toggleOpen }: Props) => {
       }`}
     >
       <div
-        className={`w-screen sm:min-w-[500px] px-10 sm:px-16 pt-12 bg-white absolute z-50 top-0 right-0 h-screen overflow-y-scroll pb-32`}
+        className={`w-screen sm:w-[500px] px-10 sm:px-16 pt-12 bg-white absolute z-50 top-0 right-0 h-screen overflow-y-scroll pb-32`}
       >
         <div className="mb-11 relative">
           <div onClick={toggleOpen} className="cursor-pointer">
