@@ -1,10 +1,31 @@
 import clsx from 'clsx'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion, useCycle } from 'framer-motion'
 
 import ShopIcon from 'src/assets/cartIcon.svg'
 import useCartItems from 'src/store/useCartItems'
 import { useDimensions } from 'src/hooks/useDimensions'
+
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${
+      height * 2 + 335
+    }px at calc(100% - 80px) calc(100% - 80px))`,
+    transition: {
+      type: 'spring',
+      stiffness: 20,
+      restDelta: 2
+    }
+  }),
+  closed: {
+    clipPath: `circle(30px at calc(100% - 80px) calc(100% - 80px))`,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 40
+    }
+  }
+}
 
 const CartIcon = () => {
   const { cartWines } = useCartItems()
@@ -13,26 +34,15 @@ const CartIcon = () => {
   const containerRef = useRef(null)
   const { height } = useDimensions(containerRef)
 
-  const sidebar = {
-    open: (height = 1000) => ({
-      clipPath: `circle(${
-        height * 2 + 335
-      }px at calc(100% - 80px) calc(100% - 80px))`,
-      transition: {
-        type: 'spring',
-        stiffness: 20,
-        restDelta: 2
-      }
-    }),
-    closed: {
-      clipPath: `circle(30px at calc(100% - 80px) calc(100% - 80px))`,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 40
-      }
+  useEffect(() => {
+    if (isOpen) {
+      document.querySelector('body')?.classList.remove('overflow-y-scroll')
+      document.querySelector('body')?.classList.add('overflow-y-hidden')
+    } else {
+      document.querySelector('body')?.classList.add('overflow-y-scroll')
+      document.querySelector('body')?.classList.remove('overflow-y-hidden')
     }
-  }
+  }, [isOpen])
 
   return (
     <motion.div
