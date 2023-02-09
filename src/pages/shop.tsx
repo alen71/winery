@@ -59,7 +59,7 @@ const Shop = () => {
                   key={i}
                   className="flex items-center justify-center w-full"
                 >
-                  <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 md:gap-5 lg:gap-32">
+                  <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 md:gap-0 lg:gap-32">
                     <div className="max-w-[430px]">
                       <motion.p
                         initial={{ opacity: 0 }}
@@ -84,7 +84,7 @@ const Shop = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{
                           duration: 0.3,
-                          delay: 1
+                          delay: 0.5
                         }}
                         className="my-8 hidden lg:block text-base lg:text-lg"
                       >
@@ -101,7 +101,7 @@ const Shop = () => {
                           aria-label={`Pogledajte detalje o nasem ${name} ${age} ${type} ${
                             variety ? variety : ''
                           }`}
-                          className="block w-fit uppercase border-[3px] border-primary text-primary font-black py-2 px-4 sm:px-8 rounded-xl hover:bg-primary hover:text-white duration-200 text-base lg:text-lg"
+                          className="block w-fit mx-auto lg:mx-0 uppercase border-[3px] border-primary text-primary font-black py-2 px-4 sm:px-8 rounded-xl hover:bg-primary hover:text-white duration-200 text-base lg:text-lg"
                         >
                           Detaljnije o vinu
                         </Link>
@@ -165,7 +165,7 @@ const Shop = () => {
           <Arrow className="sm:scale-[2.5] rotate-180" />
         </motion.div>
 
-        <div className="absolute left-[50%] bottom-10 h-1 w-[70%] sm:w-[80%] lg:w-[800px] translate-x-[-50%] flex items-center">
+        <div className="absolute left-[50%] sm:bottom-10 h-1 w-[70%] sm:w-[80%] lg:w-[800px] translate-x-[-50%] flex items-center">
           <p className="pagination absolute -left-10 text-[22px]">
             {curSlide.toString().padStart(2, '0')}
           </p>

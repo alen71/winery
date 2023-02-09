@@ -7,9 +7,14 @@ import Arrow from 'src/assets/arrow.svg'
 type ReactMoreBtnProps = {
   href: string
   text?: string
+  ariaLabel?: string
 }
 
-const ReadMoreBtn = ({ href, text = 'Pročitaj više' }: ReactMoreBtnProps) => {
+const ReadMoreBtn = ({
+  href,
+  text = 'Pročitaj više',
+  ariaLabel = 'Pročitaj više'
+}: ReactMoreBtnProps) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,6 +23,7 @@ const ReadMoreBtn = ({ href, text = 'Pročitaj više' }: ReactMoreBtnProps) => {
     >
       <Link
         href={href}
+        aria-label={ariaLabel}
         className="group relative text-primary flex items-center w-fit font-semibold text-sm sm:text-base md:text-lg rounded-full border-[1px] border-primary px-6 py-[2px]"
       >
         {text}

@@ -21,6 +21,7 @@ const HomeHeroContent = () => {
   return (
     <>
       <motion.div
+        key="black aside grapes"
         style={{ y: yGrapesValue }}
         className="absolute right-0 top-[250px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
       >
@@ -41,6 +42,7 @@ const HomeHeroContent = () => {
 
       <div className="container relative">
         <motion.div
+          key="central home page wine bottle"
           initial={{ opacity: 0, top: '-28%', x: '-50%' }}
           whileInView={{ opacity: 1, top: '-18%', x: '-50%' }}
           viewport={{ once: true }}

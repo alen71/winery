@@ -7,6 +7,10 @@ import useCartItems from 'src/store/useCartItems'
 import { useDimensions } from 'src/hooks/useDimensions'
 import useWindowWidth from 'src/hooks/useWindowWidth'
 
+import XIcon from 'src/assets/XIcon.svg'
+import CartProductsList from './CartProductsList'
+import CartForm from './CartForm'
+
 const CartIcon = () => {
   const { cartWines } = useCartItems()
 
@@ -49,23 +53,28 @@ const CartIcon = () => {
     }
   }, [isOpen])
 
+  const cartQuantity = cartWines?.reduce(
+    (accumulator: number, wine) => accumulator + wine.quantity,
+    0
+  )
+
   return (
     <motion.div
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
       custom={height}
       ref={containerRef}
-      onClick={toggleOpen as () => void}
     >
       <div
         className={clsx(
           'fixed bottom-5 sm:bottom-10 right-5 sm:right-10 flex w-[45px] sm:w-[73px] h-[45px] sm:h-[73px] border-2 border-primary bg-white rounded-full items-center justify-center cursor-pointer opacity-1 duration-300 z-20',
           { 'opacity-0 pointer-events-none': isOpen }
         )}
+        onClick={toggleOpen as () => void}
       >
         <div className="absolute -left-1 -top-1 w-4 sm:w-6 h-4 sm:h-6 bg-primary rounded-full grid place-content-center text-xs ">
           <div className="absolute left-0 top-0 w-full h-full bg-primary rounded-full animate-ping" />
-          <span className="z-[2]">{cartWines.length}</span>
+          <span className="z-[2]">{cartQuantity}</span>
         </div>
         <ShopIcon className="scale-[0.6] sm:scale-100" />
       </div>
@@ -74,10 +83,22 @@ const CartIcon = () => {
         variants={sidebar}
         className={clsx(
           'fixed inset-0 w-full bg-white z-10 flex items-center justify-center ',
-          { 'z-[60]': isOpen }
+          {
+            'z-[60]': isOpen
+          }
         )}
       >
-        <h1 className="text-gray-primary">Da vidimo radil</h1>
+        <div
+          onClick={toggleOpen as () => void}
+          className="scale-150 absolute right-10 top-10 cursor-pointer"
+        >
+          <XIcon />
+        </div>
+
+        <div className="text-gray-primary w-full h-full ">
+          <CartProductsList />
+          <CartForm />
+        </div>
       </motion.div>
     </motion.div>
   )

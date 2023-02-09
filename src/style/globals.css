@@ -33,5 +33,9 @@ html.open {
   justify-items: center;
 }
 
+.remove-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @tailwind components;
 @tailwind utilities;

@@ -18,8 +18,8 @@ module.exports = {
         'darker-primary-alfa': '#9D864F4c',
 
         'gray-bg': '#2B2B2B',
-        'gray-primary': '#222',
-        'gray-primary-alfa': '#222222a3',
+        'gray-primary': '#1c1c1c',
+        'gray-primary-alfa': '#1c1c1ca3',
         'gray-light': '#E5E5E5',
         lines: '#3E3C34',
         white: '#fff',

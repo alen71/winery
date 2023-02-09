@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import BgLines from '../shared/BgLines'
-import CartIcon from '../shared/CartIcon'
+import CartIcon from './cart/CartIcon'
 import Footer from './footer/Footer'
 import Navbar from './navbar/Navbar'
 
