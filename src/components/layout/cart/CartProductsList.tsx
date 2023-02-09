@@ -5,19 +5,34 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import useCartItems from 'src/store/useCartItems'
 
 import XIcon from 'src/assets/XIcon.svg'
+import { IWine } from 'src/type/wine.type'
+import useManageWineQuantity from 'src/hooks/useManageWineQuantity'
 
 type Props = {}
 
 const CartProductsList = (props: Props) => {
-  const { cartWines } = useCartItems()
+  const { cartWines, updateCartWines } = useCartItems()
 
   const totalCost = cartWines?.reduce(
     (accumulator: number, wine) => accumulator + wine.price * wine.quantity,
     0
   )
 
+  const removeWineFromCart = (currentWine: IWine) => {
+    const updatedWines = cartWines.filter(
+      wine => wine.slug !== currentWine.slug
+    )
+
+    updatedWines && updateCartWines(updatedWines)
+  }
+
+  const { increaseQuantity, decreaseQuantity } = useManageWineQuantity({
+    cartWines,
+    updateCartWines
+  })
+
   return (
-    <div className="max-w-[500px] h-full border-x-1 border-primary flex flex-col mx-auto">
+    <div className="flex-1 justify-self-end max-w-[500px] h-full border-x-1 border-primary flex flex-col">
       <div className="remove-scrollbar overflow-y-scroll h-full w-full divide-y-1 divide-primary">
         {cartWines.map(wine => {
           return (
@@ -32,18 +47,29 @@ const CartProductsList = (props: Props) => {
                     {wine.name} {wine.age} - {wine.type}{' '}
                     {wine.variety ? wine.variety : ''}
                   </p>
-                  <div className="scale-90 cursor-pointer">
+                  <div
+                    className="scale-90 cursor-pointer"
+                    onClick={() => removeWineFromCart(wine)}
+                  >
                     <XIcon />
                   </div>
                 </div>
 
                 <div className="flex gap-14 w-full">
                   <div className="w-full border-b-1 border-gray-primary text-primary pb-1 flex justify-between items-center">
-                    <span className="bg-primary h-[1px] w-3 cursor-pointer" />
+                    <div
+                      className="w-3 h-3 grid place-content-center cursor-pointer"
+                      onClick={() => decreaseQuantity(wine)}
+                    >
+                      <span className="bg-primary h-[1px] w-3 " />
+                    </div>
 
                     <p className="font-semibold text-xl">{wine.quantity}</p>
 
-                    <div className="relative flex justify-center items-center w-3 h-3 cursor-pointer">
+                    <div
+                      className="relative flex justify-center items-center w-3 h-3 cursor-pointer"
+                      onClick={() => increaseQuantity(wine)}
+                    >
                       <span className="absolute bg-primary h-[1px] w-3" />
                       <span className="absolute bg-primary h-[1px] w-3 rotate-90" />
                     </div>

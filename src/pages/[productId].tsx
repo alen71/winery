@@ -22,7 +22,7 @@ import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
-  const { cartWines, addWine, updateWineQuantity } = useCartItems()
+  const { cartWines, addWine, updateCartWines } = useCartItems()
 
   // get slug from query
   const router = useRouter()
@@ -88,7 +88,7 @@ export default function Product() {
             }
           : { ...wine }
       })
-      updateWineQuantity(updatedWineArray)
+      updateCartWines(updatedWineArray)
     }
   }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { IWine } from 'src/type/wine.type'
 import { create } from 'zustand'
 
-type ICartWine = IWine & {
+export type ICartWine = IWine & {
   quantity: number
 }
 
@@ -10,7 +10,7 @@ type CartProps = {
   cartWines: ICartWine[]
   newWine: ICartWine
   addWine: (newWine: ICartWine) => void
-  updateWineQuantity: (newWinesArray: ICartWine[]) => void
+  updateCartWines: (newWinesArray: ICartWine[]) => void
 }
 
 const useCartItems = create<CartProps>(set => ({
@@ -22,7 +22,7 @@ const useCartItems = create<CartProps>(set => ({
       cartWines: [...state.cartWines, newWine] as ICartWine[]
     }))
   },
-  updateWineQuantity(newWinesArray) {
+  updateCartWines(newWinesArray) {
     set(() => ({
       cartWines: [...newWinesArray]
     }))

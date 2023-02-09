@@ -95,7 +95,7 @@ const CartIcon = () => {
           <XIcon />
         </div>
 
-        <div className="text-gray-primary w-full h-full ">
+        <div className="text-gray-primary w-full h-full flex justify-center font-medium">
           <CartProductsList />
           <CartForm />
         </div>
