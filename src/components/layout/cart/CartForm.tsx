@@ -49,10 +49,10 @@ function CartForm({}: Props) {
   })
 
   return (
-    <div className="flex-1 max-w-[726px] text-gray-primary p-20 overflow-y-scroll">
+    <div className="flex-1 w-full md:max-w-[726px] text-gray-primary p-5 sm:p-10 lg:p-20 pb-52 md:pb-0 md:overflow-y-scroll">
       <p className="text-primary font-semibold text-3xl">Kupovina</p>
 
-      <p className="text-base my-4">
+      <p className="text-sm sm:text-base my-4">
         Unesite Vašu e-mail adresu. Preko ove e-mail adrese ćemo vršiti
         komunikaciju sa Vama.
       </p>
@@ -72,7 +72,7 @@ function CartForm({}: Props) {
           error={formik.errors.email}
         />
 
-        <p className="text-base">
+        <p className="text-sm sm:text-base">
           Unesite Vaše podatke kako bi željene proizvode poslali na Vašu adresu.
           Kupovina važi isključivo za državljane Srbije.
         </p>
@@ -121,7 +121,7 @@ function CartForm({}: Props) {
           error={formik.errors.address}
         />
 
-        <div className="grid grid-cols-2 gap-y-5 gap-x-9">
+        <div className="grid sm:grid-cols-2 gap-y-5 gap-x-9">
           <CustomInput
             type="tel"
             name="city"

@@ -32,8 +32,8 @@ const CartProductsList = (props: Props) => {
   })
 
   return (
-    <div className="flex-1 justify-self-end max-w-[500px] h-full border-x-1 border-primary flex flex-col">
-      <div className="remove-scrollbar overflow-y-scroll h-full w-full divide-y-1 divide-primary">
+    <div className="flex-1 justify-self-end w-full md:max-w-[500px] h-full border-x-1 border-y-1 md:border-b-0 border-primary flex flex-col">
+      <div className="md:overflow-y-scroll min-h-fit md:h-full w-full divide-y-1 divide-primary">
         {cartWines.map(wine => {
           return (
             <div key={wine.slug} className="flex py-6 px-8 gap-8 items-center">
@@ -84,7 +84,7 @@ const CartProductsList = (props: Props) => {
           )
         })}
       </div>
-      <div className="bg-primary text-white flex justify-between px-8 py-5 w-full text-2xl font-semibold">
+      <div className="bg-primary text-white flex justify-between px-8 py-5 w-full text-xl md:text-2xl font-semibold">
         <span>Ukupno:</span>
         <span>{totalCost} rsd</span>
       </div>

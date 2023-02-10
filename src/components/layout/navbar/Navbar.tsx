@@ -68,7 +68,7 @@ const Navbar = ({ wide }: NavbarProps) => {
         </div>
       </header>
       <div
-        className={clsx('fixed inset-0 backdrop-blur-md duration-500', {
+        className={clsx('fixed inset-0 bg-gray-bg/80 duration-500', {
           'z-[-1] opacity-0 pointer-events-none': !open,
           'z-[49] opacity-1': open
         })}

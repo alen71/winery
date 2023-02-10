@@ -26,16 +26,18 @@ const HomeHeroContent = () => {
         className="absolute right-0 top-[250px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
       >
         <motion.div
+          key="black grapes"
           initial={{ x: '100%' }}
           whileInView={{ x: '20%' }}
           viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: 'anticipate' }}
+          transition={{ duration: 1.5, ease: 'anticipate', delay: 0.7 }}
         >
           <Image
             src={blackGrape}
             alt="Crno Grožđe vinarije DUMO"
             quality={100}
             style={{ marginLeft: 'auto' }}
+            priority
           />
         </motion.div>
       </motion.div>
@@ -46,7 +48,12 @@ const HomeHeroContent = () => {
           initial={{ opacity: 0, top: '-28%', x: '-50%' }}
           whileInView={{ opacity: 1, top: '-18%', x: '-50%' }}
           viewport={{ once: true }}
-          transition={{ type: 'spring', stiffness: 50, duration: 0.3 }}
+          transition={{
+            type: 'spring',
+            stiffness: 50,
+            duration: 0.3,
+            delay: 0.7
+          }}
           style={{ y: yValue }}
           className="absolute left-[50%] z-10 hidden xl:block max-w-[300px]"
         >
@@ -54,6 +61,7 @@ const HomeHeroContent = () => {
             src={mainWineBottle}
             alt="Flaša vina pinot noir"
             quality={100}
+            priority
           />
         </motion.div>
         <Overlay video="light" />
@@ -74,7 +82,7 @@ const HomeHeroContent = () => {
               animate={{ x: '0%' }}
               transition={{
                 duration: 0.7,
-                delay: 0.5,
+                delay: 1.2,
                 type: 'spring',
                 stiffness: 35
               }}
@@ -90,7 +98,7 @@ const HomeHeroContent = () => {
                 animate={{ y: '0%' }}
                 transition={{
                   duration: 0.6,
-                  delay: 1,
+                  delay: 1.7,
                   type: 'spring',
                   stiffness: 80
                 }}
@@ -99,7 +107,7 @@ const HomeHeroContent = () => {
               <motion.p
                 initial={{ x: '-110%' }}
                 animate={{ x: '0%' }}
-                transition={{ duration: 0.7, ease: 'anticipate', delay: 1.7 }}
+                transition={{ duration: 0.7, ease: 'anticipate', delay: 2.4 }}
                 className="w-fit text-sm sm:text-lg md:text-xl  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
@@ -109,7 +117,7 @@ const HomeHeroContent = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 1 }}
             >
               <ShopBtn />
             </motion.div>

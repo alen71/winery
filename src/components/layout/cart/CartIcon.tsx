@@ -13,11 +13,9 @@ import CartForm from './CartForm'
 
 const CartIcon = () => {
   const { cartWines } = useCartItems()
-
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
   const { height } = useDimensions(containerRef)
-
   const width = useWindowWidth()
 
   const position = width < 641 ? '40px' : '80px'
@@ -37,8 +35,9 @@ const CartIcon = () => {
       clipPath: `circle(0px at calc(100% - ${position}) calc(100% - ${position}))`,
       transition: {
         type: 'spring',
-        stiffness: 300,
-        damping: 40
+        stiffness: 200,
+        damping: 40,
+        delay: 0.3
       }
     }
   }
@@ -81,21 +80,18 @@ const CartIcon = () => {
 
       <motion.div
         variants={sidebar}
-        className={clsx(
-          'fixed inset-0 w-full bg-white z-10 flex items-center justify-center ',
-          {
-            'z-[60]': isOpen
-          }
-        )}
+        className={clsx('fixed inset-0 w-full bg-white z-10', {
+          'z-[60]': isOpen
+        })}
       >
         <div
           onClick={toggleOpen as () => void}
-          className="scale-150 absolute right-10 top-10 cursor-pointer"
+          className="scale-125 md:scale-150 absolute right-5 md:right-10 top-5 md:top-10 cursor-pointer"
         >
           <XIcon />
         </div>
 
-        <div className="text-gray-primary w-full h-full flex justify-center font-medium">
+        <div className="text-gray-primary w-full h-full flex flex-col md:flex-row md:justify-center font-medium overflow-y-scroll md:overflow-y-hidden pt-14 md:pt-0 ">
           <CartProductsList />
           <CartForm />
         </div>
