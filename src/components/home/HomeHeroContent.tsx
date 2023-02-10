@@ -30,7 +30,7 @@ const HomeHeroContent = () => {
           initial={{ x: '100%' }}
           whileInView={{ x: '20%' }}
           viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: 'anticipate', delay: 0.7 }}
+          transition={{ duration: 1.5, ease: 'anticipate', delay: 0.9 }}
         >
           <Image
             src={blackGrape}
@@ -52,7 +52,7 @@ const HomeHeroContent = () => {
             type: 'spring',
             stiffness: 50,
             duration: 0.3,
-            delay: 0.7
+            delay: 0.9
           }}
           style={{ y: yValue }}
           className="absolute left-[50%] z-10 hidden xl:block max-w-[300px]"
@@ -82,7 +82,7 @@ const HomeHeroContent = () => {
               animate={{ x: '0%' }}
               transition={{
                 duration: 0.7,
-                delay: 1.2,
+                delay: 1.4,
                 type: 'spring',
                 stiffness: 35
               }}
@@ -98,7 +98,7 @@ const HomeHeroContent = () => {
                 animate={{ y: '0%' }}
                 transition={{
                   duration: 0.6,
-                  delay: 1.7,
+                  delay: 1.9,
                   type: 'spring',
                   stiffness: 80
                 }}
@@ -107,7 +107,7 @@ const HomeHeroContent = () => {
               <motion.p
                 initial={{ x: '-110%' }}
                 animate={{ x: '0%' }}
-                transition={{ duration: 0.7, ease: 'anticipate', delay: 2.4 }}
+                transition={{ duration: 0.7, ease: 'anticipate', delay: 2.6 }}
                 className="w-fit text-sm sm:text-lg md:text-xl  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
