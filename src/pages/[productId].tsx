@@ -19,10 +19,14 @@ import { ParsedUrlQuery } from 'querystring'
 import useCartItems from 'src/store/useCartItems'
 import CartIcon from 'src/components/layout/cart/CartIcon'
 import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
+import WinesTransition from 'src/components/layout/WinesTransition'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
   const { cartWines, addWine, updateCartWines } = useCartItems()
+  const [animation, setAnimation] = useState(false)
+
+
 
   // get slug from query
   const router = useRouter()
@@ -30,6 +34,9 @@ export default function Product() {
 
   // get product from zustand by the slug
   const wines = useProductList(state => state.wines)
+  const [transitionWine, setTransitionWine] = useState(
+    wines.find(wine => wine.slug === productId) as IWine
+  )
 
   // get product group from zustand by the current product group
   const [wine, setWine] = useState<IWine>({} as IWine)
@@ -51,7 +58,12 @@ export default function Product() {
       w => `${w.age} ${w.variety ? `| ${w.variety}` : ''}` === age
     )
     if (newWine) {
-      setWine(newWine)
+      setTransitionWine(newWine)
+      setAnimation(true)
+      setTimeout(() => {
+        setWine(newWine)
+        setAnimation(false)
+      }, 1800)
     }
   }
 
@@ -94,10 +106,11 @@ export default function Product() {
 
   return (
     <>
+      <WinesTransition animation={animation} nextWine={transitionWine} />
       <CartIcon />
       <div className="grid lg:grid-cols-[1fr_77px_1fr] ">
-        <div className="bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex flex-col sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
-          <div className="h-screen w-full flex justify-start items-center relative">
+        <div className="bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
+          <div className="pt-28 sm:pt-0 min-h-fit sm:h-screen w-full flex justify-start items-center relative">
             <div className="absolute top-5 left-0 w-full px-5 flex justify-between items-center">
               <div className=" text-primary">
                 <Logo />

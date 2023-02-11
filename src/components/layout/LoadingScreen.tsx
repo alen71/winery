@@ -14,7 +14,7 @@ const LoadingScreen = ({ children }: Props) => {
   useEffect(() => {
     setTimeout(() => {
       setHidden(true)
-    }, 1600)
+    }, 1900)
   }, [])
 
   return (

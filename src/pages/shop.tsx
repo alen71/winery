@@ -136,7 +136,7 @@ const Shop = () => {
           initial={{ opacity: 0, x: '-200%' }}
           animate={{ opacity: 1, x: '0%' }}
           transition={{ duration: 0.6, ease: 'easeIn' }}
-          className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-10 rounded-full border-[1px] border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
+          className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
           onClick={prevBottle}
         >
           <Arrow className="sm:scale-[2.5]" />
@@ -156,10 +156,11 @@ const Shop = () => {
         />
 
         <motion.div
-          initial={{ opacity: 0, x: '200%' }}
-          animate={{ opacity: 1, x: '0%' }}
+          initial={{ opacity: 0, x: '200%', scale: 0.8 }}
+          animate={{ opacity: 1, x: '0%', scale: 0.8 }}
+          whileHover={{ scale: 1 }}
           transition={{ duration: 0.6, ease: 'easeIn' }}
-          className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-10 rounded-full border-[1px] border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
+          className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
           onClick={nextBottle}
         >
           <Arrow className="sm:scale-[2.5] rotate-180" />
