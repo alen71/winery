@@ -18,8 +18,6 @@ const WinesTransition = ({ animation, nextWine }: Props) => {
     close: { width: '0vw', origin: 'left', transition: { duration: 1 } }
   }
 
-  console.log(animation)
-
   const imageVariants = {
     open: {
       opacity: 1,

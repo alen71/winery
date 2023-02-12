@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
@@ -13,10 +13,15 @@ import Overlay from 'src/components/shared/Overlay'
 
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
+  const videRef = useRef<HTMLVideoElement>(null)
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
+
+  useLayoutEffect(() => {
+    videRef?.current?.play()
+  }, [videRef])
 
   return (
     <>
@@ -67,6 +72,7 @@ const HomeHeroContent = () => {
         <Overlay video="light" />
         <Overlay video="dark" />
         <video
+          ref={videRef}
           autoPlay
           loop
           muted

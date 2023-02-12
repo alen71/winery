@@ -17,16 +17,14 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { convertToSlug } from 'src/utils/helper'
 import { ParsedUrlQuery } from 'querystring'
 import useCartItems from 'src/store/useCartItems'
-import CartIcon from 'src/components/layout/cart/CartIcon'
+import CartIcon from 'src/components/cart/CartIcon'
 import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
 import WinesTransition from 'src/components/layout/WinesTransition'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
-  const { cartWines, addWine, updateCartWines } = useCartItems()
+  const { cartWines, updateCartWines, addToCart } = useCartItems()
   const [animation, setAnimation] = useState(false)
-
-
 
   // get slug from query
   const router = useRouter()
@@ -72,37 +70,6 @@ export default function Product() {
       wines,
       wine
     })
-
-  const addToCart = () => {
-    // see if current wine is in cart
-    const isWineInCart = cartWines.find(cartWine => cartWine.slug === wine.slug)
-
-    // if current wine isn't in cart set it
-    if (!isWineInCart) {
-      addWine({ ...wine, quantity: quantity })
-      return
-    }
-
-    // see if current wine which is in cart has same quantity
-    const hasSameQuantity = cartWines.find(
-      cartWine => cartWine.slug === wine.slug && cartWine.quantity !== quantity
-    )
-
-    // if current wine hasn't same quantity update it
-    if (hasSameQuantity) {
-      const index = cartWines.indexOf(hasSameQuantity)
-
-      const updatedWineArray = cartWines.map(wine => {
-        return hasSameQuantity.slug === wine.slug
-          ? {
-              ...hasSameQuantity,
-              quantity: quantity
-            }
-          : { ...wine }
-      })
-      updateCartWines(updatedWineArray)
-    }
-  }
 
   return (
     <>
@@ -270,7 +237,10 @@ export default function Product() {
                   !wine.sold,
                 'bg-gray-primary rounded-md py-1 px-12': wine.sold
               })}
-              onClick={addToCart}
+              onClick={() => {
+                setQuantity(1)
+                addToCart(cartWines, wine, quantity)
+              }}
             >
               {wine.sold ? 'Rasprodato' : `${wine.price} RSD | Dodaj u korpu`}
             </button>

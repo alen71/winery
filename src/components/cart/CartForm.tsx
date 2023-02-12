@@ -1,14 +1,19 @@
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as Yup from 'yup'
-
-import CustomInput from 'src/components/shared/CustomInput'
-import Link from 'next/link'
 import clsx from 'clsx'
+import Link from 'next/link'
+
+import Input from 'src/components/shared/input/Input'
+import useSendOrder from 'src/hooks/useSendOrder'
+import useCartItems from 'src/store/useCartItems'
 
 type Props = {}
 
 function CartForm({}: Props) {
+  const { isLoading, isSuccess, send } = useSendOrder()
+  const { resetCart } = useCartItems()
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -43,10 +48,17 @@ function CartForm({}: Props) {
       conditionOfUse: Yup.boolean().oneOf([true], 'error')
     }),
 
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: async values => {
+      await send(values)
+      formik.resetForm()
     }
   })
+
+  useEffect(() => {
+    if (!isSuccess) return
+
+    resetCart()
+  }, [isSuccess, resetCart])
 
   return (
     <div className="flex-1 w-full md:max-w-[726px] text-gray-primary p-5 sm:p-10 lg:p-20 pb-52 md:pb-0 md:overflow-y-scroll">
@@ -61,7 +73,7 @@ function CartForm({}: Props) {
         onSubmit={formik.handleSubmit}
         className="flex flex-col gap-5 w-full"
       >
-        <CustomInput
+        <Input
           type="email"
           name="email"
           placeholder="Vaša e-mail adresa*"
@@ -78,7 +90,7 @@ function CartForm({}: Props) {
         </p>
 
         <div className="grid grid-cols-2 gap-9">
-          <CustomInput
+          <Input
             type="text"
             name="firstName"
             label="Vaše ime*"
@@ -89,7 +101,7 @@ function CartForm({}: Props) {
             error={formik.errors.firstName}
           />
 
-          <CustomInput
+          <Input
             type="text"
             name="lastName"
             label="Vaše prezime*"
@@ -101,7 +113,7 @@ function CartForm({}: Props) {
           />
         </div>
 
-        <CustomInput
+        <Input
           type="tel"
           name="phoneNumber"
           label="Broj telefona"
@@ -111,7 +123,7 @@ function CartForm({}: Props) {
           error={formik.errors.phoneNumber}
         />
 
-        <CustomInput
+        <Input
           type="tel"
           name="address"
           label="Adresa stanovanja*"
@@ -122,7 +134,7 @@ function CartForm({}: Props) {
         />
 
         <div className="grid sm:grid-cols-2 gap-y-5 gap-x-9">
-          <CustomInput
+          <Input
             type="tel"
             name="city"
             label="Grad*"
@@ -139,7 +151,7 @@ function CartForm({}: Props) {
             </p>
           </div>
 
-          <CustomInput
+          <Input
             type="text"
             name="postCode"
             label="Poštanski broj*"
@@ -151,9 +163,15 @@ function CartForm({}: Props) {
 
           <button
             type="submit"
-            className="uppercase bg-primary hover:bg-darker-primary text-white w-full h-fit mt-auto rounded-lg py-[7px] text-base font-black duration-200"
+            className={clsx(
+              'uppercase bg-primary hover:bg-darker-primary text-white w-full h-fit mt-auto rounded-lg py-[7px] text-base font-black duration-200',
+              { 'pointer-events-none': isLoading }
+            )}
           >
-            Potvrdite kupovinu
+            {!isLoading && 'Potvrdite kupovinu'}
+            {isLoading && (
+              <div className="w-6 h-6 border-2 border-white/20 border-t-white border-t-2 animate-spin rounded-full mx-auto" />
+            )}
           </button>
         </div>
 

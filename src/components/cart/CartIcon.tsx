@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { motion, useCycle } from 'framer-motion'
 
 import ShopIcon from 'src/assets/cartIcon.svg'
@@ -10,9 +10,11 @@ import useWindowWidth from 'src/hooks/useWindowWidth'
 import XIcon from 'src/assets/XIcon.svg'
 import CartProductsList from './CartProductsList'
 import CartForm from './CartForm'
+import ShopBtn from '../shared/ShopBtn'
 
 const CartIcon = () => {
-  const { cartWines } = useCartItems()
+  const { cartWines, setStoredWines } = useCartItems()
+
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
   const { height } = useDimensions(containerRef)
@@ -22,9 +24,7 @@ const CartIcon = () => {
 
   const sidebar = {
     open: (height = 1000) => ({
-      clipPath: `circle(${
-        height * 2 + 335
-      }px at calc(100% - ${position}) calc(100% - ${position}))`,
+      clipPath: `circle(140% at calc(100% - ${position}) calc(100% - ${position}))`,
       transition: {
         type: 'spring',
         stiffness: 20,
@@ -32,12 +32,11 @@ const CartIcon = () => {
       }
     }),
     closed: {
-      clipPath: `circle(0px at calc(100% - ${position}) calc(100% - ${position}))`,
+      clipPath: `circle(0% at calc(100% - ${position}) calc(100% - ${position}))`,
       transition: {
         type: 'spring',
         stiffness: 200,
-        damping: 40,
-        delay: 0.3
+        damping: 40
       }
     }
   }
@@ -51,6 +50,10 @@ const CartIcon = () => {
       document.querySelector('body')?.classList.remove('overflow-y-hidden')
     }
   }, [isOpen])
+
+  // useLayoutEffect(() => {
+  //   setStoredWines()
+  // }, [])
 
   const cartQuantity = cartWines?.reduce(
     (accumulator: number, wine) => accumulator + wine.quantity,
@@ -72,7 +75,12 @@ const CartIcon = () => {
         onClick={toggleOpen as () => void}
       >
         <div className="absolute -left-1 -top-1 w-4 sm:w-6 h-4 sm:h-6 bg-primary rounded-full grid place-content-center text-xs ">
-          <div className="absolute left-0 top-0 w-full h-full bg-primary rounded-full animate-ping" />
+          <div
+            className={clsx(
+              'absolute left-0 top-0 w-full h-full bg-primary rounded-full ',
+              { 'animate-ping': cartWines.length > 0 }
+            )}
+          />
           <span className="z-[2]">{cartQuantity}</span>
         </div>
         <ShopIcon className="scale-[0.6] sm:scale-100" />
@@ -85,16 +93,29 @@ const CartIcon = () => {
         })}
       >
         <div
-          onClick={toggleOpen as () => void}
-          className="scale-125 md:scale-150 absolute right-5 md:right-10 top-5 md:top-10 cursor-pointer"
+          onClick={() => toggleOpen()}
+          className="scale-125 md:scale-150 absolute right-5 md:right-10 top-5 md:top-10 cursor-pointer z-10"
         >
           <XIcon />
         </div>
 
-        <div className="text-gray-primary w-full h-full flex flex-col md:flex-row md:justify-center font-medium overflow-y-scroll md:overflow-y-hidden pt-14 md:pt-0 ">
-          <CartProductsList />
-          <CartForm />
-        </div>
+        {cartWines.length > 0 && (
+          <div className="text-gray-primary w-full h-full flex flex-col md:flex-row md:justify-center font-medium overflow-y-scroll md:overflow-y-hidden pt-14 md:pt-0 ">
+            <CartProductsList />
+            <CartForm />
+          </div>
+        )}
+
+        {cartWines.length === 0 && (
+          <div className="absolute w-full h-full grid place-content-center">
+            <p className="text-gray-primary font-semibold text-3xl mb-5">
+              Vaša korpa je prazna.
+            </p>
+            <div className="mx-auto">
+              <ShopBtn />
+            </div>
+          </div>
+        )}
       </motion.div>
     </motion.div>
   )

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import useCartItems from 'src/store/useCartItems'
@@ -7,24 +7,19 @@ import useCartItems from 'src/store/useCartItems'
 import XIcon from 'src/assets/XIcon.svg'
 import { IWine } from 'src/type/wine.type'
 import useManageWineQuantity from 'src/hooks/useManageWineQuantity'
+import useSendOrder from 'src/hooks/useSendOrder'
 
 type Props = {}
 
 const CartProductsList = (props: Props) => {
-  const { cartWines, updateCartWines } = useCartItems()
+  const { cartWines, updateCartWines, removeWineFromCart, resetCart } =
+    useCartItems()
+  const { isSuccess } = useSendOrder()
 
   const totalCost = cartWines?.reduce(
     (accumulator: number, wine) => accumulator + wine.price * wine.quantity,
     0
   )
-
-  const removeWineFromCart = (currentWine: IWine) => {
-    const updatedWines = cartWines.filter(
-      wine => wine.slug !== currentWine.slug
-    )
-
-    updatedWines && updateCartWines(updatedWines)
-  }
 
   const { increaseQuantity, decreaseQuantity } = useManageWineQuantity({
     cartWines,
@@ -33,7 +28,7 @@ const CartProductsList = (props: Props) => {
 
   return (
     <div className="flex-1 justify-self-end w-full md:max-w-[500px] h-full border-x-1 border-y-1 md:border-b-0 border-primary flex flex-col">
-      <div className="md:overflow-y-scroll min-h-fit md:h-full w-full divide-y-1 divide-primary">
+      <div className="md:overflow-y-scroll min-h-[400px] md:h-full w-full divide-y-1 divide-primary">
         {cartWines.map(wine => {
           return (
             <div key={wine.slug} className="flex py-6 px-8 gap-8 items-center">

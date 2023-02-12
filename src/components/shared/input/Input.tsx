@@ -8,7 +8,7 @@ type inputProps = HTMLMotionProps<'input'> & {
   error?: string | undefined
 }
 
-const CustomInput: FC<inputProps> = ({
+const Input: FC<inputProps> = ({
   label,
   border = 'gray-primary',
   error,
@@ -72,4 +72,4 @@ const CustomInput: FC<inputProps> = ({
   )
 }
 
-export default CustomInput
+export default Input
