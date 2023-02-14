@@ -5,7 +5,6 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import useCartItems from 'src/store/useCartItems'
 
 import XIcon from 'src/assets/XIcon.svg'
-import { IWine } from 'src/type/wine.type'
 import useManageWineQuantity from 'src/hooks/useManageWineQuantity'
 import useSendOrder from 'src/hooks/useSendOrder'
 
@@ -25,6 +24,10 @@ const CartProductsList = (props: Props) => {
     cartWines,
     updateCartWines
   })
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartWines))
+  }, [cartWines])
 
   return (
     <div className="flex-1 justify-self-end w-full md:max-w-[500px] h-full border-x-1 border-y-1 md:border-b-0 border-primary flex flex-col">

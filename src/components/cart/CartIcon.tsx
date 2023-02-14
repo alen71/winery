@@ -13,7 +13,7 @@ import CartForm from './CartForm'
 import ShopBtn from '../shared/ShopBtn'
 
 const CartIcon = () => {
-  const { cartWines, setStoredWines } = useCartItems()
+  const { cartWines, updateCartWines } = useCartItems()
 
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
@@ -51,9 +51,13 @@ const CartIcon = () => {
     }
   }, [isOpen])
 
-  // useLayoutEffect(() => {
-  //   setStoredWines()
-  // }, [])
+  useLayoutEffect(() => {
+    const storedWines = JSON.parse(localStorage.getItem('cart')!)
+
+    if (!storedWines) return
+
+    updateCartWines(storedWines)
+  }, [])
 
   const cartQuantity = cartWines?.reduce(
     (accumulator: number, wine) => accumulator + wine.quantity,
