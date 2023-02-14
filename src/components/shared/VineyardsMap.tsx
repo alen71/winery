@@ -29,7 +29,7 @@ const VineyardsMap = (props: Props) => {
           <Map
             {...viewState}
             onMove={(evt: any) => setViewState(evt.viewState)}
-            mapStyle="mapbox://styles/alen77/cle4dshoh001201ocwcsg1f2z/draft"
+            mapStyle="mapbox://styles/alen77/cle4dshoh001201ocwcsg1f2z"
             mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
           >
             <Marker
