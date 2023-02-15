@@ -72,7 +72,7 @@ export default function Product() {
 
     setTimeout(() => {
       router.push(href)
-    }, 200)
+    }, 800)
   }
 
   router.events?.on('routeChangeComplete', () => setAnimation(false))
@@ -163,7 +163,7 @@ export default function Product() {
               return (
                 <div key={i} className="h-10 flex items-center">
                   <p
-                    onClick={() => changeAge(age)}
+                    onClick={() => age !== currWineAge && changeAge(age)}
                     className={clsx('duration-300 cursor-pointer w-fit', {
                       'font-light text-[22px] text-primary':
                         age !== currWineAge,
@@ -197,20 +197,28 @@ export default function Product() {
           </div>
 
           <div className="absolute left-8 sm:left-12 right-8 sm:right-12 flex items-center lg:block lg:static">
-            <div
-              onClick={() => toNewWineCategory(findNextGroup() as string)}
+            <Link
+              href={`/${findNextGroup()}`}
+              onClick={(e: any) => {
+                e.preventDefault()
+                toNewWineCategory(findNextGroup() as string)
+              }}
               aria-label="Idite na sljedeće vino"
               className="absolute right-0 lg:static block cursor-pointer scale-125"
             >
               <Arrow />
-            </div>
-            <div
-              onClick={() => toNewWineCategory(findPrevGroup() as string)}
+            </Link>
+            <Link
+              href={`/${findPrevGroup()}`}
+              onClick={(e: any) => {
+                e.preventDefault()
+                toNewWineCategory(findPrevGroup() as string)
+              }}
               aria-label="Idite na prethodno vino"
               className="absolute left-0 lg:static block rotate-180 lg:mt-4 cursor-pointer scale-125"
             >
               <Arrow />
-            </div>
+            </Link>
           </div>
         </div>
 

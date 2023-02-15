@@ -6,9 +6,10 @@ import { IWine } from 'src/type/wine.type'
 
 type Props = {
   animation: boolean
+  initialClosed?: boolean
 }
 
-const WinesTransition = ({ animation }: Props) => {
+const WinesTransition = ({ animation, initialClosed }: Props) => {
   const containerVariants = {
     open: {
       width: '100vw',
@@ -27,7 +28,7 @@ const WinesTransition = ({ animation }: Props) => {
 
   return (
     <motion.div
-      initial="open"
+      initial={initialClosed ? 'closed' : 'open'}
       animate={animation ? 'open' : 'close'}
       variants={containerVariants}
       className="fixed h-screen bg-gray-bg z-30 overflow-hidden"
@@ -35,8 +36,8 @@ const WinesTransition = ({ animation }: Props) => {
       <div className="absolute w-screen h-screen flex items-center justify-center text-6xl">
         <motion.p
           variants={textVariants}
-          initial="close"
-          animate="open"
+          initial="open"
+          animate={animation ? 'open' : 'close'}
           className="font-medium"
         >
           Vinarija <span className="font-bold text-primary">Dumo</span>
