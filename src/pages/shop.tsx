@@ -29,6 +29,28 @@ const Shop = () => {
     setCurSlide(increaseSlide)
   }
 
+  const prevSlideBtnVariants = {
+    hidden: { opacity: 0, x: '-200%', scale: 0.9 },
+    visible: {
+      opacity: 1,
+      x: '0%',
+      scale: 0.9,
+      transition: { duration: 0.6, ease: 'easeIn' }
+    },
+    hover: { scale: 1, transition: { duration: 0.3 } }
+  }
+
+  const nextSlideBtnVariants = {
+    hidden: { opacity: 0, x: '200%', scale: 0.9 },
+    visible: {
+      opacity: 1,
+      x: '0%',
+      scale: 0.9,
+      transition: { duration: 0.6, ease: 'easeIn' }
+    },
+    hover: { scale: 1, transition: { duration: 0.3 } }
+  }
+
   return (
     <div className="relative h-screen w-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
       <Navbar wide />
@@ -133,9 +155,10 @@ const Shop = () => {
         </Swiper>
 
         <motion.div
-          initial={{ opacity: 0, x: '-200%' }}
-          animate={{ opacity: 1, x: '0%' }}
-          transition={{ duration: 0.6, ease: 'easeIn' }}
+          variants={prevSlideBtnVariants}
+          initial="hidden"
+          animate="visible"
+          whileHover="hover"
           className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
           onClick={prevBottle}
         >
@@ -156,10 +179,10 @@ const Shop = () => {
         />
 
         <motion.div
-          initial={{ opacity: 0, x: '200%', scale: 0.8 }}
-          animate={{ opacity: 1, x: '0%', scale: 0.8 }}
-          whileHover={{ scale: 1 }}
-          transition={{ duration: 0.6, ease: 'easeIn' }}
+          variants={nextSlideBtnVariants}
+          initial="hidden"
+          animate="visible"
+          whileHover="hover"
           className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
           onClick={nextBottle}
         >

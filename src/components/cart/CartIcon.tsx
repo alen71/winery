@@ -73,12 +73,12 @@ const CartIcon = () => {
     >
       <div
         className={clsx(
-          'fixed bottom-5 sm:bottom-10 right-5 sm:right-10 flex w-[45px] sm:w-[73px] h-[45px] sm:h-[73px] border-2 border-primary bg-white rounded-full items-center justify-center cursor-pointer opacity-1 duration-300 z-20',
+          'fixed bottom-5 sm:bottom-10 right-5 sm:right-10 flex w-[63px] sm:w-[73px] h-[63px] sm:h-[73px] border-2 border-primary bg-white rounded-full items-center justify-center cursor-pointer opacity-1 duration-300 z-20',
           { 'opacity-0 pointer-events-none': isOpen }
         )}
         onClick={toggleOpen as () => void}
       >
-        <div className="absolute -left-1 -top-1 w-4 sm:w-6 h-4 sm:h-6 bg-primary rounded-full grid place-content-center text-xs ">
+        <div className="absolute -left-1 -top-1 w-5 sm:w-6 h-5 sm:h-6 bg-primary rounded-full grid place-content-center text-xs ">
           <div
             className={clsx(
               'absolute left-0 top-0 w-full h-full bg-primary rounded-full ',
@@ -87,7 +87,7 @@ const CartIcon = () => {
           />
           <span className="z-[2]">{cartQuantity}</span>
         </div>
-        <ShopIcon className="scale-[0.6] sm:scale-100" />
+        <ShopIcon className="scale-[0.8] sm:scale-100" />
       </div>
 
       <motion.div

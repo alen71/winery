@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 
@@ -9,14 +9,6 @@ type Props = {
 }
 
 const LoadingScreen = ({ children }: Props) => {
-  const [hidden, setHidden] = useState(false)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setHidden(true)
-    }, 1900)
-  }, [])
-
   return (
     <>
       <motion.div
@@ -28,10 +20,7 @@ const LoadingScreen = ({ children }: Props) => {
           delay: 0.6
         }}
         className={clsx(
-          'fixed inset-0 overflow-hidden h-screen bg-gray-primary z-[9999]',
-          {
-            'hidden ': hidden
-          }
+          'fixed inset-0 overflow-hidden h-screen bg-gray-primary z-[9999]'
         )}
       >
         <div className="absolute top-0 left-0 w-screen h-screen grid place-content-center text-primary">

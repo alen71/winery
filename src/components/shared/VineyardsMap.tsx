@@ -19,7 +19,7 @@ const VineyardsMap = (props: Props) => {
     height: '100%',
     latitude: 45.202965010980606,
     longitude: 19.778244922526408,
-    zoom: 13
+    zoom: 12
   })
 
   return (

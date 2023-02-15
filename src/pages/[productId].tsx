@@ -32,9 +32,6 @@ export default function Product() {
 
   // get product from zustand by the slug
   const wines = useProductList(state => state.wines)
-  const [transitionWine, setTransitionWine] = useState(
-    wines.find(wine => wine.slug === productId) as IWine
-  )
 
   // get product group from zustand by the current product group
   const [wine, setWine] = useState<IWine>({} as IWine)
@@ -56,12 +53,11 @@ export default function Product() {
       w => `${w.age} ${w.variety ? `| ${w.variety}` : ''}` === age
     )
     if (newWine) {
-      setTransitionWine(newWine)
       setAnimation(true)
       setTimeout(() => {
         setWine(newWine)
         setAnimation(false)
-      }, 1800)
+      }, 1200)
     }
   }
 
@@ -71,9 +67,19 @@ export default function Product() {
       wine
     })
 
+  const toNewWineCategory = (href: string) => {
+    setAnimation(true)
+
+    setTimeout(() => {
+      router.push(href)
+    }, 200)
+  }
+
+  router.events?.on('routeChangeComplete', () => setAnimation(false))
+
   return (
     <>
-      <WinesTransition animation={animation} nextWine={transitionWine} />
+      <WinesTransition animation={animation} />
       <CartIcon />
       <div className="grid lg:grid-cols-[1fr_77px_1fr] ">
         <div className="bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
@@ -191,20 +197,20 @@ export default function Product() {
           </div>
 
           <div className="absolute left-8 sm:left-12 right-8 sm:right-12 flex items-center lg:block lg:static">
-            <Link
-              href={`/${findNextGroup()}`}
+            <div
+              onClick={() => toNewWineCategory(findNextGroup() as string)}
               aria-label="Idite na sljedeće vino"
               className="absolute right-0 lg:static block cursor-pointer scale-125"
             >
               <Arrow />
-            </Link>
-            <Link
-              href={`/${findPrevGroup()}`}
+            </div>
+            <div
+              onClick={() => toNewWineCategory(findPrevGroup() as string)}
               aria-label="Idite na prethodno vino"
               className="absolute left-0 lg:static block rotate-180 lg:mt-4 cursor-pointer scale-125"
             >
               <Arrow />
-            </Link>
+            </div>
           </div>
         </div>
 

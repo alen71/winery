@@ -12,7 +12,7 @@ export default function Home() {
         <HomeHeroContent />
       </SectionWrapper>
 
-      <SectionWrapper className="overflow-hidden py-[24px] sm:py-[32px]">
+      <SectionWrapper>
         <HomeShopContent />
       </SectionWrapper>
 
