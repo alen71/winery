@@ -57,7 +57,7 @@ const Shop = () => {
 
   return (
     <>
-      <WinesTransition animation={animation} />
+      <WinesTransition animation={animation} initialClosed />
       <div className="relative h-screen w-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
         <Navbar wide />
         <main className="h-[90%] pb-20">
