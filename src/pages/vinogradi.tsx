@@ -22,7 +22,7 @@ const VineYard = () => {
         />
       </SectionWrapper>
 
-      <div className="container relative flex flex-col gap-32">
+      <div className="container relative flex flex-col gap-32 mb-32">
         <PageDescriptionRow
           titleHighlight="Kada smo nastali?"
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask. Nay projecting unpleasing boisterous eat discovered solicitude. Own six moments produce elderly pasture far arrival."

@@ -29,7 +29,7 @@ const HomeVineyard = () => {
                 whileInView={{ opacity: 1, marginBottom: '0px' }}
                 viewport={{ margin: '-100px 0px 0px 0px' }}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="max-w-[80px] sm:max-w-[100px] lg:max-w-[130px] absolute right-0 sm:translate-x-[25%] bottom-0 translate-y-[5%] z-[11]"
+                className="max-w-[80px] sm:max-w-[100px] lg:max-w-[130px] absolute right-4 sm:right-0 sm:translate-x-[25%] bottom-0 translate-y-[5%] z-[11]"
               >
                 <motion.div style={{ y: yBottleValue }}>
                   <Image

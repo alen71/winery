@@ -4,6 +4,7 @@ import PageLayout from 'src/components/layout/PageLayout'
 import PageDescriptionRow from 'src/components/shared/PageDescriptionRow'
 import PagesHero from 'src/components/shared/PagesHero'
 import SectionWrapper from 'src/components/shared/SectionWrapper'
+import VineyardsMap from 'src/components/shared/VineyardsMap'
 
 import glassesOfWine from '/public/images/obilasci/kelsey-knight-udj2tD3WKsY-unsplash 1.png'
 import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unsplash 1.jpg'
@@ -22,7 +23,11 @@ const VineYard = () => {
         />
       </SectionWrapper>
 
-      <div className="container relative flex flex-col gap-32">
+      <SectionWrapper>
+        <VineyardsMap />
+      </SectionWrapper>
+
+      <div className="container relative flex flex-col gap-32 mb-32">
         <PageDescriptionRow
           titleHighlight="Kada smo nastali?"
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask. Nay projecting unpleasing boisterous eat discovered solicitude. Own six moments produce elderly pasture far arrival."

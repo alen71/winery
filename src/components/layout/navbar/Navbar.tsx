@@ -67,6 +67,13 @@ const Navbar = ({ wide }: NavbarProps) => {
           <MenuBtn toggleOpen={() => setOpen(true)} />
         </div>
       </header>
+      <div
+        className={clsx('fixed inset-0 bg-gray-bg/80 duration-500', {
+          'z-[-1] opacity-0 pointer-events-none': !open,
+          'z-[49] opacity-1': open
+        })}
+        onClick={() => setOpen(false)}
+      />
       <Menubar open={open} toggleOpen={() => setOpen(false)} />
     </>
   )

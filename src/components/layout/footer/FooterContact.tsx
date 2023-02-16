@@ -39,11 +39,17 @@ const FooterContact = ({ place }: Props) => {
     <div className={contactStyle({ place })}>
       <p className={titleStyle({ place })}>Kontakt</p>
       <div className={lineStyle({ place })} />
-      <p>Telefon: +381 60 16 62 158</p>
+      <a
+        rel="nofollow"
+        href="tel:+381601662158"
+        className="hover:underline block"
+      >
+        Telefon: +381 60 16 62 158
+      </a>
       <a
         rel="nofollow"
         href="mailto:office@vinarijaduno.rs"
-        className="hover:underline"
+        className="hover:underline block"
       >
         e-mail: office@vinarijaduno.rs
       </a>

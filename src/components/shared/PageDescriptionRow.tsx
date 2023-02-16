@@ -37,8 +37,8 @@ const PageDescriptionRow = ({
           {description}
         </motion.p>
       </div>
-      <div className="lg:px-5">
-        <div className="relative overflow-hidden">
+      <div className="">
+        <div className="relative overflow-hidden h-full">
           <Image
             src={ImageProps.src}
             alt={ImageProps.alt}
