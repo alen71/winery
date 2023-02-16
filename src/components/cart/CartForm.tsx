@@ -11,7 +11,7 @@ import useCartItems from 'src/store/useCartItems'
 type Props = {}
 
 function CartForm({}: Props) {
-  const { isLoading, isSuccess, send } = useSendOrder()
+  const { isLoading, isSuccess, error, send } = useSendOrder()
   const { resetCart } = useCartItems()
 
   const formik = useFormik({
@@ -49,16 +49,16 @@ function CartForm({}: Props) {
     }),
 
     onSubmit: async values => {
-      await send(values)
-      formik.resetForm()
+      try {
+        const res = await send(values)
+        if (!res) throw new Error()
+        formik.resetForm()
+        resetCart()
+      } catch (err) {
+        console.log(err)
+      }
     }
   })
-
-  useEffect(() => {
-    if (!isSuccess) return
-
-    resetCart()
-  }, [isSuccess, resetCart])
 
   return (
     <div className="flex-1 w-full md:max-w-[726px] text-gray-primary p-5 sm:p-10 lg:p-20 pb-52 md:pb-0 md:overflow-y-scroll">
@@ -218,6 +218,11 @@ function CartForm({}: Props) {
           </div>
         </div>
       </form>
+      {error && (
+        <div className="mt-6 text-center bg-red-400/50 py-1">
+          {error.message} {error.status}
+        </div>
+      )}
     </div>
   )
 }

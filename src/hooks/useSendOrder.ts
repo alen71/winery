@@ -63,7 +63,7 @@ const useSendOrder = () => {
     }
   }
 
-  return { isLoading, isSuccess, send }
+  return { isLoading, isSuccess, error, send }
 }
 
 export default useSendOrder
