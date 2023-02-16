@@ -12,36 +12,21 @@ type Props = {
 const WinesTransition = ({ animation, initialClosed }: Props) => {
   const containerVariants = {
     open: {
-      width: '100vw',
-      transition: { type: 'spring', stiffness: 40 }
+      x: '0%',
+      transition: { duration: 1, ease: 'anticipate' }
     },
-    close: { width: '0vw', transition: { duration: 1 } }
-  }
-
-  const textVariants = {
-    open: {
-      opacity: 1,
-      transition: { duration: 0.3, delay: 0.6 }
-    },
-    close: { opacity: 0, transition: { delay: 1 } }
+    close: { x: '-100%', transition: { duration: 1 } }
   }
 
   return (
     <motion.div
-      initial={initialClosed ? 'closed' : 'open'}
+      initial={initialClosed ? 'close' : 'open'}
       animate={animation ? 'open' : 'close'}
       variants={containerVariants}
-      className="fixed h-screen bg-gray-bg z-30 overflow-hidden"
+      className="fixed w-screen h-screen bg-gray-bg z-30 overflow-hidden"
     >
-      <div className="absolute w-screen h-screen flex items-center justify-center text-6xl">
-        <motion.p
-          variants={textVariants}
-          initial="open"
-          animate={animation ? 'open' : 'close'}
-          className="font-medium"
-        >
-          Vinarija <span className="font-bold text-primary">Dumo</span>
-        </motion.p>
+      <div className="absolute w-screen h-screen flex items-center justify-center text-9xl font-bold text-gray-primary">
+        <p className="text-center mx-auto">Vinarija Dumo</p>
       </div>
     </motion.div>
   )

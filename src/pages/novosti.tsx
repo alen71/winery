@@ -27,18 +27,21 @@ const News = () => {
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two."
           src={WineBarrels}
           alt="Vinska burad vinarije Dumo"
+          href="#"
         />
         <NewsRow
           titleHighlight="NASLOV ČLANKA"
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two."
           src={oil}
           alt="Vinska burad vinarije Dumo"
+          href="#"
         />
         <NewsRow
           titleHighlight="NASLOV ČLANKA"
           description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two."
           src={window}
           alt="Vinska burad vinarije Dumo"
+          href="#"
         />
       </div>
     </PageLayout>

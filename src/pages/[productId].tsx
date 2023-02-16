@@ -85,8 +85,11 @@ export default function Product() {
         <div className="bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
           <div className="pt-28 sm:pt-0 min-h-fit sm:h-screen w-full flex justify-start items-center relative">
             <div className="absolute top-5 left-0 w-full px-5 flex justify-between items-center">
-              <div className=" text-primary">
+              <div className=" text-primary flex items-center gap-8 lg:gap-14">
                 <Logo />
+                <p className="font-black">
+                  <span className="font-light">Est.</span> 2016
+                </p>
               </div>
 
               <Link
@@ -106,7 +109,7 @@ export default function Product() {
               />
             </div>
 
-            <div className="absolute lg:bottom-6 right-5 sm:right-6 flex flex-col gap-4">
+            <div className="absolute lg:bottom-8 right-5 sm:right-8 flex flex-col gap-4">
               {wine.medals &&
                 wine.medals.map((medal, i) => {
                   return (
@@ -121,7 +124,7 @@ export default function Product() {
             </div>
           </div>
 
-          <div className="relative sm:absolute sm:left-5 flex flex-col gap-2 pl-7">
+          <div className="relative sm:absolute sm:left-8 flex flex-col gap-2 pl-7">
             <div
               className={clsx(
                 'absolute left-0 top-[50%] translate-y-[-52%] flex flex-col justify-between items-center',
@@ -215,7 +218,7 @@ export default function Product() {
                 toNewWineCategory(findPrevGroup() as string)
               }}
               aria-label="Idite na prethodno vino"
-              className="absolute left-0 lg:static block rotate-180 lg:mt-4 cursor-pointer scale-125"
+              className="absolute left-0 lg:static block rotate-180 lg:mt-6 cursor-pointer scale-125"
             >
               <Arrow />
             </Link>

@@ -203,7 +203,7 @@ const Shop = () => {
             <Arrow className="sm:scale-[2.5] rotate-180" />
           </motion.div>
 
-          <div className="absolute left-[50%] sm:bottom-10 h-1 w-[70%] sm:w-[80%] lg:w-[800px] translate-x-[-50%] flex items-center">
+          <div className="absolute left-[50%] sm:bottom-10 h-1 w-[60%] sm:w-[80%] lg:w-[800px] translate-x-[-50%] flex items-center">
             <p className="pagination absolute -left-10 text-[22px]">
               {curSlide.toString().padStart(2, '0')}
             </p>

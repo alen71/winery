@@ -3,6 +3,8 @@ import React from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 import Title from './Title'
+import ShopBtn from './ShopBtn'
+import useWindowWidth from 'src/hooks/useWindowWidth'
 
 type Props = ImageProps & {
   titleText: string
@@ -18,13 +20,14 @@ const PagesHero = ({
   description,
   ...ImageProps
 }: Props) => {
+  const width = useWindowWidth()
   const { scrollYProgress } = useScroll()
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.15])
 
   return (
     <div className="container">
       <div className="lg:p-20 bg-gray-primary-alfa relative flex flex-col lg:flex-row items-center border-b-1 border-primary overflow-hidden">
-        <div className="p-5 sm:p-10 pb-0 lg:p-0 lg:max-w-[50%] overflow-hidden">
+        <div className="p-5 sm:p-10 py-10 lg:py-0 lg:max-w-[60%] overflow-hidden">
           <Title type="h1" text={titleText} highlightText={titleHighlight} />
           {underTitleText && (
             <motion.p
@@ -48,22 +51,25 @@ const PagesHero = ({
             transition={{
               duration: 0.3
             }}
-            className="font-normal text-lg sm:text-xl w-full lg:max-w-[80%]"
+            className="font-normal text-lg sm:text-xl w-full mb-7"
           >
             {description}
           </motion.p>
+          <ShopBtn />
         </div>
         <motion.div
           style={{ scale: imgScale }}
-          className="relative lg:absolute lg:right-0 h-[400px] lg:h-full w-full lg:w-[80%]"
+          className="relative lg:absolute lg:right-0 h-full w-full lg:w-[60%] flex items-center"
         >
           {ImageProps.alt.length > 0 && (
             <Image
               src={ImageProps.src}
-              fill
               alt={ImageProps.alt}
               quality={100}
-              style={{ objectFit: 'cover' }}
+              style={{
+                objectFit: 'cover',
+                objectPosition: width < 641 ? 'center' : 'left'
+              }}
             />
           )}
         </motion.div>

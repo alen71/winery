@@ -28,7 +28,7 @@ const HomeHeroContent = () => {
       <motion.div
         key="black aside grapes"
         style={{ y: yGrapesValue }}
-        className="absolute right-0 top-[250px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
+        className="absolute right-0 top-[250px] md:top-0 w-[60%] sm:w-[40%] z-[11] overflow-hidden"
       >
         <motion.div
           key="black grapes"
@@ -82,7 +82,7 @@ const HomeHeroContent = () => {
         </video>
 
         <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20">
-          <div className="flex justify-center flex-col gap-5 h-full overflow-hidden">
+          <div className="flex justify-center flex-col gap-8 h-full overflow-hidden">
             <motion.h1
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
@@ -114,7 +114,7 @@ const HomeHeroContent = () => {
                 initial={{ x: '-110%' }}
                 animate={{ x: '0%' }}
                 transition={{ duration: 0.7, ease: 'anticipate', delay: 2.6 }}
-                className="w-fit text-sm sm:text-lg md:text-xl  leading-6 "
+                className="w-fit text-base sm:text-lg md:text-xl  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
               </motion.p>

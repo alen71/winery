@@ -21,7 +21,7 @@ const HomeVineyard = () => {
         <Image src={bgImage} alt="Pozadinska slika vinograda" />
       </div>
       <div className="container relative">
-        <div className="grid lg:grid-cols-2">
+        <div className="grid lg:grid-cols-2 border-b-1 lg:border-b-0 border-primary">
           <div className="relative xl:pr-[30%] h-full w-full sm:px-10 lg:px-0 sm:pb-10 lg:pb-0 bg-gray-primary-alfa lg:bg-transparent row-start-2 lg:row-start-1">
             <div className="h-[400px] lg:h-full w-full relative">
               <motion.div
@@ -55,7 +55,7 @@ const HomeVineyard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-gray-primary-alfa lg:border-b-1 border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full">
+          <div className="bg-gray-primary-alfa lg:border-b-1 border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col sm:items-center justify-center gap-9 h-full">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />
 
             <motion.div

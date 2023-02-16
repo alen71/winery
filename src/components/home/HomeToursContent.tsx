@@ -16,8 +16,8 @@ const HomeToursContent = () => {
   return (
     <>
       <div className="container relative">
-        <div className="grid lg:grid-cols-2">
-          <div className="bg-gray-primary-alfa lg:border-b-1 border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col items-center justify-center gap-9 h-full xl-h-[900px]">
+        <div className="grid lg:grid-cols-2 border-b-1 lg:border-b-0 border-primary">
+          <div className="bg-gray-primary-alfa lg:border-b-1 border-primary px-5 sm:px-10 xl:px-20 py-10 sm:py-16 xl:py-24 flex flex-col sm:items-center justify-center gap-9 h-full xl-h-[900px]">
             <Title type="h2" text="Vinogradi" highlightText="Dumo" />
 
             <motion.div

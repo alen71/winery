@@ -9,7 +9,7 @@ type Props = {
 const MenuBtn = ({ toggleOpen }: Props) => {
   return (
     <button
-      className="flex items-center gap-2 cursor-pointer"
+      className="flex items-center gap-2 cursor-pointer mr-2 sm:mr-0"
       onClick={toggleOpen}
     >
       <p className="uppercase font-black text-base lg:text-lg">Menu</p>
