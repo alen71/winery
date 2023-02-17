@@ -232,7 +232,7 @@ export default function Product() {
               {wine.name} {wine.age} {wine.variety ? `| ${wine.variety}` : ''}
             </span>
             <br />
-            <span className="text-primary font-black text-4xl sm:text-6xl">
+            <span className="text-primary font-black text-4xl sm:text-6xl ">
               {wine.type}
             </span>
           </h1>
