@@ -22,6 +22,7 @@ import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
 import WinesTransition from 'src/components/layout/WinesTransition'
 import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
 import Overlay from 'src/components/shared/Overlay'
+import VineyardVideo from 'src/components/shared/VineyardVideo'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
@@ -80,30 +81,18 @@ export default function Product() {
 
   router.events?.on('routeChangeComplete', () => setAnimation(false))
 
-  const videRef = useRef<HTMLVideoElement>(null)
-  useLayoutEffect(() => {
-    videRef?.current?.play()
-  }, [videRef])
-
   //bg-[url('../../public/images/shop/shop-background.png')]
   return (
     <>
       <WinesTransition animation={animation} />
       <CartIcon />
       <div className="grid lg:grid-cols-[1fr_77px_1fr] ">
-        <div className=" bg-center bg-cover bg-no-repeat flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
+        <div className="flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
           <div className="absolute left-0 top-0 w-full h-full">
-            <Overlay video="productPageLight" />
-            <Overlay video="productPageDark" />
-            <video
-              ref={videRef}
-              autoPlay
-              loop
-              muted
-              className="w-full h-full object-cover"
-            >
-              <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
-            </video>
+            <VineyardVideo
+              videoLightOverlay="productPageLight"
+              videoDarkOverlay="productPageDark"
+            />
           </div>
 
           <div className="pt-28 sm:pt-0 min-h-fit sm:h-screen w-full flex justify-start items-center relative">

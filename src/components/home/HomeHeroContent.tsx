@@ -10,18 +10,14 @@ import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
 import dumoHouse from '/public/images/dumo-house.png'
 import Overlay from 'src/components/shared/Overlay'
+import VineyardVideo from '../shared/VineyardVideo'
 
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
-  const videRef = useRef<HTMLVideoElement>(null)
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
-
-  useLayoutEffect(() => {
-    videRef?.current?.play()
-  }, [videRef])
 
   return (
     <>
@@ -69,17 +65,7 @@ const HomeHeroContent = () => {
             priority
           />
         </motion.div>
-        <Overlay video="light" />
-        <Overlay video="dark" />
-        <video
-          ref={videRef}
-          autoPlay
-          loop
-          muted
-          className="w-full h-[480px] sm:h-[580px] object-cover"
-        >
-          <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
-        </video>
+        <VineyardVideo videoDarkOverlay="dark" videoLightOverlay="light" />
 
         <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20">
           <div className="flex justify-center flex-col gap-8 h-full overflow-hidden">
