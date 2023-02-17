@@ -252,10 +252,10 @@ export default function Product() {
           <div className="flex gap-8 flex-col xl:flex-row text-base xl:items-center">
             <button
               className={clsx(
-                'text-white font-black relative w-60 h-10 flex justify-center items-center duration-300',
+                'text-white font-black relative w-60 h-10 flex justify-center items-center duration-300 overflow-hidden',
                 {
-                  'rounded-full pointer-events-none': !wine.sold,
-                  'bg-gray-primary rounded-md': wine.sold,
+                  'rounded-full': !wine.sold,
+                  'bg-gray-primary rounded-md  pointer-events-none': wine.sold,
                   'bg-primary hover:bg-darker-primary':
                     !cartAddedAnimation && !wine.sold,
                   'bg-gray-primary': cartAddedAnimation
@@ -288,17 +288,19 @@ export default function Product() {
               </span>
             </button>
 
-            <div>
-              <span className="font-semibold mr-2">Količina</span>
-              <input
-                value={quantity}
-                type="number"
-                min="1"
-                onChange={e => setQuantity(+e.target.value)}
-                placeholder="1"
-                className="w-16 h-8 border-1 border-gray-primary rounded-lg pl-2"
-              />
-            </div>
+            {wine.sold && (
+              <div>
+                <span className="font-semibold mr-2">Količina</span>
+                <input
+                  value={quantity}
+                  type="number"
+                  min="1"
+                  onChange={e => setQuantity(+e.target.value)}
+                  placeholder="1"
+                  className="w-16 h-8 border-1 border-gray-primary rounded-lg pl-2"
+                />
+              </div>
+            )}
           </div>
 
           <div className="font-semibold">

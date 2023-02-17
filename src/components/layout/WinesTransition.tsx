@@ -11,23 +11,30 @@ type Props = {
 }
 
 const WinesTransition = ({ animation, initialClosed }: Props) => {
-  const transitionContainerRef = useRef<HTMLDivElement>(null)
   const [overlayHidden, setOverlayHidden] = useState(true)
 
   const containerVariants = {
     open: {
       x: '0%',
-      transition: { duration: 1, ease: 'anticipate' }
+      transition: { duration: 1.4, ease: 'anticipate' }
     },
-    close: { x: '-100%', transition: { duration: 1 } }
+    close: { x: '-100%', transition: { duration: 1.1 } }
   }
 
   const overlayVariants = {
     open: {
       opacity: 0.8,
-      transition: { duration: 0.6, ease: 'easeIn' }
+      transition: { duration: 1, ease: 'easeIn' }
     },
     close: { opacity: 0, transition: { duration: 1.1 } }
+  }
+
+  const textVariants = {
+    open: {
+      x: -300,
+      transition: { duration: 0.4, ease: 'easeIn', delay: 1.3 }
+    },
+    close: { x: 0, transition: { duration: 1.1 } }
   }
 
   useEffect(() => {
@@ -36,7 +43,7 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
     }
 
     if (!animation) {
-      setTimeout(() => setOverlayHidden(true), 1100)
+      setTimeout(() => setOverlayHidden(true), 1200)
     }
   }, [animation])
 
@@ -54,14 +61,20 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
         )}
       />
       <motion.div
-        ref={transitionContainerRef}
         initial={initialClosed ? 'close' : 'open'}
         animate={animation ? 'open' : 'close'}
         variants={containerVariants}
         className="fixed w-screen h-screen top-0 left-0 bg-gray-bg z-30 overflow-hidden"
       >
         <div className="absolute w-screen h-screen flex items-center justify-center text-9xl font-bold text-gray-primary">
-          <p className="text-center mx-auto">Vinarija Dumo</p>
+          <motion.p
+            initial={initialClosed ? 'close' : 'open'}
+            animate={animation ? 'open' : 'close'}
+            variants={containerVariants}
+            className="text-center mx-auto"
+          >
+            Vinarija Dumo
+          </motion.p>
         </div>
       </motion.div>
     </>
