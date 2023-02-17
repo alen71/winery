@@ -11,6 +11,7 @@ import useCartItems from 'src/store/useCartItems'
 type Props = {}
 
 function CartForm({}: Props) {
+  const { cartWines } = useCartItems()
   const { isLoading, isSuccess, error, send } = useSendOrder()
   const { resetCart } = useCartItems()
 
@@ -50,8 +51,10 @@ function CartForm({}: Props) {
 
     onSubmit: async values => {
       try {
-        const res = await send(values)
+        const res = await send({ ...values, wines: cartWines })
+
         if (!res) throw new Error()
+
         formik.resetForm()
         resetCart()
       } catch (err) {

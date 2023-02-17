@@ -127,7 +127,7 @@ const MobileBottlesSlider = () => {
                           type: 'spring',
                           stiffness: 80
                         }}
-                        className="font-light text-[10px] sm:text-xs text-primary uppercase"
+                        className="font-light text-xs sm:text-sm text-primary uppercase"
                       >
                         {type}
                       </motion.p>

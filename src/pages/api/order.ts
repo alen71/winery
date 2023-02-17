@@ -17,13 +17,30 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
         ...emailOptions,
         subject: 'Nova narudžba',
         html: `
-        <p>Ime: ${data.firstName}</p> <br/>
-        <p>prezime: ${data.lastName}</p> <br/>
-        <p>Broj telefona: ${data.phoneNumber}</p> <br/>
-        <p>Email: ${data.email}</p> <br/>
-        <p>Adresa stanovanja: ${data.address}</p> <br/>
-        <p>Grad: ${data.city}</p> <br/>
+        <p>Ime: ${data.firstName}</p> 
+        <p>prezime: ${data.lastName}</p> 
+        <p>Broj telefona: ${data.phoneNumber}</p> 
+        <p>Email: ${data.email}</p> 
+        <p>Adresa stanovanja: ${data.address}</p> 
+        <p>Grad: ${data.city}</p> 
         <p>Poštanski broj: ${data.postCode}</p>
+        
+        <p>Vina:</p>
+        <div>        
+          ${data.wines.map(wine => {
+            return `
+            <div>
+              <span>${wine.name} ${wine.age} ${wine.type} ${
+              wine.variety ? `| ${wine.variety}` : ''
+            }</span><br/>     
+              <span>
+                Količina: ${wine.quantity}
+              </span>       
+            </div>
+            
+            `
+          })}
+        </div>
         `
       })
 

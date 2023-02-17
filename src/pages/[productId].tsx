@@ -25,6 +25,7 @@ export default function Product() {
   const [quantity, setQuantity] = useState(1)
   const { cartWines, updateCartWines, addToCart } = useCartItems()
   const [animation, setAnimation] = useState(false)
+  const [cartAddedAnimation, setCartAddedAnimation] = useState(false)
 
   // get slug from query
   const router = useRouter()
@@ -249,17 +250,40 @@ export default function Product() {
 
           <div className="flex gap-8 flex-col xl:flex-row text-base xl:items-center">
             <button
-              className={clsx('w-fit y text-white font-black', {
-                'bg-primary hover:bg-darker-primary rounded-full py-2 px-6':
-                  !wine.sold,
-                'bg-gray-primary rounded-md py-1 px-12': wine.sold
-              })}
+              className={clsx(
+                'text-white font-black relative w-60 h-10 flex justify-center items-center duration-300',
+                {
+                  'rounded-full': !wine.sold,
+                  'bg-gray-primary rounded-md': wine.sold,
+                  'bg-primary hover:bg-darker-primary': !cartAddedAnimation,
+                  'bg-gray-primary': cartAddedAnimation
+                }
+              )}
               onClick={() => {
+                if (wine.sold) return
+
+                setCartAddedAnimation(true)
                 setQuantity(1)
                 addToCart(cartWines, wine, quantity)
+
+                setTimeout(() => setCartAddedAnimation(false), 800)
               }}
             >
-              {wine.sold ? 'Rasprodato' : `${wine.price} RSD | Dodaj u korpu`}
+              <span
+                className={clsx('absolute duration-300', {
+                  'translate-y-[-120%]': !cartAddedAnimation,
+                  'translate-y-0': cartAddedAnimation
+                })}
+              >
+                Dodano
+              </span>
+              <span
+                className={clsx('absolute duration-300', {
+                  'translate-y-[120%]': cartAddedAnimation
+                })}
+              >
+                {wine.sold ? 'Rasprodato' : `${wine.price} RSD | Dodaj u korpu`}
+              </span>
             </button>
 
             <div>
