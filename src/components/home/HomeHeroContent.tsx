@@ -65,7 +65,9 @@ const HomeHeroContent = () => {
             priority
           />
         </motion.div>
-        <VineyardVideo videoDarkOverlay="dark" videoLightOverlay="light" />
+        <div className="h-[480px] sm:h-[580px]">
+          <VineyardVideo videoDarkOverlay="dark" videoLightOverlay="light" />
+        </div>
 
         <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20">
           <div className="flex justify-center flex-col gap-8 h-full overflow-hidden">
