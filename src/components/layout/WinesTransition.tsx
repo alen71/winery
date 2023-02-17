@@ -15,10 +15,10 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
 
   const containerVariants = {
     open: {
-      x: '0%',
-      transition: { duration: 1.4, ease: 'anticipate' }
+      width: '100vw',
+      transition: { duration: 1.5, ease: 'anticipate' }
     },
-    close: { x: '-100%', transition: { duration: 1.1 } }
+    close: { width: '0vw', transition: { duration: 1.1 } }
   }
 
   const overlayVariants = {
@@ -31,10 +31,10 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
 
   const textVariants = {
     open: {
-      x: -300,
-      transition: { duration: 0.4, ease: 'easeIn', delay: 1.3 }
+      x: 0,
+      transition: { type: 'spring', stiffness: 40, delay: 0.6 }
     },
-    close: { x: 0, transition: { duration: 1.1 } }
+    close: { x: -100, transition: { duration: 1.1 } }
   }
 
   useEffect(() => {
@@ -70,8 +70,8 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
           <motion.p
             initial={initialClosed ? 'close' : 'open'}
             animate={animation ? 'open' : 'close'}
-            variants={containerVariants}
-            className="text-center mx-auto"
+            variants={textVariants}
+            className="text-center mx-auto w-full"
           >
             Vinarija Dumo
           </motion.p>
