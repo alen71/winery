@@ -61,7 +61,7 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
         initial={initialClosed ? 'close' : 'open'}
         animate={animation ? 'open' : 'close'}
         variants={containerVariants}
-        className="fixed w-screen h-screen top-0 left-0 bg-gray-bg z-30 overflow-hidden"
+        className="fixed w-screen h-screen top-0 left-0 bg-gray-primary z-30 overflow-hidden"
       >
         <div className="absolute w-screen h-screen flex items-center justify-center text-5xl sm:text-7xl md:text-9xl font-bold text-white/10 tracking-wide">
           <motion.p

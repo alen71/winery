@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import clsx from 'clsx'
 
 import { IWine } from 'src/type/wine.type'
@@ -21,6 +21,7 @@ import CartIcon from 'src/components/cart/CartIcon'
 import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
 import WinesTransition from 'src/components/layout/WinesTransition'
 import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
+import Overlay from 'src/components/shared/Overlay'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
@@ -79,12 +80,32 @@ export default function Product() {
 
   router.events?.on('routeChangeComplete', () => setAnimation(false))
 
+  const videRef = useRef<HTMLVideoElement>(null)
+  useLayoutEffect(() => {
+    videRef?.current?.play()
+  }, [videRef])
+
+  //bg-[url('../../public/images/shop/shop-background.png')]
   return (
     <>
       <WinesTransition animation={animation} />
       <CartIcon />
       <div className="grid lg:grid-cols-[1fr_77px_1fr] ">
-        <div className="bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
+        <div className=" bg-center bg-cover bg-no-repeat flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
+          <div className="absolute left-0 top-0 w-full h-full">
+            <Overlay video="productPageLight" />
+            <Overlay video="productPageDark" />
+            <video
+              ref={videRef}
+              autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover"
+            >
+              <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
+            </video>
+          </div>
+
           <div className="pt-28 sm:pt-0 min-h-fit sm:h-screen w-full flex justify-start items-center relative">
             <div className="absolute top-5 left-0 w-full px-5 flex justify-between items-center">
               <div className=" text-primary flex items-center gap-8 lg:gap-14">
@@ -277,7 +298,7 @@ export default function Product() {
                   'translate-y-0': cartAddedAnimation
                 })}
               >
-                Dodano
+                Dodato
               </span>
               <span
                 className={clsx('absolute duration-300', {
