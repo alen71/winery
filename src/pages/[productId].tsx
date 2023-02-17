@@ -81,7 +81,6 @@ export default function Product() {
 
   router.events?.on('routeChangeComplete', () => setAnimation(false))
 
-  //bg-[url('../../public/images/shop/shop-background.png')]
   return (
     <>
       <WinesTransition animation={animation} />

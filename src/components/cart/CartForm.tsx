@@ -64,7 +64,7 @@ function CartForm({}: Props) {
   })
 
   return (
-    <div className="flex-1 w-full md:max-w-[726px] text-gray-primary p-5 sm:p-10 lg:p-20 pb-52 md:pb-0 md:overflow-y-scroll">
+    <div className="w-full md:max-w-[726px] h-fit md:h-full text-gray-primary p-5 sm:p-10 lg:p-20 pb-52 md:pb-0 md:overflow-y-scroll">
       <p className="text-primary font-semibold text-3xl">Kupovina</p>
 
       <p className="text-sm sm:text-base my-4">
