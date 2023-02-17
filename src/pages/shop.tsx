@@ -15,6 +15,7 @@ import Arrow from 'src/assets/sliderArrow.svg'
 import useProductList from 'src/store/useProductList'
 import WinesSliderButton from 'src/components/shared/WinesSliderButton'
 import WinesTransition from 'src/components/layout/WinesTransition'
+import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
 
 const Shop = () => {
   const router = useRouter()
@@ -132,7 +133,7 @@ const Shop = () => {
 
                               setTimeout(() => {
                                 router.push(slug)
-                              }, 800)
+                              }, PAGE_TRANSITION_OPEN_TIME)
                             }}
                             aria-label={`Pogledajte detalje o nasem ${name} ${age} ${type} ${
                               variety ? variety : ''

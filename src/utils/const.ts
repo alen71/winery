@@ -1,1 +1,2 @@
 export const BOTTLES_SLIDER_DEGREE = 36
+export const PAGE_TRANSITION_OPEN_TIME = 1000

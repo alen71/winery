@@ -20,6 +20,7 @@ import useCartItems from 'src/store/useCartItems'
 import CartIcon from 'src/components/cart/CartIcon'
 import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
 import WinesTransition from 'src/components/layout/WinesTransition'
+import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
@@ -58,7 +59,7 @@ export default function Product() {
       setTimeout(() => {
         setWine(newWine)
         setAnimation(false)
-      }, 1200)
+      }, PAGE_TRANSITION_OPEN_TIME)
     }
   }
 
@@ -73,7 +74,7 @@ export default function Product() {
 
     setTimeout(() => {
       router.push(href)
-    }, 800)
+    }, PAGE_TRANSITION_OPEN_TIME)
   }
 
   router.events?.on('routeChangeComplete', () => setAnimation(false))
@@ -253,14 +254,15 @@ export default function Product() {
               className={clsx(
                 'text-white font-black relative w-60 h-10 flex justify-center items-center duration-300',
                 {
-                  'rounded-full': !wine.sold,
+                  'rounded-full pointer-events-none': !wine.sold,
                   'bg-gray-primary rounded-md': wine.sold,
-                  'bg-primary hover:bg-darker-primary': !cartAddedAnimation,
+                  'bg-primary hover:bg-darker-primary':
+                    !cartAddedAnimation && !wine.sold,
                   'bg-gray-primary': cartAddedAnimation
                 }
               )}
               onClick={() => {
-                if (wine.sold) return
+                if (wine.sold || cartAddedAnimation) return
 
                 setCartAddedAnimation(true)
                 setQuantity(1)

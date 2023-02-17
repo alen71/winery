@@ -58,7 +58,7 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
         initial={initialClosed ? 'close' : 'open'}
         animate={animation ? 'open' : 'close'}
         variants={containerVariants}
-        className="fixed w-screen h-screen bg-gray-bg z-30 overflow-hidden"
+        className="fixed w-screen h-screen top-0 left-0 bg-gray-bg z-30 overflow-hidden"
       >
         <div className="absolute w-screen h-screen flex items-center justify-center text-9xl font-bold text-gray-primary">
           <p className="text-center mx-auto">Vinarija Dumo</p>
