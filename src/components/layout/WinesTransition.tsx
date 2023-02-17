@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { easeIn, motion, spring } from 'framer-motion'
-import Image from 'next/image'
-
-import { IWine } from 'src/type/wine.type'
 import clsx from 'clsx'
 
 type Props = {
@@ -54,7 +51,7 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
         animate={animation ? 'open' : 'close'}
         variants={overlayVariants}
         className={clsx(
-          'bg-gray-primary fixed w-screen h-screen top-0 left-0 z-30',
+          ` bg-gray-primary fixed w-screen h-screen top-0 left-0 z-30`,
           {
             'hidden ': overlayHidden
           }
@@ -66,14 +63,14 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
         variants={containerVariants}
         className="fixed w-screen h-screen top-0 left-0 bg-gray-bg z-30 overflow-hidden"
       >
-        <div className="absolute w-screen h-screen flex items-center justify-center text-5xl sm:text-7xl md:text-9xl font-bold text-gray-primary">
+        <div className="absolute w-screen h-screen flex items-center justify-center text-5xl sm:text-7xl md:text-9xl font-bold text-white/10 tracking-wide">
           <motion.p
             initial={initialClosed ? 'close' : 'open'}
             animate={animation ? 'open' : 'close'}
             variants={textVariants}
-            className="text-center mx-auto w-full"
+            className="text-center mx-auto w-full font-judson font-normal uppercase whitespace-nowrap"
           >
-            Vinarija Dumo
+            Vinarija Dumo Vinarija Dumo Vinarija Dumo
           </motion.p>
         </div>
       </motion.div>

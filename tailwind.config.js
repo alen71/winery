@@ -26,7 +26,8 @@ module.exports = {
         black: '#000'
       },
       fontFamily: {
-        sans: ['var(--font-jeko)']
+        sans: ['var(--font-jeko)'],
+        judson: ['var(--font-judson)']
       },
       borderWidth: {
         1: '1px'
