@@ -18,13 +18,13 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
       width: '100vw',
       transition: { duration: 1.5, ease: 'anticipate' }
     },
-    close: { width: '0vw', transition: { duration: 1.1 } }
+    close: { width: '0vw', originX: 'left', transition: { duration: 1.1 } }
   }
 
   const overlayVariants = {
     open: {
       opacity: 0.8,
-      transition: { duration: 1, ease: 'easeIn' }
+      transition: { duration: 0.8, ease: 'easeIn' }
     },
     close: { opacity: 0, transition: { duration: 1.1 } }
   }
@@ -66,7 +66,7 @@ const WinesTransition = ({ animation, initialClosed }: Props) => {
         variants={containerVariants}
         className="fixed w-screen h-screen top-0 left-0 bg-gray-bg z-30 overflow-hidden"
       >
-        <div className="absolute w-screen h-screen flex items-center justify-center text-9xl font-bold text-gray-primary">
+        <div className="absolute w-screen h-screen flex items-center justify-center text-5xl sm:text-7xl md:text-9xl font-bold text-gray-primary">
           <motion.p
             initial={initialClosed ? 'close' : 'open'}
             animate={animation ? 'open' : 'close'}
