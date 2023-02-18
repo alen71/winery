@@ -53,7 +53,7 @@ const HomeShopContent = () => {
               <Title type="h2" text="NAJNOVIJI ČLANKA" />
 
               <motion.div
-                initial={{ opacity: 0, x: 400 }}
+                initial={{ opacity: 0, x: 200 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{
