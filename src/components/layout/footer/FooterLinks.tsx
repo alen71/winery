@@ -10,16 +10,16 @@ const links = [
     href: '/vinarija-dumo'
   },
   {
-    text: 'Vinograd',
-    href: '#'
+    text: 'Vinogradi',
+    href: '/vinogradi'
   },
   {
     text: 'Novosti',
-    href: '#'
+    href: '/novosti'
   },
   {
     text: 'Shop',
-    href: '#'
+    href: '/shop'
   },
   {
     text: 'Politika privatnosti',
