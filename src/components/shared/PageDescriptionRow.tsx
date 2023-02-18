@@ -37,11 +37,12 @@ const PageDescriptionRow = ({
           {description}
         </motion.p>
       </div>
-      <div className="">
-        <div className="relative overflow-hidden h-full">
+      <div className="w-full h-full">
+        <div className="relative overflow-hidden h-[260px] lg:h-full w-full">
           <Image
             src={ImageProps.src}
             alt={ImageProps.alt}
+            fill
             className="hover:scale-105 duration-300"
             style={{ objectFit: 'cover' }}
           />

@@ -21,6 +21,7 @@ module.exports = {
         'gray-primary': '#1C1C1C',
         'gray-primary-alfa': '#1c1c1ca3',
         'gray-light': '#E5E5E5',
+        'gray-overlay': '#161616',
         lines: '#3E3C34',
         white: '#fff',
         black: '#000'

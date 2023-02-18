@@ -54,7 +54,7 @@ const MobileBottlesSlider = () => {
         className={`pt-44 relative h-[430px] sm:h-[400px] flex justify-center items-center z-[1]`}
       >
         <div
-          className="relative  w-[126px] sm:w-[156px] h-full"
+          className="relative  w-[160px] sm:w-[200px] h-full"
           style={{ perspective: '450px' }}
         >
           <div
@@ -80,14 +80,14 @@ const MobileBottlesSlider = () => {
                 >
                   <div
                     className={clsx(
-                      ` w-[126px] sm:w-[156px] absolute duration-1000 flex flex-col items-center`
+                      ` w-[160px] sm:w-[200px] absolute duration-1000 flex flex-col items-center`
                     )}
                     style={{ transform: `rotateY(${rotateBottle}deg)` }}
                   >
                     <div
-                      className={clsx('duration-[800ms]', {
-                        'opacity-100': focusedBottle !== i,
-                        'opacity-0': focusedBottle === i
+                      className={clsx('', {
+                        'opacity-100 duration-[1700ms]': focusedBottle !== i,
+                        'opacity-0 ': focusedBottle === i
                       })}
                     >
                       <Overlay bottle="dark" />

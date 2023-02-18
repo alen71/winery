@@ -59,12 +59,13 @@ const PagesHero = ({
         </div>
         <motion.div
           style={{ scale: imgScale }}
-          className="relative lg:absolute lg:right-0 h-full w-full lg:w-[60%] flex items-center"
+          className="relative lg:absolute lg:right-0 lg:h-full w-full lg:w-[70%] xl:w-[60%] flex items-center"
         >
           {ImageProps.alt.length > 0 && (
             <Image
               src={ImageProps.src}
               alt={ImageProps.alt}
+              fill={width > 1024}
               quality={100}
               style={{
                 objectFit: 'cover',
