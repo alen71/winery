@@ -70,8 +70,6 @@ const Shop = () => {
         <Navbar wide />
         <main className="h-[90%] pb-20">
           <Swiper
-            direction="horizontal"
-            // loop
             speed={1000}
             slidesPerView={1}
             modules={[Scrollbar, Navigation]}

@@ -32,7 +32,7 @@ const links = [
     href: '/obilasci'
   },
   {
-    text: 'Članci',
+    text: 'Novosti',
     href: '/novosti'
   },
   {

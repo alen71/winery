@@ -49,7 +49,6 @@ const NewsRow = ({
         >
           {description}
         </motion.p>
-        <ReadMoreBtn href={href} />
       </div>
     </div>
   )
