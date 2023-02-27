@@ -18,13 +18,7 @@ const VineyardVideo = ({ videoLightOverlay, videoDarkOverlay }: Props) => {
     <>
       {videoLightOverlay && <Overlay videoLight={videoLightOverlay} />}
       {videoDarkOverlay && <Overlay videoDark={videoDarkOverlay} />}
-      <video
-        ref={videRef}
-        autoPlay
-        loop
-        muted
-        className="w-full h-full object-cover"
-      >
+      <video ref={videRef} className="w-full h-full object-cover">
         <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
       </video>
     </>
