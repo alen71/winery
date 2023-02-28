@@ -28,7 +28,7 @@ const links = [
   },
   {
     text: 'Uslovi koriscenja',
-    href: '#',
+    href: '/terms-of-use',
     thin: true
   }
 ]

@@ -10,6 +10,7 @@ type Props = ImageProps & {
   titleText: string
   titleHighlight?: string
   underTitleText?: string
+  imgPosition?: 'left' | 'right' | 'center'
   description: string
 }
 
@@ -17,6 +18,7 @@ const PagesHero = ({
   titleText,
   titleHighlight,
   underTitleText,
+  imgPosition = 'left',
   description,
   ...ImageProps
 }: Props) => {
@@ -26,7 +28,7 @@ const PagesHero = ({
 
   return (
     <div className="container">
-      <div className="lg:p-20 bg-gray-primary-alfa relative flex flex-col lg:flex-row items-center border-b-1 border-primary overflow-hidden">
+      <div className="lg:p-20 bg-gray-primary-alfa relative flex flex-col lg:flex-row items-center border-b-1 border-primary overflow-hidden min-h-[550px]">
         <div className="p-5 sm:p-10 py-10 lg:py-0 lg:max-w-[60%] overflow-hidden">
           <Title type="h1" text={titleText} highlightText={titleHighlight} />
           {underTitleText && (
@@ -59,7 +61,7 @@ const PagesHero = ({
         </div>
         <motion.div
           style={{ scale: imgScale }}
-          className="relative lg:absolute lg:right-0 lg:h-full w-full lg:w-[70%] xl:w-[60%] flex items-center"
+          className="relative lg:absolute lg:right-0 lg:h-full w-full xl:w-[70%] flex items-center border-t-primary border-t-1 lg:border-t-0"
         >
           {ImageProps.alt.length > 0 && (
             <Image
@@ -69,7 +71,7 @@ const PagesHero = ({
               quality={100}
               style={{
                 objectFit: 'cover',
-                objectPosition: width < 641 ? 'center' : 'left'
+                objectPosition: width < 641 ? 'center' : imgPosition
               }}
             />
           )}
