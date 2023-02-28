@@ -17,6 +17,7 @@ import WinesSliderButton from 'src/components/shared/WinesSliderButton'
 import WinesTransition from 'src/components/layout/WinesTransition'
 import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
 import VineyardVideo from 'src/components/shared/VineyardVideo'
+import Helmet from 'src/components/shared/Helmet'
 
 const Shop = () => {
   const router = useRouter()
@@ -58,7 +59,7 @@ const Shop = () => {
   }
 
   return (
-    <>
+    <Helmet title="" desc="">
       <WinesTransition animation={animation} initialClosed />
       <div className="relative h-screen w-screen overflow-hidden">
         <div className="absolute left-0 top-0 w-full h-full z-0">
@@ -225,7 +226,7 @@ const Shop = () => {
           </div>
         </main>
       </div>
-    </>
+    </Helmet>
   )
 }
 

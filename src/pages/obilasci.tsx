@@ -11,7 +11,7 @@ import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unspl
 
 const VineYard = () => {
   return (
-    <PageLayout>
+    <PageLayout title="" desc="">
       <SectionWrapper Zindex={2}>
         <PagesHero
           titleText="Vinarija"

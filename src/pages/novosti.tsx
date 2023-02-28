@@ -11,7 +11,7 @@ import bgImage from '/public/images/novosti/pozadina-grožđe.png'
 
 const News = () => {
   return (
-    <PageLayout>
+    <PageLayout title="" desc="">
       <SectionWrapper Zindex={2}>
         <PagesHero
           titleText="Vinarija"

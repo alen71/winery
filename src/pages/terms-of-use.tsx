@@ -5,7 +5,7 @@ import Title from 'src/components/shared/Title'
 
 const TermsOfUse = () => {
   return (
-    <PageLayout>
+    <PageLayout title="" desc="">
       <SectionWrapper>
         <div className="container">
           <div className="text-center mt-32 mb-10 md:mb-20">

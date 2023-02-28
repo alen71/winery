@@ -23,6 +23,7 @@ import WinesTransition from 'src/components/layout/WinesTransition'
 import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
 import Overlay from 'src/components/shared/Overlay'
 import VineyardVideo from 'src/components/shared/VineyardVideo'
+import Helmet from 'src/components/shared/Helmet'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
@@ -82,7 +83,7 @@ export default function Product() {
   router.events?.on('routeChangeComplete', () => setAnimation(false))
 
   return (
-    <>
+    <Helmet title='' desc=''>
       <WinesTransition animation={animation} />
       <CartIcon />
       <div className="grid lg:grid-cols-[1fr_77px_1fr] ">
@@ -337,7 +338,7 @@ export default function Product() {
           </div>
         </div>
       </div>
-    </>
+    </Helmet>
   )
 }
 
