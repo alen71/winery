@@ -6,7 +6,7 @@ import Arrow from 'src/assets/sliderArrow.svg'
 
 type Props = {
   side: 'left' | 'right'
-  action: () => void
+  action?: () => void
   color: 'primary' | 'white'
   className?: string
 }

@@ -25,17 +25,6 @@ const Shop = () => {
   const [curSlide, setCurSlide] = useState(1)
   const { wines } = useProductList()
 
-  const prevBottle = () => {
-    const decreaseSlide = curSlide - 1
-    setCurSlide(decreaseSlide === 0 ? 1 : decreaseSlide)
-  }
-
-  const nextBottle = () => {
-    const increaseSlide = curSlide + 1
-    if (increaseSlide > wines.length) return
-    setCurSlide(increaseSlide)
-  }
-
   const prevSlideBtnVariants = {
     hidden: { opacity: 0, x: '-200%', scale: 0.9 },
     visible: {
@@ -73,7 +62,7 @@ const Shop = () => {
           <Swiper
             speed={1000}
             // loop
-            // initialSlide={1}
+            // initialSlide={0}
             slidesPerView={1}
             modules={[Scrollbar, Navigation]}
             scrollbar={{
@@ -87,6 +76,9 @@ const Shop = () => {
             }}
             allowSlideNext
             allowSlidePrev
+            onSlideChange={(e: any) => {
+              setCurSlide(e.activeIndex + 1)
+            }}
             className="mySwiper"
           >
             {wines.map(
@@ -183,20 +175,17 @@ const Shop = () => {
             animate="visible"
             whileHover="hover"
             className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
-            onClick={prevBottle}
           >
             <Arrow className="sm:scale-[2.5]" />
           </motion.div>
 
           <WinesSliderButton
             side="left"
-            action={prevBottle}
             color="white"
             className="swiper-prev block sm:hidden"
           />
           <WinesSliderButton
             side="right"
-            action={nextBottle}
             color="white"
             className="swiper-next block sm:hidden"
           />
@@ -207,7 +196,6 @@ const Shop = () => {
             animate="visible"
             whileHover="hover"
             className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
-            onClick={nextBottle}
           >
             <Arrow className="sm:scale-[2.5] rotate-180" />
           </motion.div>
@@ -222,7 +210,7 @@ const Shop = () => {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="custom-swiper-scrollbar w-full h-full rounded-lg overflow-hidden bg-white/25"
             >
-              <div className="custom-swiper-scrollbar-drag h-full w-[100px] bg-white rounded-lg" />
+              <div className="custom-swiper-scrollbar-drag h-full bg-white rounded-lg" />
             </motion.div>
             <p className="absolute -right-10 text-[22px]">{wines.length}</p>
           </div>
