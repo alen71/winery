@@ -72,6 +72,8 @@ const Shop = () => {
         <main className="h-[90%] pb-20">
           <Swiper
             speed={1000}
+            // loop
+            // initialSlide={1}
             slidesPerView={1}
             modules={[Scrollbar, Navigation]}
             scrollbar={{
@@ -95,15 +97,15 @@ const Shop = () => {
                     className="flex items-center justify-center w-full"
                   >
                     <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 md:gap-0 lg:gap-32">
-                      <div className="max-w-[430px]">
-                        <motion.p
+                      <div className="max-w-[550px]">
+                        <motion.h1
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           transition={{ duration: 0.3, delay: 0.5 }}
                           className="font-medium text-center lg:text-left text-primary uppercase text-lg sm:text-4xl lg:text-5xl"
                         >
                           {name} {age} {variety && `| ${variety}`}
-                        </motion.p>
+                        </motion.h1>
 
                         <motion.p
                           initial={{ opacity: 0 }}
