@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import Overlay, { overlayStyleProps } from './Overlay'
 import vineyardImg from '/public/video-picture.jpg'
@@ -13,7 +13,7 @@ const VineyardVideo = ({ videoLightOverlay, videoDarkOverlay }: Props) => {
   const [isDuckDuckGo, setIsDuckDuckGo] = useState(false)
   const videRef = useRef<HTMLVideoElement>(null)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     videRef?.current?.play()
   }, [videRef])
 

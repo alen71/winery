@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 import { IWine } from 'src/type/wine.type'
@@ -15,7 +15,6 @@ import Arrow from 'src/assets/arrow.svg'
 import ArchivedOrnament from '/public/images/archived.png'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { convertToSlug } from 'src/utils/helper'
-import { ParsedUrlQuery } from 'querystring'
 import useCartItems from 'src/store/useCartItems'
 import CartIcon from 'src/components/cart/CartIcon'
 import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
@@ -83,7 +82,7 @@ export default function Product() {
   router.events?.on('routeChangeComplete', () => setAnimation(false))
 
   return (
-    <Helmet title='' desc=''>
+    <Helmet title="" desc="">
       <WinesTransition animation={animation} />
       <CartIcon />
       <div className="grid lg:grid-cols-[1fr_77px_1fr] ">

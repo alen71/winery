@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion, useCycle } from 'framer-motion'
 
 import ShopIcon from 'src/assets/cartIcon.svg'
@@ -51,13 +51,13 @@ const CartIcon = () => {
     }
   }, [isOpen])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const storedWines = JSON.parse(localStorage.getItem('cart')!)
 
     if (!storedWines) return
 
     updateCartWines(storedWines)
-  }, [])
+  }, [updateCartWines])
 
   const cartQuantity = cartWines?.reduce(
     (accumulator: number, wine) => accumulator + wine.quantity,
