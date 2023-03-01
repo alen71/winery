@@ -22,7 +22,10 @@ export default class Document extends NextDocument {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0047ff" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D9B04D" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
         </Head>
         <body
           className={`bg-gray-bg text-white overflow-x-hidden overflow-y-scroll text-base md:text-lg`}

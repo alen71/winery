@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import clsx from 'clsx'
 
 import { IWine } from 'src/type/wine.type'
@@ -20,11 +20,16 @@ import useCartItems from 'src/store/useCartItems'
 import CartIcon from 'src/components/cart/CartIcon'
 import useFindPrevOrNextGroup from 'src/hooks/useFindPrevOrNextGroup'
 import WinesTransition from 'src/components/layout/WinesTransition'
+import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
+import Overlay from 'src/components/shared/Overlay'
+import VineyardVideo from 'src/components/shared/VineyardVideo'
+import Helmet from 'src/components/shared/Helmet'
 
 export default function Product() {
   const [quantity, setQuantity] = useState(1)
   const { cartWines, updateCartWines, addToCart } = useCartItems()
   const [animation, setAnimation] = useState(false)
+  const [cartAddedAnimation, setCartAddedAnimation] = useState(false)
 
   // get slug from query
   const router = useRouter()
@@ -57,7 +62,7 @@ export default function Product() {
       setTimeout(() => {
         setWine(newWine)
         setAnimation(false)
-      }, 1200)
+      }, PAGE_TRANSITION_OPEN_TIME)
     }
   }
 
@@ -72,21 +77,31 @@ export default function Product() {
 
     setTimeout(() => {
       router.push(href)
-    }, 800)
+    }, PAGE_TRANSITION_OPEN_TIME)
   }
 
   router.events?.on('routeChangeComplete', () => setAnimation(false))
 
   return (
-    <>
+    <Helmet title='' desc=''>
       <WinesTransition animation={animation} />
       <CartIcon />
       <div className="grid lg:grid-cols-[1fr_77px_1fr] ">
-        <div className="bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
+        <div className="flex flex-col gap-12 sm:gap-0 min-h-screen sm:min-h-fit sm:flex-row justify-start items-center relative pb-12 sm:pb-0">
+          <div className="absolute left-0 top-0 w-full h-full">
+            <VineyardVideo
+              videoLightOverlay="productPageLight"
+              videoDarkOverlay="productPageDark"
+            />
+          </div>
+
           <div className="pt-28 sm:pt-0 min-h-fit sm:h-screen w-full flex justify-start items-center relative">
             <div className="absolute top-5 left-0 w-full px-5 flex justify-between items-center">
-              <div className=" text-primary">
+              <div className=" text-primary flex items-center gap-8 lg:gap-14">
                 <Logo />
+                <p className="font-black">
+                  <span className="font-light">Est.</span> 2016
+                </p>
               </div>
 
               <Link
@@ -106,7 +121,7 @@ export default function Product() {
               />
             </div>
 
-            <div className="absolute lg:bottom-6 right-5 sm:right-6 flex flex-col gap-4">
+            <div className="absolute lg:bottom-8 right-5 sm:right-8 flex flex-col gap-4">
               {wine.medals &&
                 wine.medals.map((medal, i) => {
                   return (
@@ -121,7 +136,7 @@ export default function Product() {
             </div>
           </div>
 
-          <div className="relative sm:absolute sm:left-5 flex flex-col gap-2 pl-7">
+          <div className="relative sm:absolute sm:left-8 flex flex-col gap-2 pl-7">
             <div
               className={clsx(
                 'absolute left-0 top-[50%] translate-y-[-52%] flex flex-col justify-between items-center',
@@ -215,7 +230,7 @@ export default function Product() {
                 toNewWineCategory(findPrevGroup() as string)
               }}
               aria-label="Idite na prethodno vino"
-              className="absolute left-0 lg:static block rotate-180 lg:mt-4 cursor-pointer scale-125"
+              className="absolute left-0 lg:static block rotate-180 lg:mt-6 cursor-pointer scale-125"
             >
               <Arrow />
             </Link>
@@ -228,7 +243,7 @@ export default function Product() {
               {wine.name} {wine.age} {wine.variety ? `| ${wine.variety}` : ''}
             </span>
             <br />
-            <span className="text-primary font-black text-4xl sm:text-6xl">
+            <span className="text-primary font-black text-4xl sm:text-6xl ">
               {wine.type}
             </span>
           </h1>
@@ -246,30 +261,56 @@ export default function Product() {
 
           <div className="flex gap-8 flex-col xl:flex-row text-base xl:items-center">
             <button
-              className={clsx('w-fit y text-white font-black', {
-                'bg-primary hover:bg-darker-primary rounded-full py-2 px-6':
-                  !wine.sold,
-                'bg-gray-primary rounded-md py-1 px-12': wine.sold
-              })}
+              className={clsx(
+                'text-white font-black relative w-60 h-10 flex justify-center items-center duration-300 overflow-hidden',
+                {
+                  'rounded-full': !wine.sold,
+                  'bg-gray-primary rounded-md  pointer-events-none': wine.sold,
+                  'bg-primary hover:bg-darker-primary':
+                    !cartAddedAnimation && !wine.sold,
+                  'bg-gray-primary': cartAddedAnimation
+                }
+              )}
               onClick={() => {
+                if (wine.sold || cartAddedAnimation) return
+
+                setCartAddedAnimation(true)
                 setQuantity(1)
                 addToCart(cartWines, wine, quantity)
+
+                setTimeout(() => setCartAddedAnimation(false), 800)
               }}
             >
-              {wine.sold ? 'Rasprodato' : `${wine.price} RSD | Dodaj u korpu`}
+              <span
+                className={clsx('absolute duration-300', {
+                  'translate-y-[-120%]': !cartAddedAnimation,
+                  'translate-y-0': cartAddedAnimation
+                })}
+              >
+                Dodato
+              </span>
+              <span
+                className={clsx('absolute duration-300', {
+                  'translate-y-[120%]': cartAddedAnimation
+                })}
+              >
+                {wine.sold ? 'Rasprodato' : `${wine.price} RSD | Dodaj u korpu`}
+              </span>
             </button>
 
-            <div>
-              <span className="font-semibold mr-2">Količina</span>
-              <input
-                value={quantity}
-                type="number"
-                min="1"
-                onChange={e => setQuantity(+e.target.value)}
-                placeholder="1"
-                className="w-16 h-8 border-1 border-gray-primary rounded-lg pl-2"
-              />
-            </div>
+            {wine.sold && (
+              <div>
+                <span className="font-semibold mr-2">Količina</span>
+                <input
+                  value={quantity}
+                  type="number"
+                  min="1"
+                  onChange={e => setQuantity(+e.target.value)}
+                  placeholder="1"
+                  className="w-16 h-8 border-1 border-gray-primary rounded-lg pl-2"
+                />
+              </div>
+            )}
           </div>
 
           <div className="font-semibold">
@@ -297,7 +338,7 @@ export default function Product() {
           </div>
         </div>
       </div>
-    </>
+    </Helmet>
   )
 }
 

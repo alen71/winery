@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { ICartWine } from 'src/store/useCartItems'
 
 export type FormDataType = {
   firstName: string
@@ -9,6 +10,7 @@ export type FormDataType = {
   city: string
   postCode: string
   conditionOfUse: boolean
+  wines: ICartWine[]
 }
 
 const useSendOrder = () => {

@@ -51,10 +51,10 @@ const MobileBottlesSlider = () => {
   return (
     <>
       <div
-        className={`pt-36 relative h-[430px] sm:h-[400px] flex justify-center items-center z-[1]`}
+        className={`pt-44 relative h-[430px] sm:h-[400px] flex justify-center items-center z-[1]`}
       >
         <div
-          className="relative w-[126px] sm:w-[156px] h-full"
+          className="relative  w-[160px] sm:w-[200px] h-full"
           style={{ perspective: '450px' }}
         >
           <div
@@ -80,14 +80,14 @@ const MobileBottlesSlider = () => {
                 >
                   <div
                     className={clsx(
-                      `w-[126px] sm:w-[156px] absolute duration-1000 flex flex-col items-center`
+                      ` w-[160px] sm:w-[200px] absolute duration-1000 flex flex-col items-center`
                     )}
                     style={{ transform: `rotateY(${rotateBottle}deg)` }}
                   >
                     <div
-                      className={clsx('duration-[800ms]', {
-                        'opacity-100': focusedBottle !== i,
-                        'opacity-0': focusedBottle === i
+                      className={clsx('', {
+                        'opacity-100 duration-[1700ms]': focusedBottle !== i,
+                        'opacity-0 ': focusedBottle === i
                       })}
                     >
                       <Overlay bottle="dark" />
@@ -97,7 +97,7 @@ const MobileBottlesSlider = () => {
                     </div>
                     <div
                       className={clsx(
-                        'absolute -bottom-20 sm:-bottom-14 text-center duration-500',
+                        'absolute -bottom-20 sm:-bottom-20 text-center duration-500',
                         {
                           'opacity-100': focusedBottle === i,
                           'opacity-0 pointer-events-none': focusedBottle !== i
@@ -127,7 +127,7 @@ const MobileBottlesSlider = () => {
                           type: 'spring',
                           stiffness: 80
                         }}
-                        className="font-light text-[10px] sm:text-xs text-primary uppercase"
+                        className="font-light text-xs sm:text-sm text-primary uppercase"
                       >
                         {type}
                       </motion.p>

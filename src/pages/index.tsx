@@ -7,7 +7,7 @@ import SectionWrapper from 'src/components/shared/SectionWrapper'
 
 export default function Home() {
   return (
-    <PageLayout>
+    <PageLayout title="" desc="">
       <SectionWrapper>
         <HomeHeroContent />
       </SectionWrapper>

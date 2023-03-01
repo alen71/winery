@@ -3,11 +3,14 @@ import React from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 import Title from './Title'
+import ShopBtn from './ShopBtn'
+import useWindowWidth from 'src/hooks/useWindowWidth'
 
 type Props = ImageProps & {
   titleText: string
   titleHighlight?: string
   underTitleText?: string
+  imgPosition?: 'left' | 'right' | 'center'
   description: string
 }
 
@@ -15,16 +18,18 @@ const PagesHero = ({
   titleText,
   titleHighlight,
   underTitleText,
+  imgPosition = 'left',
   description,
   ...ImageProps
 }: Props) => {
+  const width = useWindowWidth()
   const { scrollYProgress } = useScroll()
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.15])
 
   return (
     <div className="container">
-      <div className="lg:p-20 bg-gray-primary-alfa relative flex flex-col lg:flex-row items-center border-b-1 border-primary overflow-hidden">
-        <div className="p-5 sm:p-10 pb-0 lg:p-0 lg:max-w-[50%] overflow-hidden">
+      <div className="lg:p-20 bg-gray-primary-alfa relative flex flex-col lg:flex-row items-center border-b-1 border-primary overflow-hidden min-h-[550px]">
+        <div className="p-5 sm:p-10 py-10 lg:py-0 lg:max-w-[60%] overflow-hidden">
           <Title type="h1" text={titleText} highlightText={titleHighlight} />
           {underTitleText && (
             <motion.p
@@ -48,22 +53,26 @@ const PagesHero = ({
             transition={{
               duration: 0.3
             }}
-            className="font-normal text-lg sm:text-xl w-full lg:max-w-[80%]"
+            className="font-normal text-lg sm:text-xl w-full mb-7"
           >
             {description}
           </motion.p>
+          <ShopBtn />
         </div>
         <motion.div
           style={{ scale: imgScale }}
-          className="relative lg:absolute lg:right-0 h-[400px] lg:h-full w-full lg:w-[80%]"
+          className="relative lg:absolute lg:right-0 lg:h-full w-full xl:w-[70%] flex items-center border-t-primary border-t-1 lg:border-t-0"
         >
           {ImageProps.alt.length > 0 && (
             <Image
               src={ImageProps.src}
-              fill
               alt={ImageProps.alt}
+              fill={width > 1024}
               quality={100}
-              style={{ objectFit: 'cover' }}
+              style={{
+                objectFit: 'cover',
+                objectPosition: width < 641 ? 'center' : imgPosition
+              }}
             />
           )}
         </motion.div>

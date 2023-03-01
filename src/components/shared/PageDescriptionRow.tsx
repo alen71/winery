@@ -17,7 +17,7 @@ const PageDescriptionRow = ({
   ...ImageProps
 }: Props) => {
   return (
-    <div className="grid lg:grid-cols-2 gap-5 lg:gap-14 xl:gap-44 px-5 sm:px-7 py-7 xl:px-20 items-center">
+    <div className="grid lg:grid-cols-2 gap-5 lg:gap-14 xl:gap-44 px-5  xl:px-20 items-center">
       <div>
         <Title type="h2" text={title} highlightText={titleHighlight} />
         <motion.div
@@ -37,12 +37,14 @@ const PageDescriptionRow = ({
           {description}
         </motion.p>
       </div>
-      <div className="">
-        <div className="relative overflow-hidden h-full">
+      <div className="w-full h-full">
+        <div className="relative overflow-hidden h-[260px] lg:h-full w-full">
           <Image
             src={ImageProps.src}
             alt={ImageProps.alt}
+            fill
             className="hover:scale-105 duration-300"
+            style={{ objectFit: 'cover' }}
           />
         </div>
       </div>

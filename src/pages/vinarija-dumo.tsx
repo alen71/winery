@@ -11,12 +11,12 @@ import WineBarrels from '/public/images/vinarija/david-goldman-27G8PF-fjrs-unspl
 
 const WineryDumo = () => {
   return (
-    <PageLayout>
+    <PageLayout title="" desc="">
       <SectionWrapper Zindex={2}>
         <PagesHero
           titleText="Vinarija"
           titleHighlight="Dumo"
-          description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness. Few again any alone style added abode ask. Nay projecting unpleasing boisterous eat discovered solicitude. Own six moments produce elderly pasture far arrival."
+          description="Finished her are its honoured drawings nor. Pretty see mutual thrown all not edward ten. Particular an boisterous up he reasonably frequently. Several any had enjoyed shewing studied two. Up intention remainder sportsmen behaviour ye happiness."
           underTitleText="Naš rad i naše vino je ono sto svi vole, a ovo je priča o nama."
           src={GrapesOnDask}
           alt="Grožđe"

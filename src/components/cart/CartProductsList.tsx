@@ -5,14 +5,19 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import useCartItems from 'src/store/useCartItems'
 
 import XIcon from 'src/assets/XIcon.svg'
-import useManageWineQuantity from 'src/hooks/useManageWineQuantity'
 import useSendOrder from 'src/hooks/useSendOrder'
 
 type Props = {}
 
 const CartProductsList = (props: Props) => {
-  const { cartWines, updateCartWines, removeWineFromCart, resetCart } =
-    useCartItems()
+  const {
+    cartWines,
+    updateCartWines,
+    removeWineFromCart,
+    resetCart,
+    decreaseQuantity,
+    increaseQuantity
+  } = useCartItems()
   const { isSuccess } = useSendOrder()
 
   const totalCost = cartWines?.reduce(
@@ -20,18 +25,13 @@ const CartProductsList = (props: Props) => {
     0
   )
 
-  const { increaseQuantity, decreaseQuantity } = useManageWineQuantity({
-    cartWines,
-    updateCartWines
-  })
-
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartWines))
   }, [cartWines])
 
   return (
-    <div className="flex-1 justify-self-end w-full md:max-w-[500px] h-full border-x-1 border-y-1 md:border-b-0 border-primary flex flex-col">
-      <div className="md:overflow-y-scroll min-h-[400px] md:h-full w-full divide-y-1 divide-primary">
+    <div className=" md:justify-self-end w-full md:max-w-[500px] h-fit md:h-full border-x-1 border-y-1 md:border-b-0 border-primary flex flex-col">
+      <div className="md:overflow-y-scroll min-h-fit md:h-full w-full divide-y-1 divide-primary">
         {cartWines.map(wine => {
           return (
             <div key={wine.slug} className="flex py-6 px-8 gap-8 items-center">
@@ -82,11 +82,11 @@ const CartProductsList = (props: Props) => {
           )
         })}
       </div>
-      <div className="bg-primary text-white flex justify-between px-8 py-5 w-full text-xl md:text-2xl font-semibold">
+      <div className="h-fit bg-primary text-white flex justify-between px-8 py-5 w-full text-xl md:text-2xl font-semibold">
         <span>Ukupno:</span>
         <span>{totalCost} rsd</span>
       </div>
-      <div className="p-8">
+      <div className="p-8 h-fit">
         <p className="mb-6">Nedostaje Vam jos proizvoda?</p>
 
         <ReadMoreBtn

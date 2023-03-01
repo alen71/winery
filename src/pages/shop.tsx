@@ -15,23 +15,15 @@ import Arrow from 'src/assets/sliderArrow.svg'
 import useProductList from 'src/store/useProductList'
 import WinesSliderButton from 'src/components/shared/WinesSliderButton'
 import WinesTransition from 'src/components/layout/WinesTransition'
+import { PAGE_TRANSITION_OPEN_TIME } from 'src/utils/const'
+import VineyardVideo from 'src/components/shared/VineyardVideo'
+import Helmet from 'src/components/shared/Helmet'
 
 const Shop = () => {
   const router = useRouter()
   const [animation, setAnimation] = useState(false)
   const [curSlide, setCurSlide] = useState(1)
   const { wines } = useProductList()
-
-  const prevBottle = () => {
-    const decreaseSlide = curSlide - 1
-    setCurSlide(decreaseSlide === 0 ? 1 : decreaseSlide)
-  }
-
-  const nextBottle = () => {
-    const increaseSlide = curSlide + 1
-    if (increaseSlide > wines.length) return
-    setCurSlide(increaseSlide)
-  }
 
   const prevSlideBtnVariants = {
     hidden: { opacity: 0, x: '-200%', scale: 0.9 },
@@ -56,15 +48,21 @@ const Shop = () => {
   }
 
   return (
-    <>
+    <Helmet title="" desc="">
       <WinesTransition animation={animation} initialClosed />
-      <div className="relative h-screen w-screen bg-[url('../../public/images/shop/shop-background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
+      <div className="relative h-screen w-screen overflow-hidden">
+        <div className="absolute left-0 top-0 w-full h-full z-0">
+          <VineyardVideo
+            videoLightOverlay="productPageLight"
+            videoDarkOverlay="productPageDark"
+          />
+        </div>
         <Navbar wide />
         <main className="h-[90%] pb-20">
           <Swiper
-            direction="horizontal"
-            // loop
             speed={1000}
+            // loop
+            // initialSlide={0}
             slidesPerView={1}
             modules={[Scrollbar, Navigation]}
             scrollbar={{
@@ -78,6 +76,9 @@ const Shop = () => {
             }}
             allowSlideNext
             allowSlidePrev
+            onSlideChange={(e: any) => {
+              setCurSlide(e.activeIndex + 1)
+            }}
             className="mySwiper"
           >
             {wines.map(
@@ -88,15 +89,15 @@ const Shop = () => {
                     className="flex items-center justify-center w-full"
                   >
                     <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 md:gap-0 lg:gap-32">
-                      <div className="max-w-[430px]">
-                        <motion.p
+                      <div className="max-w-[550px]">
+                        <motion.h1
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           transition={{ duration: 0.3, delay: 0.5 }}
                           className="font-medium text-center lg:text-left text-primary uppercase text-lg sm:text-4xl lg:text-5xl"
                         >
                           {name} {age} {variety && `| ${variety}`}
-                        </motion.p>
+                        </motion.h1>
 
                         <motion.p
                           initial={{ opacity: 0 }}
@@ -132,7 +133,7 @@ const Shop = () => {
 
                               setTimeout(() => {
                                 router.push(slug)
-                              }, 800)
+                              }, PAGE_TRANSITION_OPEN_TIME)
                             }}
                             aria-label={`Pogledajte detalje o nasem ${name} ${age} ${type} ${
                               variety ? variety : ''
@@ -174,20 +175,17 @@ const Shop = () => {
             animate="visible"
             whileHover="hover"
             className="swiper-prev absolute top-[50%] translate-y-[-50%] left-5 md:left-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
-            onClick={prevBottle}
           >
             <Arrow className="sm:scale-[2.5]" />
           </motion.div>
 
           <WinesSliderButton
             side="left"
-            action={prevBottle}
             color="white"
             className="swiper-prev block sm:hidden"
           />
           <WinesSliderButton
             side="right"
-            action={nextBottle}
             color="white"
             className="swiper-next block sm:hidden"
           />
@@ -198,12 +196,11 @@ const Shop = () => {
             animate="visible"
             whileHover="hover"
             className="swiper-next absolute top-[50%] translate-y-[-50%] right-5 md:right-20 rounded-full border-2 border-white w-11 sm:w-20 lg:w-28 h-11 sm:h-20 lg:h-28 z-10 cursor-pointer hidden sm:grid place-content-center"
-            onClick={nextBottle}
           >
             <Arrow className="sm:scale-[2.5] rotate-180" />
           </motion.div>
 
-          <div className="absolute left-[50%] sm:bottom-10 h-1 w-[70%] sm:w-[80%] lg:w-[800px] translate-x-[-50%] flex items-center">
+          <div className="absolute left-[50%] sm:bottom-10 h-1 w-[60%] sm:w-[80%] lg:w-[800px] translate-x-[-50%] flex items-center">
             <p className="pagination absolute -left-10 text-[22px]">
               {curSlide.toString().padStart(2, '0')}
             </p>
@@ -213,13 +210,13 @@ const Shop = () => {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="custom-swiper-scrollbar w-full h-full rounded-lg overflow-hidden bg-white/25"
             >
-              <div className="custom-swiper-scrollbar-drag h-full w-[100px] bg-white rounded-lg" />
+              <div className="custom-swiper-scrollbar-drag h-full bg-white rounded-lg" />
             </motion.div>
             <p className="absolute -right-10 text-[22px]">{wines.length}</p>
           </div>
         </main>
       </div>
-    </>
+    </Helmet>
   )
 }
 

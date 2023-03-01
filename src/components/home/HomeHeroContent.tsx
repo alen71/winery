@@ -10,25 +10,21 @@ import blackGrape from '/public/images/Crno-grožđe.png'
 import mainWineBottle from '/public/images/Pinot Noir-Odsjaj 1.png'
 import dumoHouse from '/public/images/dumo-house.png'
 import Overlay from 'src/components/shared/Overlay'
+import VineyardVideo from '../shared/VineyardVideo'
 
 const HomeHeroContent = () => {
   const { scrollYProgress } = useScroll()
-  const videRef = useRef<HTMLVideoElement>(null)
 
   const yValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const yGrapesValue = useTransform(scrollYProgress, [0, 1], [0, 500])
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4])
-
-  useLayoutEffect(() => {
-    videRef?.current?.play()
-  }, [videRef])
 
   return (
     <>
       <motion.div
         key="black aside grapes"
         style={{ y: yGrapesValue }}
-        className="absolute right-0 top-[250px] md:top-0 w-[50%] sm:w-[40%] z-[11] overflow-hidden"
+        className="absolute right-0 top-[250px] md:top-0 w-[60%] sm:w-[40%] z-[11] overflow-hidden"
       >
         <motion.div
           key="black grapes"
@@ -69,20 +65,12 @@ const HomeHeroContent = () => {
             priority
           />
         </motion.div>
-        <Overlay video="light" />
-        <Overlay video="dark" />
-        <video
-          ref={videRef}
-          autoPlay
-          loop
-          muted
-          className="w-full h-[480px] sm:h-[580px] object-cover"
-        >
-          <source src="/vinarija-dumo-video.mp4" type="video/mp4" />
-        </video>
+        <div className="h-[480px] sm:h-[580px]">
+          <VineyardVideo videoDarkOverlay="dark" videoLightOverlay="light" />
+        </div>
 
         <div className="absolute left-4 top-0 h-full pl-5 sm:pl-20">
-          <div className="flex justify-center flex-col gap-5 h-full overflow-hidden">
+          <div className="flex justify-center flex-col gap-8 h-full overflow-hidden">
             <motion.h1
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
@@ -114,7 +102,7 @@ const HomeHeroContent = () => {
                 initial={{ x: '-110%' }}
                 animate={{ x: '0%' }}
                 transition={{ duration: 0.7, ease: 'anticipate', delay: 2.6 }}
-                className="w-fit text-sm sm:text-lg md:text-xl  leading-6 "
+                className="w-fit text-base sm:text-lg md:text-xl  leading-6 "
               >
                 Naručite sada uz besplatnu i bezbednu dostavu!
               </motion.p>

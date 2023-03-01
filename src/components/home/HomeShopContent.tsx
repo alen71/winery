@@ -10,6 +10,7 @@ import MobileBottlesSlider from '../shared/MobileBottleSlider'
 import Title from '../shared/Title'
 import ShopBtn from '../shared/ShopBtn'
 import useWindowWidth from 'src/hooks/useWindowWidth'
+import ReadMoreBtn from '../shared/ReadMoreBtn'
 
 const HomeShopContent = () => {
   const width = useWindowWidth()
@@ -17,7 +18,7 @@ const HomeShopContent = () => {
   return (
     <div className="container relative z-[1] ">
       <div className="grid gap-20 xl:gap-0 xl:grid-cols-2 overflow-hidden py-[24px] sm:py-[32px]">
-        <div className="relative bg-gray-primary border-y-1 border-primary pb-16 sm:pb-0">
+        <div className="relative bg-gray-primary border-y-1 border-primary pb-16 sm:pb-0 min-h-[600px]">
           <div className="absolute left-0 top-0 translate-y-[-50%] w-full flex justify-center items-center">
             {width < 641 ? <ShopOrnamentMobile /> : <ShopOrnament />}
             <p className="absolute font-semibold text-2xl sm:text-3xl text-primary">
@@ -25,7 +26,7 @@ const HomeShopContent = () => {
             </p>
           </div>
           <MobileBottlesSlider />
-          <div className="absolute bottom-[-10.5%] left-[50%] translate-x-[-50%] sm:translate-x-0 sm:static w-fit mx-auto mb-10 mt-40">
+          <div className="absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-[50%]">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -37,8 +38,8 @@ const HomeShopContent = () => {
           </div>
         </div>
 
-        <div className="h-[700px] xl:h-full">
-          <div className="xl:ml-28 flex flex-col h-full bg-gray-primary">
+        <div className="min-h-[700px]">
+          <div className="xl:ml-28 flex flex-col h-full bg-gray-primary border-b-1 border-primary">
             <div className="group relative overflow-hidden w-full h-full">
               <Image
                 src={glassesOfWine}
@@ -48,11 +49,11 @@ const HomeShopContent = () => {
                 style={{ objectFit: 'cover' }}
               />
             </div>
-            <div className="px-5 sm:px-16 py-10 sm:py-10 flex flex-col justify-center">
+            <div className="px-5 sm:px-16 py-10 sm:py-20 flex flex-col justify-center">
               <Title type="h2" text="NAJNOVIJI ČLANKA" />
 
               <motion.div
-                initial={{ opacity: 0, x: 400 }}
+                initial={{ opacity: 0, x: 200 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{
@@ -67,13 +68,14 @@ const HomeShopContent = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="mb-3"
+                className="mb-5 line-clamp-3 "
               >
                 Finished her are its honoured drawings nor. Pretty see mutual
                 thrown all not edward ten. Particular an boisterous up he
                 reasonably frequently. Several any had enjoyed shewing studied
                 two.
               </motion.p>
+              <ReadMoreBtn href="/novosti" />
             </div>
           </div>
         </div>

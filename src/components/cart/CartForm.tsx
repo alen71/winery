@@ -11,6 +11,7 @@ import useCartItems from 'src/store/useCartItems'
 type Props = {}
 
 function CartForm({}: Props) {
+  const { cartWines } = useCartItems()
   const { isLoading, isSuccess, error, send } = useSendOrder()
   const { resetCart } = useCartItems()
 
@@ -41,7 +42,11 @@ function CartForm({}: Props) {
       email: Yup.string()
         .email('email adresa nije validna')
         .required('Neophodno'),
-      phoneNumber: Yup.number().min(10, 'Broj nije validan'),
+      phoneNumber: Yup.number()
+        .min(5, 'Broj nije validan')
+        .typeError('Broj nije validan')
+        .positive('Broj nije validan')
+        .integer('Broj nije validan'),
       address: Yup.string().required('Obavezno unesite adresu'),
       city: Yup.string().required('Obavezno unesite ime grada'),
       postCode: Yup.string().required('Obavezno unesite poštanski broj'),
@@ -50,10 +55,16 @@ function CartForm({}: Props) {
 
     onSubmit: async values => {
       try {
-        const res = await send(values)
+        const res = await send({ ...values, wines: cartWines })
+
         if (!res) throw new Error()
+
         formik.resetForm()
-        resetCart()
+
+        setTimeout(() => {
+          resetCart()
+          localStorage.removeItem('cart')
+        }, 6000)
       } catch (err) {
         console.log(err)
       }
@@ -61,7 +72,7 @@ function CartForm({}: Props) {
   })
 
   return (
-    <div className="flex-1 w-full md:max-w-[726px] text-gray-primary p-5 sm:p-10 lg:p-20 pb-52 md:pb-0 md:overflow-y-scroll">
+    <div className="w-full md:max-w-[726px] h-fit md:h-full text-gray-primary p-5 sm:p-10 lg:p-20 pb-52 md:pb-0 md:overflow-y-scroll">
       <p className="text-primary font-semibold text-3xl">Kupovina</p>
 
       <p className="text-sm sm:text-base my-4">
@@ -221,6 +232,11 @@ function CartForm({}: Props) {
       {error && (
         <div className="mt-6 text-center bg-red-400/50 py-1">
           {error.message} {error.status}
+        </div>
+      )}
+      {isSuccess && (
+        <div className="mt-6 text-center bg-green-400/25">
+          Uspešno ste poslali zahtev, odgovorit ćemo u najkraćem mogućem roku.
         </div>
       )}
     </div>
