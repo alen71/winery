@@ -24,23 +24,34 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
         <p>Adresa stanovanja: ${data.address}</p> 
         <p>Grad: ${data.city}</p> 
         <p>Poštanski broj: ${data.postCode}</p>
-        
+        <br/>
         <p>Vina:</p>
         <div>        
-          ${data.wines.map(wine => {
-            return `
-            <div>
+          ${data.wines
+            .map(wine => {
+              return `<div>
               <span>${wine.name} ${wine.age} ${wine.type} ${
-              wine.variety ? `| ${wine.variety}` : ''
-            }</span><br/>     
+                wine.variety ? `| ${wine.variety}` : ''
+              }
+              </span><br/>     
               <span>
                 Količina: ${wine.quantity}
-              </span>       
+              </span><br/>       
+              <span>
+                cena: ${wine.price * wine.quantity} rsd
+              </span>
             </div>
-            
+            <br/>
             `
-          })}
+            })
+            .join('')}
         </div>
+        <br/>
+        <p>Ukupna cena: ${data.wines.reduce(
+          (accumulator: number, wine) =>
+            accumulator + wine.price * wine.quantity,
+          0
+        )} rsd</p>
         `
       })
 

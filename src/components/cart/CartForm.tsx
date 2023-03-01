@@ -42,7 +42,11 @@ function CartForm({}: Props) {
       email: Yup.string()
         .email('email adresa nije validna')
         .required('Neophodno'),
-      phoneNumber: Yup.number().min(10, 'Broj nije validan'),
+      phoneNumber: Yup.number()
+        .min(5, 'Broj nije validan')
+        .typeError('Broj nije validan')
+        .positive('Broj nije validan')
+        .integer('Broj nije validan'),
       address: Yup.string().required('Obavezno unesite adresu'),
       city: Yup.string().required('Obavezno unesite ime grada'),
       postCode: Yup.string().required('Obavezno unesite poštanski broj'),
@@ -56,7 +60,11 @@ function CartForm({}: Props) {
         if (!res) throw new Error()
 
         formik.resetForm()
-        resetCart()
+
+        setTimeout(() => {
+          resetCart()
+          localStorage.removeItem('cart')
+        }, 6000)
       } catch (err) {
         console.log(err)
       }
@@ -224,6 +232,11 @@ function CartForm({}: Props) {
       {error && (
         <div className="mt-6 text-center bg-red-400/50 py-1">
           {error.message} {error.status}
+        </div>
+      )}
+      {isSuccess && (
+        <div className="mt-6 text-center bg-green-400/25">
+          Uspešno ste poslali zahtev, odgovorit ćemo u najkraćem mogućem roku.
         </div>
       )}
     </div>

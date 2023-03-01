@@ -5,25 +5,25 @@ import ReadMoreBtn from 'src/components/shared/ReadMoreBtn'
 import useCartItems from 'src/store/useCartItems'
 
 import XIcon from 'src/assets/XIcon.svg'
-import useManageWineQuantity from 'src/hooks/useManageWineQuantity'
 import useSendOrder from 'src/hooks/useSendOrder'
 
 type Props = {}
 
 const CartProductsList = (props: Props) => {
-  const { cartWines, updateCartWines, removeWineFromCart, resetCart } =
-    useCartItems()
+  const {
+    cartWines,
+    updateCartWines,
+    removeWineFromCart,
+    resetCart,
+    decreaseQuantity,
+    increaseQuantity
+  } = useCartItems()
   const { isSuccess } = useSendOrder()
 
   const totalCost = cartWines?.reduce(
     (accumulator: number, wine) => accumulator + wine.price * wine.quantity,
     0
   )
-
-  const { increaseQuantity, decreaseQuantity } = useManageWineQuantity({
-    cartWines,
-    updateCartWines
-  })
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartWines))

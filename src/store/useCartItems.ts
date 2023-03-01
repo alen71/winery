@@ -1,5 +1,5 @@
 import { IWine } from 'src/type/wine.type'
-import { create } from 'zustand'
+import { create, useStore } from 'zustand'
 
 export type ICartWine = IWine & {
   quantity: number
@@ -11,9 +11,11 @@ type CartProps = {
   resetCart: () => void
   removeWineFromCart: (wine: ICartWine) => void
   addToCart: (cartWines: ICartWine[], wine: IWine, quantity: number) => void
+  decreaseQuantity: (wine: ICartWine) => void
+  increaseQuantity: (wine: ICartWine) => void
 }
 
-const useCartItems = create<CartProps>(set => ({
+const useCartItems = create<CartProps>((set, get) => ({
   cartWines: [],
   updateCartWines(newWinesArray) {
     set(() => ({
@@ -63,6 +65,52 @@ const useCartItems = create<CartProps>(set => ({
         cartWines: [...updatedWineArray]
       }))
     }
+  },
+  decreaseQuantity(wine) {
+    const decreasedQuantity = wine.quantity - 1
+
+    const cartWines = useCartItems.getState().cartWines
+
+    if (decreasedQuantity < 1) {
+      const updatedWines = cartWines.filter(
+        cartWine => cartWine.slug !== wine.slug
+      )
+
+      updatedWines &&
+        set(() => ({
+          cartWines: [...updatedWines]
+        }))
+      return
+    }
+
+    const updatedWineQuantity = cartWines.map(cartWine => {
+      return cartWine.slug === wine.slug
+        ? {
+            ...cartWine,
+            quantity: decreasedQuantity
+          }
+        : { ...cartWine }
+    })
+
+    set(() => ({
+      cartWines: [...updatedWineQuantity]
+    }))
+  },
+  increaseQuantity(wine: ICartWine) {
+    const cartWines = useCartItems.getState().cartWines
+
+    const updatedWineQuantity = cartWines.map(cartWine => {
+      return cartWine.slug === wine.slug
+        ? {
+            ...cartWine,
+            quantity: cartWine.quantity + 1
+          }
+        : { ...cartWine }
+    })
+
+    set(() => ({
+      cartWines: [...updatedWineQuantity]
+    }))
   }
 }))
 
