@@ -1,29 +1,18 @@
 @tailwind base;
 
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: transparent #9d864f;
-}
-
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #9d864f;
-  border-radius: 14px;
-  border: 3px solid #2b2b2b;
+  display: none;
 }
 
 html.open {
   overflow: hidden;
+}
+
+.mySwiper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
 @tailwind components;

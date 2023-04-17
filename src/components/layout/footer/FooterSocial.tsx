@@ -41,14 +41,17 @@ const FooterSocial = ({ place }: Props) => {
       <p className={titleStyle({ place })}>Zapratite Nas</p>
       <div className={lineStyle({ place })} />
       <a
-        rel="nofollow"
+        href="https://www.instagram.com/vinarija_dumo/"
+        rel="nofollow noreferrer"
+        target="_blank"
         className="mb-4 flex gap-[10px] items-center cursor-pointer hover:underline w-fit"
       >
         <InstaIcon />
         <p className="font-light text-base">Instagram</p>
       </a>
       <a
-        rel="nofollow"
+        rel="nofollow noreferrer"
+        target="_blank"
         className="flex gap-[10px] items-center cursor-pointer hover:underline w-fit"
       >
         <FbIcon />

@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem'
+      padding: '1rem'
     },
     extend: {
       colors: {
@@ -18,13 +18,22 @@ module.exports = {
         'darker-primary-alfa': '#9D864F4c',
 
         'gray-bg': '#2B2B2B',
-        'gray-primary': '#222',
-        'gray-primary-alfa': '#222222a3',
+        'gray-primary': '#1C1C1C',
+        'gray-primary-alfa': '#1c1c1ca3',
         'gray-light': '#E5E5E5',
+        'gray-overlay': '#161616',
+        lines: '#3E3C34',
         white: '#fff',
         black: '#000'
+      },
+      fontFamily: {
+        sans: ['var(--font-jeko)'],
+        judson: ['var(--font-judson)']
+      },
+      borderWidth: {
+        1: '1px'
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/line-clamp')]
 }

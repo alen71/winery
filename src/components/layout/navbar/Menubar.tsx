@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import React, { Dispatch, SetStateAction, useEffect } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 import XIcon from 'src/assets/XIcon.svg'
 import SquareIcon from 'src/assets/squareIcon.svg'
 import FooterContact from '../footer/FooterContact'
 import FooterSocial from '../footer/FooterSocial'
 import { useRouter } from 'next/router'
+import useWindowWidth from 'src/hooks/useWindowWidth'
 
 type Props = {
   open?: boolean
@@ -20,58 +21,65 @@ const links = [
   },
   {
     text: 'Vinarija',
-    href: '#'
+    href: '/vinarija-dumo'
   },
   {
     text: 'Vinograd',
-    href: '#'
+    href: '/vinogradi'
   },
   {
     text: 'Obilasci',
-    href: '#'
+    href: '/obilasci'
+  },
+  {
+    text: 'Novosti',
+    href: '/novosti'
   },
   {
     text: 'Shop',
-    href: '#'
+    href: '/shop'
   }
 ]
 
 const Menubar = ({ open, toggleOpen }: Props) => {
-  const { asPath } = useRouter()
+  const { pathname } = useRouter()
 
   return (
     <div
-      className={clsx(
-        'w-[500px] px-16 py-12 bg-white fixed z-50 top-0 right-0 h-screen overflow-y-scroll duration-500 translate-x-[100%]',
-        { 'translate-x-0': open }
-      )}
+      className={`bg-white fixed z-50 top-0 right-0 h-screen overflow-y-scroll overflow-x-hidden duration-500 ${
+        open ? `w-full sm:w-[500px]` : 'w-0'
+      }`}
     >
-      <div className="mb-11 relative">
-        <div onClick={toggleOpen} className="cursor-pointer">
-          <XIcon />
+      <div
+        className={`w-screen sm:w-[500px] px-10 sm:px-16 pt-12 bg-white absolute z-50 top-0 right-0 h-screen overflow-y-scroll pb-32`}
+      >
+        <div className="mb-11 relative">
+          <div onClick={toggleOpen} className="cursor-pointer">
+            <XIcon />
+          </div>
+          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+            <SquareIcon />
+          </div>
         </div>
-        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-          <SquareIcon />
+        <div className="flex flex-col border-t-1 border-primary mb-14">
+          {links.map(({ text, href }) => (
+            <Link
+              key={text}
+              href={href}
+              className={clsx(
+                'py-5 border-b-1 border-primary text-primary font-semibold text-xl w-full text-center uppercase hover:text-black',
+                { 'text-black': pathname === href }
+              )}
+              onClick={toggleOpen}
+            >
+              {text}
+            </Link>
+          ))}
         </div>
+        <FooterContact place="menu" />
+        <br />
+        <FooterSocial place="menu" />
       </div>
-      <div className="flex flex-col border-t-[1px] border-primary mb-14">
-        {links.map(({ text, href }) => (
-          <Link
-            key={text}
-            href={href}
-            className={clsx(
-              'py-5 border-b-[1px] border-primary text-primary font-semibold text-xl w-full text-center uppercase hover:text-black',
-              { 'text-black': asPath.includes(href) }
-            )}
-            onClick={toggleOpen}
-          >
-            {text}
-          </Link>
-        ))}
-      </div>
-      <FooterContact place="menu" />
-      <br />
-      <FooterSocial place="menu" />
     </div>
   )
 }
