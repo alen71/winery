@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { data } from 'autoprefixer'
+
 import { emailOptions, transporter } from 'src/utils/nodemailer'
 import { FormDataType } from 'src/hooks/useSendOrder'
 

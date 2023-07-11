@@ -32,8 +32,8 @@ function CartForm({}: Props) {
 
     validationSchema: Yup.object({
       firstName: Yup.string()
-        .max(15, 'Mora biti 15 karaktera ili manje')
-        .min(2, 'Mora biti 2 karaktera ili više')
+        .max(15, 'Mora biti 15 karaktera ili više')
+        .min(2, 'Mora biti 2 karaktera ili manje')
         .required('Neophodno'),
       lastName: Yup.string()
         .max(20, 'Mora biti 20 karaktera ili manje')
